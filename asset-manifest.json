@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/NITP-Web-Developer/Quick-Finder-Frontend/static/css/main.f32a086c.chunk.css",
+    "main.js": "/NITP-Web-Developer/Quick-Finder-Frontend/static/js/main.17584723.chunk.js",
+    "main.js.map": "/NITP-Web-Developer/Quick-Finder-Frontend/static/js/main.17584723.chunk.js.map",
+    "runtime-main.js": "/NITP-Web-Developer/Quick-Finder-Frontend/static/js/runtime-main.4ac214b2.js",
+    "runtime-main.js.map": "/NITP-Web-Developer/Quick-Finder-Frontend/static/js/runtime-main.4ac214b2.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/NITP-Web-Developer/Quick-Finder-Frontend/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.d6eaca78.chunk.js": "/NITP-Web-Developer/Quick-Finder-Frontend/static/js/2.d6eaca78.chunk.js",
+    "static/js/2.d6eaca78.chunk.js.map": "/NITP-Web-Developer/Quick-Finder-Frontend/static/js/2.d6eaca78.chunk.js.map",
+    "index.html": "/NITP-Web-Developer/Quick-Finder-Frontend/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/NITP-Web-Developer/Quick-Finder-Frontend/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.f32a086c.chunk.css.map": "/NITP-Web-Developer/Quick-Finder-Frontend/static/css/main.f32a086c.chunk.css.map",
+    "static/js/2.d6eaca78.chunk.js.LICENSE.txt": "/NITP-Web-Developer/Quick-Finder-Frontend/static/js/2.d6eaca78.chunk.js.LICENSE.txt",
+    "static/media/loginpic.jpg": "/NITP-Web-Developer/Quick-Finder-Frontend/static/media/loginpic.9d986acd.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ac214b2.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.d6eaca78.chunk.js",
+    "static/css/main.f32a086c.chunk.css",
+    "static/js/main.17584723.chunk.js"
+  ]
+}
