@@ -1,8 +1,8 @@
 {
   "name": "quick-frontend",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://RIPUNJAY287.github.io/NITP-Web-Developer/Quick-Finder-Frontend",
+  "description": "",
+  "homepage": "https://NITP-Web-Developer.github.io/Quick-Finder-Frontend",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
