@@ -4,7 +4,8 @@
   "description": "",
   "homepage": "https://NITP-Web-Developer.github.io/Quick-Finder-Frontend",
   "engines": {
-    "node": "14.11.0"
+    "node": "14.11.0",
+    "npm": "7.6.3"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
