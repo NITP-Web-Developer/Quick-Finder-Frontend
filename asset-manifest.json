@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/Quick-Finder-Frontend/static/css/main.f32a086c.chunk.css",
-    "main.js": "/Quick-Finder-Frontend/static/js/main.ba26ca38.chunk.js",
-    "main.js.map": "/Quick-Finder-Frontend/static/js/main.ba26ca38.chunk.js.map",
+    "main.js": "/Quick-Finder-Frontend/static/js/main.fee62d32.chunk.js",
+    "main.js.map": "/Quick-Finder-Frontend/static/js/main.fee62d32.chunk.js.map",
     "runtime-main.js": "/Quick-Finder-Frontend/static/js/runtime-main.76b693ea.js",
     "runtime-main.js.map": "/Quick-Finder-Frontend/static/js/runtime-main.76b693ea.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/Quick-Finder-Frontend/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.357dc812.chunk.js": "/Quick-Finder-Frontend/static/js/2.357dc812.chunk.js",
-    "static/js/2.357dc812.chunk.js.map": "/Quick-Finder-Frontend/static/js/2.357dc812.chunk.js.map",
+    "static/js/2.2d8786ff.chunk.js": "/Quick-Finder-Frontend/static/js/2.2d8786ff.chunk.js",
+    "static/js/2.2d8786ff.chunk.js.map": "/Quick-Finder-Frontend/static/js/2.2d8786ff.chunk.js.map",
     "index.html": "/Quick-Finder-Frontend/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/Quick-Finder-Frontend/static/css/2.4c97ca4f.chunk.css.map",
     "static/css/main.f32a086c.chunk.css.map": "/Quick-Finder-Frontend/static/css/main.f32a086c.chunk.css.map",
-    "static/js/2.357dc812.chunk.js.LICENSE.txt": "/Quick-Finder-Frontend/static/js/2.357dc812.chunk.js.LICENSE.txt",
+    "static/js/2.2d8786ff.chunk.js.LICENSE.txt": "/Quick-Finder-Frontend/static/js/2.2d8786ff.chunk.js.LICENSE.txt",
     "static/media/loginpic.jpg": "/Quick-Finder-Frontend/static/media/loginpic.9d986acd.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.76b693ea.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.357dc812.chunk.js",
+    "static/js/2.2d8786ff.chunk.js",
     "static/css/main.f32a086c.chunk.css",
-    "static/js/main.ba26ca38.chunk.js"
+    "static/js/main.fee62d32.chunk.js"
   ]
 }
