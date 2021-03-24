@@ -224,7 +224,7 @@ class Chatbox extends React.Component {
   }
 
   showPrevChats = () => {
-    // console.log(this.state.id);
+    console.log(this.state.prevchats);
     fetch((`${SERVER}/prevchats/${this.state.id}`), {
       method: 'get',
       headers: {
@@ -234,7 +234,7 @@ class Chatbox extends React.Component {
     }).then((res) => res.json())
       .then((json) => {
         // console.log(json.result.chatid);
-        if (json.result !== null) {
+        if (json.result.chatid !== null && json.result.chatid !== undefined) {
           this.setState({
             prevchats: json.result.chatid
           }, () => {
