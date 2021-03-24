@@ -1,148 +1,448 @@
-import React,{useState,useEffect} from 'react'
-import queryString from 'query-string'
+import React from 'react'
+import './chatbox.css';
 import io from 'socket.io-client'
-import './chatbox.css'
-import MessageBox from '../MessageBox/MessageBox';
+import Message from './messagecont';
+import PrevChats from './prevchats';
+// import { json } from 'body-parser';
+import Image from './image';
 
-let socket;
-const SERVER='localhost:4000'
-var prevmes=[]
-var chatbox;
+// var fs = require('fs')
 
-class ChatBox extends React.Component{
+const SERVER = 'https://quick-finder-backend.herokuapp.com'
+// const SERVER = 'http://localhost:4000'
+let socket
+var mescont
+var chatbox
 
-    constructor (props){
-        super(props)
-        this.state={
-            message:"",
-            receive:"",
-            messages:[],
-            room:"",
-            id:""
-        }
+class Chatbox extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      id: "",
+      mes: "",
+      type: "",
+      chatid: "",
+      users: [],
+      chattingwith: "",
+      typing: false,
+      prevchats: {},
+      showchat: false,
+      online: {}
+    }
+  }
+
+
+  change = (sellerid) => {
+    console.log('chatting with ', sellerid);
+    var length = sellerid.length
+    console.log(length);
+    var chatid = sellerid.slice(0, length / 2) + this.state.id.slice(0, length / 2)
+    console.log(chatid);
+    chatid = chatid.split('').sort().join('');
+    this.setState({
+      chattingwith: sellerid,
+      chatid: chatid,
+    }, () => {
+      this.joinWithChatid()
+    })
+  }
+
+  scrolltobottom = () => {
+    mescont = document.getElementsByClassName("mes-cont")[0]
+    var scrollheight = mescont.scrollHeight
+    mescont.scrollTop = scrollheight + 1000
+  }
+
+  componentDidMount() {
+    chatbox = document.getElementsByClassName("chatcontainer")[0]
+
+    if (socket === undefined) {
+      socket = io(SERVER, { 'transports': ['websocket', 'polling'] });
     }
 
-    scrollToBottom = () => {
-        const objDiv = document.getElementById('end');
-        // var p=document.createElement('p')
-        // p.innerText="Appended"
-        // objDiv.append(p)
-        objDiv.scrollTop = objDiv.scrollHeight;
-    }
+    this.setState({
+      id: window.sessionStorage.username
+    }, () => {
+      this.showPrevChats()
+    })
+    // console.log(socket);
+    socket.on('started', data => {
+      this.setState({
+        [`message${this.state.chatid}`]: data
+      })
+    })
 
-    componentDidUpdate () {
-        var show=this.props.display
-        this.scrollToBottom()
-        if(show){
-            chatbox.style.display="flex"
-        }else{
-            chatbox.style.display="none"
-        }
-    }
-
-    componentDidMount(){
-        chatbox=document.getElementsByClassName('chatcontainer')[0]
-        this.setState({messages:prevmes})
-        if(socket===undefined){
-            socket=io(SERVER, {'transports': ['websocket', 'polling']});
-        }
-
-        socket.on(`receive`,message=>{
-            this.scrollToBottom()
-            this.setState({receive:message})
-            this.setState(prevState => ({
-                messages: [...prevState.messages, {"message":message,target:"receiver"}]
-            }));
-            // const objDiv = document.getElementById('end');
-            // var pdiv=document.createElement('div')
-            // pdiv.className='receiver'
-            // var p=document.createElement('p')
-            // p.innerText=message
-            // pdiv.append(p)
-            // objDiv.append(pdiv)
-        })
-
-        socket.on('allmessages',allmes=>{
-            var id=this.state.id
-            for(var i in allmes){
-                this.setState(prevState => ({
-                    messages: [...prevState.messages, {"message":allmes[i].message,
-                                        target:id!==allmes[i].id?"receiver":"sender"}]
-                }));
-            }
-        })
-    }
-
-    componentWillUnmount(){
-        prevmes=this.state.messages
-    }
-
-    sendMessage=()=>{
-        this.scrollToBottom()
-        socket.emit(`sent-message`,{"data":
-                                    {"message":this.state.message,
-                                    "room":this.state.room,
-                                    "id":this.state.id}})
+    socket.on('receive', ({ mes, id, datetime, type, chatId }) => {
+      // console.log(mes, id, datetime, type, chatId);
+      // console.log(mes,id);
+      if (this.state.chatid === chatId) {
+        // console.log('live from', id);
         this.setState(prevState => ({
-            messages: [...prevState.messages, {"message":this.state.message,target:"sender"}]
+          [`message${this.state.chatid}`]: [...prevState[`message${this.state.chatid}`], { 'message': mes, 'type': type, 'userid': id, 'datetime': datetime }]
         }));
-        // const objDiv = document.getElementById('end');
-        // var pdiv=document.createElement('div')
-        // pdiv.className='sender'
-        // var p=document.createElement('p')
-        // p.innerText=this.state.message
-        // pdiv.append(p)
-        // objDiv.append(pdiv)
-    }
+      } else {
+        console.log('notification from', id);
+        this.setState(prevState => ({
+          [`message${chatId}`]: [...prevState[`message${chatId}`], { 'message': mes, 'type': type, 'userid': id, 'datetime': datetime }],
+          [`notif${chatId}`]: prevState[`notif${chatId}`] + 1
+        }));
+      }
+    })
 
-    handleChange=(e)=>{
-        this.setState({message:e.target.value})
-    }
-
-    roomHandler=(e)=>{
-        this.setState({room:e.target.value})
-    }
-
-    fixRoom=()=>{
-        socket.emit(`join`,this.state.room)
-    }
-
-    idHandler=(e)=>{
-        this.setState({id:e.target.value})
-    }
-
-    hideChat=()=>{
-        console.log(chatbox.style.display);
-        if(chatbox.style.display==="flex"){
-            chatbox.style.display="none"
+    socket.on('typing', ({ userid, chatid }) => {
+      if (this.state.chatid === chatid) {
+        if (!this.state.typing) {
+          // console.log(this.state.typing);
+          setTimeout(() => {
+            // console.log("set typing");
+            this.setState({
+              typing: false
+            })
+          }, 2000);
+          this.setState({
+            typing: true
+          })
         }
+      }
+    })
+
+    socket.on('friendsonline', online => {
+      // console.log('friends online',online);
+      this.setState({
+        online: online
+      })
+    })
+
+    socket.on('online', online => {
+      this.setState({
+        online: online
+      })
+    })
+
+    socket.on('disconnected', userid => {
+      // console.log("disconnected",userid);
+      this.setState(prevState => ({
+        online: { ...prevState.online, [userid]: false }
+      }))
+    })
+
+  }
+
+  joinWithChatid = () => {
+    var userid = this.state.id
+    var chatid = this.state.chatid
+    var chattingwith = this.state.chattingwith
+    socket.emit('newchat', { userid, chatid, chattingwith });
+    socket.emit('join', { userid, chatid })
+  }
+
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  sendMes = (e) => {
+    // console.log('sendmes');
+    if (e.code === "Enter" || e === "Enter") {
+      this.setState({
+        type: 'txt'
+      }, () => this.send())
+    }
+  }
+
+  send = async () => {
+    console.log('sending');
+    const mes = this.state.mes
+    const type = this.state.type
+    const id = this.state.id
+    const chatId = this.state.chatid
+    var d = new Date(Date.now());
+    if (mes !== "") {
+      socket.emit('send', { mes, id, chatId, type })
+      this.setState(prevState => ({
+        [`message${chatId}`]: [...prevState[`message${chatId}`], {
+          'message': mes, 'type': type, 'userid': id, datetime: {
+            date: d.toDateString().toString(),
+            time: d.toTimeString().toString()
+          }
+        }]
+      }));
+      this.setState({
+        mes: "",
+        type: ""
+      }, () => this.scrolltobottom())
+    }
+  }
+
+  getChats = async (chatid) => {
+    // console.log('getting chats', this.state[`message${chatid}`], "fdf");
+    let response = await fetch(`${SERVER}/getchat/${chatid}`);
+
+    const reader = response.body.getReader();
+
+    const contentLength = +response.headers.get('Content-Length');
+
+    // console.log(contentLength);
+
+    let receivedLength = 0;
+    let chunks = [];
+    while (true) {
+      const { done, value } = await reader.read();
+      // console.log('after done');
+
+      if (done) {
+        break;
+      }
+
+
+      chunks.push(value);
+      receivedLength += value.length;
+
+      // console.log(`Received ${receivedLength} of ${contentLength}`)
     }
 
-    render(){
-        return(
-            <div className="chatcontainer">
-                <div className="closechat" onClick={this.hideChat}>
-                    <p>X</p>
-                </div>
-                <div className="mescontainer" id="end">
-                    {this.state.messages.map(item => (
-                        <MessageBox message={item.message} target={item.target}/>
-                    ))}
-                </div>
-                <div className="formcontainer">
-                    <input type="text" onChange={this.handleChange}/>
-                    <input type="submit" value="Send" onClick={this.sendMessage}/>
-                </div>
-                <div>
-                    <input type="text" onChange={this.roomHandler}/>
-                    <input type="submit" value="Join" onClick={this.fixRoom}/>
-                </div>
-                <div>
-                    <input type="text" onChange={this.idHandler}/>
-                </div>
-            </div>
-        )
+    let chunksAll = new Uint8Array(receivedLength);
+    let position = 0;
+    for (let chunk of chunks) {
+      chunksAll.set(chunk, position);
+      position += chunk.length;
     }
+
+    let result = new TextDecoder("utf-8").decode(chunksAll);
+
+    let commits = JSON.parse(result);
+    // console.log(commits[chatid]['mesDetails']);
+    this.setState({
+      [`message${chatid}`]: commits[chatid]['mesDetails']
+    }, () => {
+      this.scrolltobottom()
+      // console.log('chst messages', chatid, this.state[`message${chatid}`]);
+    })
+  }
+
+  showPrevChats = () => {
+    // console.log(this.state.id);
+    fetch((`${SERVER}/prevchats/${this.state.id}`), {
+      method: 'get',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => res.json())
+      .then((json) => {
+        // console.log(json.result.chatid);
+        if (json.result !== null) {
+          this.setState({
+            prevchats: json.result.chatid
+          }, () => {
+            for (var chatid in this.state.prevchats) {
+              var userid = this.state.id
+              // console.log(chatid);
+              if (chatid !== undefined) {
+                this.setState({
+                  [`message${chatid}`]: [],
+                  [`notif${chatid}`]: 0
+                }, () => {
+                  console.log(this.state[`message${chatid}`]);
+                  this.getChats(chatid)
+                  socket.emit('join', { userid, chatid })
+                })
+              }
+            }
+          })
+        }
+        // for(var item in json.result.chatid){
+        //   console.log(item);
+        // }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  selectUser = (name) => {
+    var id = this.state.id
+    if (id !== "") {
+      if (id !== name) {
+        var chatid = [this.state.id, name].sort()
+        this.setState({
+          chattingwith: name,
+          chatid: chatid[0] + chatid[1],
+          inroom: true
+        }, () => {
+          // this.join()
+        })
+        // console.log(this.state.chatid);
+      } else {
+        alert('Choose other user!')
+      }
+    } else {
+      alert("name is empty")
+    }
+  }
+
+  typing = (e) => {
+    var chatid = this.state.chatid
+    var userid = this.state.id
+    this.handleChange(e)
+
+    socket.emit('type', { userid, chatid })
+
+  }
+
+  _renderObject() {
+    return Object.keys(this.state.prevchats).map((obj, i) => {
+      return (
+        <div>
+          {obj}
+        </div>
+      )
+    })
+  }
+
+  selectPrevChat = (prevchatid) => {
+    if (prevchatid !== this.state.chatid) {
+      // socket.emit('leaveroom', this.state.chatid)
+      this.setState({
+        join: false,
+        [`notif${prevchatid}`]: 0
+      }, () => {
+        if (!this.state.join) {
+          var both = prevchatid.split(this.state.id)
+          both.splice(both.indexOf(""), 1)
+          this.setState({
+            messages: [],
+            chatid: prevchatid,
+            inroom: true,
+            chattingwith: both[0],
+            join: true
+          }, () => {
+            // this.join()
+            // var chatid = this.state.chatid
+            this.scrolltobottom()
+            // socket.emit('getchat', { chatid })
+          })
+        }
+      })
+    }
+  }
+
+  showChat = () => {
+    this.setState(prevState => ({
+      showChat: !prevState.showChat
+    }))
+  }
+
+  openFiles = () => {
+    var file = document.getElementById('file')
+    file.click()
+  }
+
+  sendFile = async (e) => {
+    var fileReader = new FileReader();
+
+    fileReader.onprogress = (data) => {
+      console.log(data);
+      if (data.lengthComputable) {
+        var progress = parseInt(((data.loaded / data.total) * 100), 10);
+        // console.log(progress);
+      }
+    }
+    fileReader.readAsDataURL(e.target.files[0])
+
+    var chatid = this.state.chatid
+    var userid = this.state.id
+
+    fileReader.addEventListener('load', () => {
+      // console.log(btoa(fileReader.result.split('base64,')[1]), fileReader.result.split('base64,')[1]);
+      var result = fileReader.result
+      this.setState({
+        mes: result,
+        type: 'img'
+      }, () => {
+        this.send()
+      })
+    })
+  }
+
+  hidechat = () => {
+    chatbox.style.display = "none"
+  }
+
+  render() {
+    return (
+      <div className="chatcontainer">
+        <div className="chat-heading">
+          <div className="close" onClick={() => this.hidechat()}>
+            <p>X</p>
+          </div>
+          {
+            <button style={{ height: "40px", backgroundColor: "white", border: "none" }} onClick={this.showChat}>Show Chats</button>
+          }
+          <div >
+            <h1>Chat</h1>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <p>chatID:{this.state.chatid}</p>
+            </div>
+          </div>
+          <p style={{ overflowWrap: 'anywhere' }}>{this.state.id}</p>
+        </div>
+        <div className="main-cont">
+          <div className="chat-box">
+            {
+              <div className="chattingwith">
+                <p>
+                  {
+                    "Chatting with: " + this.state.chattingwith
+                  }
+                </p>
+                {
+                  this.state.typing ? <div className="typing-stat">
+                    <p >
+                      typing...
+                  </p>
+                  </div> : null
+                }
+              </div>
+            }
+            <div className="mes-cont">
+
+              {
+                this.state[`message${this.state.chatid}`] !== undefined ? this.state[`message${this.state.chatid}`].map(item => {
+                  return item.type === 'txt' ?
+                    <Message mes={item.message} time={item.datetime.time.split(' ')[0]} class={item.userid === this.state.id ? "sen" : "rec"} />
+                    :
+                    <Image src={item.message} time={item.datetime.time.split(' ')[0]} class={item.userid === this.state.id ? "sen" : "rec"} />
+                }) : null
+              }
+            </div>
+            <div className="input-send">
+              <input id="file" onChange={this.sendFile} type="file" hidden />
+              <div>
+                <p onClick={this.openFiles}>+</p>
+                <input type="text" name="mes" onKeyPress={this.sendMes} onChange={this.typing} value={this.state.mes} />
+              </div>
+              <button onClick={() => this.sendMes("Enter")}>Send</button>
+            </div>
+          </div>
+          <div className="prev-chats" style={{ display: this.state.showChat ? "block" : "none" }}>
+            {
+              Object.keys(this.state.prevchats).map((obj, i) => {
+                // console.log(obj);
+                return (
+                  <PrevChats online={this.state.online} userid={this.state.id} selectPrevChat={this.selectPrevChat} notif={this.state[`notif${obj}`]} currchatid={this.state.chatid} prevchats={obj} />
+                )
+              })
+            }
+          </div>
+        </div>
+      </div>
+    )
+  }
+
 }
 
-export default ChatBox;
+export default Chatbox;

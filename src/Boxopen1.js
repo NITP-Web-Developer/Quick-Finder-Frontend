@@ -9,47 +9,50 @@ import { withRouter } from "react-router";
 
 
 
-class Main extends React.Component{
+class Main extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={
-            showchat:false
+        this.state = {
+            sellerid: "",
+            chatid: ""
         }
+        this._child = React.createRef();
     }
 
-    toggleChat=()=>{
-        var chatbox=document.getElementsByClassName('chatcontainer')[0]
-        if(chatbox.style.display==='flex'){
-            this.setState({showchat:false})
-        }else{
-            this.setState({showchat:true})
+    toggleChat = (sellerid) => {
+        if (sellerid !== this.state.sellerid) {
+            this._child.current.change(sellerid)
+            this.setState({
+                sellerid: sellerid
+            })
         }
+        var chatbox = document.getElementsByClassName('chatcontainer')[0]
+        chatbox.style.display = "block"
     }
 
-    render(){
+    render() {
 
         const { match, location, history } = this.props;
         console.log(location);
         console.log(this.props);
         return (
-        <>
-            <div class="container" style={{width:'100%'}}>
-                <div class="row">
-                    <div class="col-lg-9 col-md-12 col-sm-12"><Item_detailsBox property = {this.props.location.state} toggleChat={this.toggleChat}/></div>
-                    <div class="col-lg-3 col-md-3 col-sm-3"><MiniBox /><MiniBox /></div>
+            <>
+                <div class="container" style={{ width: '100%' }}>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12"><Item_detailsBox property={this.props.location.state} toggleChat={this.toggleChat} /></div>
+                        <div class="col-lg-3 col-md-3 col-sm-3"><MiniBox /><MiniBox /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-4"><Box5 /></div>
+                        <div class="col-lg-3 col-md-4 col-sm-4"><Box5 /></div>
+                        <div class="col-lg-3 col-md-4 col-sm-4"><Box5 /></div>
+                        <div class="col-lg-3 col-md-4 col-sm-4"><Box5 /></div>
+                    </div>
+                    <ChatBox ref={this._child} sellerid={this.state.sellerid} />
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-4"><Box5 /></div>
-                    <div class="col-lg-3 col-md-4 col-sm-4"><Box5 /></div>
-                    <div class="col-lg-3 col-md-4 col-sm-4"><Box5 /></div>
-                    <div class="col-lg-3 col-md-4 col-sm-4"><Box5 /></div>
-
-                </div>
-                <ChatBox display={this.state.showchat}/>
-            </div>
-        </>
-            );
+            </>
+        );
     }
 }
 export default Main;

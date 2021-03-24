@@ -1,0 +1,43 @@
+.mess-cont{
+    background-color: cadetblue;
+    border-radius: 20px;
+    color: white;
+    padding: 10px;
+    margin: 5px 10px 0 10px;
+    display: flex;
+    max-width: 300px;
+    animation-name: mesanim;
+    animation-duration: 0.2s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.mess-cont p{
+    word-wrap: break-word;
+    word-break:break-all;
+    margin-bottom: 0;
+}
+
+.time{
+    font-size: 10px;
+    color: rgb(0, 0, 0);
+    margin-right: 4px;
+    min-width: 40px;
+}
+
+.sen{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.rec{
+    display: flex;
+}
+
+@keyframes mesanim {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }

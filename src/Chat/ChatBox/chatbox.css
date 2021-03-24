@@ -1,84 +1,203 @@
 .chatcontainer{
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-    height: 400px;
-    width: 280px;
-    display: none;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    border: 1px solid black;
-    background-color: cadetblue;
-    box-shadow: 0 0 30px 2px rgb(58, 79, 94);
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+  box-shadow: 0 0 10px 10px gray;
+  border-radius: 0 0 30px 30px;
 }
 
-.closechat{
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 35px;
-    width: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.chat-heading{
+  text-align: center;
+  color: rgb(72, 46, 143);
+  background-color: rgba(180, 233, 110, 1);
 }
 
-.closechat:hover{
-    cursor: pointer;
-    background-color: blanchedalmond;
+.close{
+  float: right;
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
 }
 
-.closechat p{
-    font-size: 20px;
-    margin: auto;
-    font-weight: bolder;
+.chat-box{
+  width: 30%;
+  min-width: 400px;
+  background-color: rgb(28, 151, 75);
+  height: 450px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 0 0 30px 30px;
 }
 
-.mescontainer{
+.users-cont{
+  position: absolute;
+  box-shadow: 0 0 10px 2px rgb(37, 37, 37);
+  border-radius: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  top: 0;
+}
+
+.select-user{
+  background-color: blanchedalmond;
+  width: 200px;
+  margin: 5px 0 20px 0px;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+}
+
+.main-cont{
+  position: relative;
+}
+
+.chattingwith{
+  color: rgb(104, 0, 0);
+  text-align: center;
+  box-shadow: 0 0 10px 2px black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+}
+
+.typing-stat{
+  font-size: 15px;
+  color: gray;
+  animation: typinganim 2s infinite;
+}
+
+@keyframes typinganim {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+}
+
+
+.mes-cont{
+  width: 100%;
+  height: 80%;
+  overflow-y: auto;
+  margin-bottom: 5px;
+}
+
+.input-send{
+  width: 100%;
+  height: 10%;
+  border-radius: 0 0 30px 30px;
+  overflow: hidden;
+  display: flex;
+}
+
+.input-send div{
+  height: 100%;
+  width: 80%;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.input-send div p{
+  margin-left: 10px;
+  font-size: 35px;
+  height: 100%;
+  margin-right: 10px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.input-send div input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  font-size: 16px;
+}
+
+.input-send button{
+  width: 20%;
+  height: 100%;
+  color: aquamarine;
+  background-color: black;
+  font-weight: bolder;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.join{
+  height: 10%;
+  width: 100%;
+  border-radius: 0 0 30px 30px;
+  overflow: hidden;
+  display: flex;
+}
+
+.join button{
+  width: 20%;
+  height: 100%;
+  color: aquamarine;
+  background-color: black;
+  font-weight: bolder;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.join input{
+  width: 80%;
+  height: 100%;
+  outline: none;
+  border: none;
+  font-size: 16px;
+}
+
+
+.input-send button:active{
+  background-color: rgb(77, 75, 73);
+}
+
+.prev-chats{
+  position: absolute;
+  top: 0;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px 10px rgb(88, 88, 87);
+  border-radius: 10px;
+}
+
+@media only screen and (max-width:450px){
+  .chat-box{
     width: 100%;
-    height: auto;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    max-height: 350px;
-    scroll-behavior: smooth;
+    min-width: 0;
+  }
+
+  .chat-heading{
+    font-size: 24px;
+  }
 }
 
-.enddiv{
-    position: relative;
-    border:1px solid red;
-    background-color: royalblue;
+@media only screen and (max-width:400px){
+  .chat-box{
+    height: 600px;
+  }
 }
-
-.formcontainer{
-    display: flex;  
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 100%;
-    border-top: 1px solid black;
-}
-
-.formcontainer input{
-    height: 40px;
-    border: none;
-    border-right: 1px solid black;
-}
-
-.formcontainer input[type=text]{
-    z-index: 2;
-    flex: 8;
-}
-
-.formcontainer input[type=submit]{
-    z-index: 2;
-    flex: 2;
-}
-
-.formcontainer input[type=text]:focus{
-    box-shadow: 0 0 2px 2px blue;
-}
-
-
