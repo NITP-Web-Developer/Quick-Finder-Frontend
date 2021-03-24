@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/QUICK_FINDER/Signup" component={Signup} />
         <Route path="/QUICK_FINDER/About" component={About} />
         <Route path="/QUICK_FINDER/Sell" component={Sell} />
-        <Route path="/QUICK_FINDER/Boxopen1" component={Boxopen1} />\
+        <Route path="/QUICK_FINDER/Boxopen1" component={Boxopen1} />
         <Route path="/QUICK_FINDER/checkout" component={Checkout} />
         <Route component={Error} />
       </Switch>

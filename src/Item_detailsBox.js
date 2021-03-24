@@ -153,7 +153,7 @@ class DetailsBox extends Component {
           >
             PURCHASE
           </Link>
-          <ChatButton toggleChat={this.props.toggleChat} />
+          <ChatButton toggleChat={this.props.toggleChat} sellerid={this.props.property.seller_id}/>
         </div>
       </div>
     );
