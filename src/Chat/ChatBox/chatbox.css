@@ -74,7 +74,7 @@
 
 .typing-stat{
   font-size: 15px;
-  color: gray;
+  color: rgb(255, 0, 0);
   animation: typinganim 2s infinite;
 }
 

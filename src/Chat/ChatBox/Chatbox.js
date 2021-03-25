@@ -40,12 +40,22 @@ class Chatbox extends React.Component {
     var chatid = sellerid.slice(0, length / 2) + this.state.id.slice(0, length / 2)
     console.log(chatid);
     chatid = chatid.split('').sort().join('');
-    this.setState({
-      chattingwith: sellerid,
-      chatid: chatid,
-    }, () => {
-      this.joinWithChatid()
-    })
+    if (this.state[`message${chatid}`] !== undefined) {
+      this.setState({
+        chattingwith: sellerid,
+        chatid: chatid,
+      }, () => {
+        // this.joinWithChatid()
+      })
+    } else {
+      this.setState({
+        chattingwith: sellerid,
+        chatid: chatid,
+        [`message${chatid}`]: []
+      }, () => {
+        this.joinWithChatid()
+      })
+    }
   }
 
   scrolltobottom = () => {
@@ -68,19 +78,22 @@ class Chatbox extends React.Component {
     })
     // console.log(socket);
     socket.on('started', data => {
+      console.log('started',data);
       this.setState({
         [`message${this.state.chatid}`]: data
       })
     })
 
     socket.on('receive', ({ mes, id, datetime, type, chatId }) => {
-      // console.log(mes, id, datetime, type, chatId);
+      // console.log('recieved',mes, id, datetime, type, chatId);
       // console.log(mes,id);
       if (this.state.chatid === chatId) {
         // console.log('live from', id);
         this.setState(prevState => ({
           [`message${this.state.chatid}`]: [...prevState[`message${this.state.chatid}`], { 'message': mes, 'type': type, 'userid': id, 'datetime': datetime }]
-        }));
+        }),()=>{
+          this.scrolltobottom()
+        });
       } else {
         console.log('notification from', id);
         this.setState(prevState => ({
@@ -91,6 +104,7 @@ class Chatbox extends React.Component {
     })
 
     socket.on('typing', ({ userid, chatid }) => {
+      // console.log('typing',userid,chatid);
       if (this.state.chatid === chatid) {
         if (!this.state.typing) {
           // console.log(this.state.typing);
@@ -223,7 +237,7 @@ class Chatbox extends React.Component {
     })
   }
 
-  showPrevChats = () => {
+  showPrevChats = async () => {
     console.log(this.state.prevchats);
     fetch((`${SERVER}/prevchats/${this.state.id}`), {
       method: 'get',
@@ -240,16 +254,17 @@ class Chatbox extends React.Component {
           }, () => {
             for (var chatid in this.state.prevchats) {
               var userid = this.state.id
-              // console.log(chatid);
+              console.log(chatid);
               if (chatid !== undefined) {
+                console.log('defined', chatid);
                 this.setState({
                   [`message${chatid}`]: [],
                   [`notif${chatid}`]: 0
-                }, () => {
-                  console.log(this.state[`message${chatid}`]);
-                  this.getChats(chatid)
-                  socket.emit('join', { userid, chatid })
+                }, async () => {
+                  console.log(chatid, this.state[`message${chatid}`]);
                 })
+                this.getChats(chatid)
+                socket.emit('join', { userid, chatid })
               }
             }
           })
@@ -264,6 +279,7 @@ class Chatbox extends React.Component {
   }
 
   selectUser = (name) => {
+    console.log(name);
     var id = this.state.id
     if (id !== "") {
       if (id !== name) {
@@ -304,28 +320,21 @@ class Chatbox extends React.Component {
   }
 
   selectPrevChat = (prevchatid) => {
+    console.log(prevchatid);
     if (prevchatid !== this.state.chatid) {
       // socket.emit('leaveroom', this.state.chatid)
       this.setState({
-        join: false,
         [`notif${prevchatid}`]: 0
       }, () => {
-        if (!this.state.join) {
-          var both = prevchatid.split(this.state.id)
-          both.splice(both.indexOf(""), 1)
-          this.setState({
-            messages: [],
-            chatid: prevchatid,
-            inroom: true,
-            chattingwith: both[0],
-            join: true
-          }, () => {
-            // this.join()
-            // var chatid = this.state.chatid
-            this.scrolltobottom()
-            // socket.emit('getchat', { chatid })
-          })
-        }
+        this.setState({
+          chatid: prevchatid,
+          chattingwith: "NUll",
+        }, () => {
+          // this.join()
+          // var chatid = this.state.chatid
+          this.scrolltobottom()
+          // socket.emit('getchat', { chatid })
+        })
       })
     }
   }
