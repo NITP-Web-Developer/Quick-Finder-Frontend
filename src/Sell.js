@@ -24,6 +24,7 @@ class Sell extends React.Component {
       description: "",
       selectedFiles: null,
       isSubmit: false,
+      disable: "",
     };
   }
 
@@ -60,6 +61,9 @@ class Sell extends React.Component {
   }
 
   async onsubmit(e) {
+    this.setState({
+      disable: "disabled",
+    });
     e.preventDefault();
     var currentuser = sessionStorage.username;
     var formdata = new FormData();
@@ -68,39 +72,49 @@ class Sell extends React.Component {
     formdata.append("status", this.state.status);
     formdata.append("price", this.state.price);
     formdata.append("description", this.state.description);
+    var Upload = [];
     for (var i = 0; i < this.state.selectedFiles.length; i++) {
-      formdata.append(`files${i}`, this.state.selectedFiles[i]);
+      formdata.append(`uploadFiles`, this.state.selectedFiles[i]);
     }
 
     try {
-      var res1 = await axios({
+      await axios({
         method: "post",
-        url: `${BackendUrl}/backend/SellNow`,
+        url: "http://localhost:4000/backend/SellNow",
         data: formdata,
         headers: { "Content-Type": "multipart/form-data" },
-      });
-
-      var userdata = {
-        SellerId: currentuser,
-        ProductId: res1.ProductId,
-      };
-
-      var res2 = await axios({
-        method: "post",
-        url: `${BackendUrl}/backend/Products`,
-        data: userdata,
-        header: { "Content-Type": "application/json" },
-      });
-      console.log(res2);
-      this.setState({
-        product_name: "",
-        product_type: "",
-        status: "",
-        price: "",
-        description: "",
-        selectedFiles: null,
-        isSubmit: true,
-      });
+      })
+        .then((res1) => {
+          var userdata = {
+            SellerId: currentuser,
+            ProductId: res1.data.ProductId,
+          };
+          axios({
+            method: "post",
+            url: "http://localhost:4000/backend/Products",
+            data: userdata,
+            header: { "Content-Type": "application/json" },
+          })
+            .then((res2) => {
+              console.log(res2);
+              this.setState({
+                product_name: "",
+                product_type: "",
+                status: "",
+                price: "",
+                description: "",
+                selectedFiles: null,
+                isSubmit: true,
+                disable: "",
+              });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
       console.log(err);
     }
@@ -132,7 +146,6 @@ class Sell extends React.Component {
 */
 
   render() {
-    console.log(this.state);
     var isSubmit = this.state.isSubmit;
 
     if (isSubmit) {
@@ -300,6 +313,7 @@ class Sell extends React.Component {
                     class="btn btn-default"
                     id="login"
                     value="Sell Now"
+                    disabled={this.state.disable}
                   />
                   <br></br>
                 </table>

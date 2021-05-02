@@ -28,7 +28,7 @@ class Signup extends React.Component {
     }
   };
 
-  submitHandler = (e) => {
+  submitHandler = async (e) => {
     var keys = ["fname", "lname", "password", "mobile", "email"];
     e.preventDefault();
     var validated = true;
@@ -55,7 +55,7 @@ class Signup extends React.Component {
         address: this.state.address,
       };
 
-      fetch(`${BackendUrl}/signup`, {
+      var result = await fetch(`${BackendUrl}/signup`, {
         method: "post",
         body: JSON.stringify({
           signupDetails,
@@ -64,14 +64,33 @@ class Signup extends React.Component {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      })
-        .then((res) => res.json())
-        .then((json) => {
-          console.log(json.mes);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      });
+      console.log(result);
+      //
+      //
+      //
+      // var Details = {
+      // fname: this.state.fname,
+      // lname: this.state.lname,
+      // mobile: this.state.mobile,
+      // email: this.state.email,
+      // address: this.state.address,
+      // };
+      //
+      // fetch(`${BackendUrl}/userDetails`, {
+      // method: "post",
+      // body: JSON.stringify({
+      // Details,
+      // }),
+      // headers: {
+      // Accept: "application/json",
+      // "Content-Type": "application/json",
+      // },
+      // }).then((res) => res.json());
+      //
+      // .catch((error) => {
+      // console.error(error);
+      // });
     } else {
       console.log("Empty Fields");
     }

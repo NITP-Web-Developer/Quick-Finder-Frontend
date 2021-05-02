@@ -1,19 +1,27 @@
-.sub{
+.sub {
   text-align: center;
   font-weight: bold;
   font-size: 40px;
-  font-family:Segoe UI;
+  font-family: Segoe UI;
   position: sticky;
 }
 
-
-.containerabcd{
-  background-color:#F2F2F2;
+.containerabcd {
+  background-color: #f2f2f2;
   margin: auto;
   width: 55%;
   max-height: 600px;
   overflow-y: auto;
-
+}
+@media (max-width: 769px) {
+  .containerabcd {
+    width: 80%;
+  }
+}
+@media (max-width: 1100px) {
+  .containerabcd {
+    width: 70%;
+  }
 }
 /*
 .containerabcd::-webkit-scrollbar {

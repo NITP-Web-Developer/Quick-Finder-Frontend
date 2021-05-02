@@ -29,14 +29,17 @@ class Profile extends React.Component {
     })
       .then((res) => res.json())
       .then((json) => {
+        console.log(json.mes);
         console.log(json.mes.length);
         var meslen = json.mes.length;
+
         // this.setState({getting:json.mes});
         this.setState({ getting: json.mes });
       });
     return;
   }
   render() {
+    console.log(this.state.getting);
     return (
       <>
         <ul class="nav justify-content-center">

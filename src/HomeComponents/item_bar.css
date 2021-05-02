@@ -1,4 +1,4 @@
-.itembar{
+.itembar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -8,12 +8,29 @@
   border-radius: 5px;
   background-color: white;
 }
-.itembar:hover{
+.itembarr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid lightblue;
+  margin: 5px;
+  width: 90%;
+  border-radius: 5px;
+  background-color: white;
+}
+.itembar:hover {
   outline: 2px solid lightblue;
 }
-.itemcompo{
-  height: 40px;
-  margin:0 10px;
+.itemcompo {
+  height: auto;
+  margin: 0px 5px;
   text-align: center;
-  padding: 8px;
+  padding: 8px 4px 8px 4px;
+}
+
+.itemcomp {
+  height: auto;
+  text-align: center;
+  background: #329fff;
+  padding: 8px 0px 8px 0px;
 }
