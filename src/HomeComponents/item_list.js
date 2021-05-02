@@ -35,12 +35,19 @@ class ItemList extends Component {
         });
 
         const data = await response.json();
-        this.setState({
-          items: data,
-          isLoaded: true,
-        });
-        console.log(this.state);
         console.log(data);
+        if (data.value === null) {
+          this.setState({
+            items: null,
+            isLoaded: true,
+          });
+        } else {
+          console.log("here is buy data");
+          this.setState({
+            items: data,
+            isLoaded: true,
+          });
+        }
       } catch (err) {
         console.log(err);
       }
@@ -48,26 +55,78 @@ class ItemList extends Component {
   }
 
   render() {
-    var sellitems = this.state.items;
     var isLoaded = this.state.isLoaded;
     console.log(this.props.type);
     if (!isLoaded) {
-      return <p className="wait">No data</p>;
+      return (
+        <div
+          class="container m-2 p-3"
+          style={{
+            boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
+            height: "auto",
+            width: "auto",
+            padding: "0px",
+            backgroundColor: "white",
+          }}
+        >
+          <div
+            class="spinner-border text-muted"
+            style={{
+              width: "3rem",
+              height: "3rem",
+              marginLeft: "45%",
+              marginTop: "10%",
+            }}
+          ></div>
+        </div>
+      );
+    } else if (
+      isLoaded &&
+      this.state.items === null &&
+      this.props.type === "buy"
+    ) {
+      return <p class="text-center mt-1">You have not bought anything yet</p>;
+    } else if (
+      isLoaded &&
+      this.state.items === null &&
+      this.props.type === "sell"
+    ) {
+      return <p class="text-center mt-1">You have not sold anything yet</p>;
     } else if (this.props.type == "sell") {
       return (
-        <div className="itemlist">
-          {this.state.items.map(function (item) {
-            return <ItemSellBar item={item} />;
-          })}
-        </div>
+        <>
+          <div className="itembarr border-0 mx-auto ">
+            <div className="itemcomp">Product Id</div>
+            <div className="itemcomp" style={{ marginLeft: "10px" }}>
+              ProductName
+            </div>
+            <div className="itemcomp ">Status</div>
+            <div className="itemcomp">Buyer</div>
+            <div className="itemcomp">Time</div>
+          </div>
+          <div className="itemlist">
+            {this.state.items.map(function (item) {
+              return <ItemSellBar item={item} />;
+            })}
+          </div>
+        </>
       );
     } else {
       return (
-        <div className="itemlist">
-          {this.state.items.map(function (item) {
-            return <ItemBuyBar item={item} />;
-          })}
-        </div>
+        <>
+          <div className="itembarr ">
+            <div className="itemcomp">Product Id</div>
+            <div className="itemcomp">ProductName</div>
+            <div className="itemcomp">Status</div>
+            <div className="itemcomp">Seller</div>
+            <div className="itemcomp">Time</div>
+          </div>
+          <div className="itemlist">
+            {this.state.items.map(function (item) {
+              return <ItemBuyBar item={item} />;
+            })}
+          </div>
+        </>
       );
     }
   }

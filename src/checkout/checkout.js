@@ -93,6 +93,7 @@ function Checkout(props) {
               .then((t) => {
                 console.log(t.data.insertid);
                 var buyDetails = {
+                  ProductId: productId,
                   orderId: t.data.insertid,
                   buyerID: sessionStorage.username,
                   sellerID: sellerId,

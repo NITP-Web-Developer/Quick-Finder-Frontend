@@ -70,13 +70,12 @@ class DetailsBox extends Component {
   }
 
   render() {
+    console.log(this.state.product_image);
     return (
       <div className="DetailsBox" id={this.state.product_id}>
         <img
           className="Details_item"
-          src={
-            "/QUICK_FINDER/uploadpics/sellproducts/" + this.state.product_image
-          }
+          src={this.state.product_image}
           alt="got"
         />
         <div className="Details_details">
@@ -115,26 +114,17 @@ class DetailsBox extends Component {
             <img className="Details_picl" src={process.env.PUBLIC_URL + "/realme7p.jpeg"} alt="got" /> */}
             <img
               className="Details_pic"
-              src={
-                "/QUICK_FINDER/uploadpics/sellproducts/" +
-                this.state.product_image
-              }
+              src={this.state.product_image}
               alt="got"
             />
             <img
               className="Details_pic"
-              src={
-                "/QUICK_FINDER/uploadpics/sellproducts/" +
-                this.state.product_image
-              }
+              src={this.state.product_image}
               alt="got"
             />
             <img
               className="Details_pic"
-              src={
-                "/QUICK_FINDER/uploadpics/sellproducts/" +
-                this.state.product_image
-              }
+              src={this.state.product_image}
               alt="got"
             />
           </div>
@@ -153,7 +143,10 @@ class DetailsBox extends Component {
           >
             PURCHASE
           </Link>
-          <ChatButton toggleChat={this.props.toggleChat} sellerid={this.props.property.seller_id}/>
+          <ChatButton
+            toggleChat={this.props.toggleChat}
+            sellerid={this.props.property.seller_id}
+          />
         </div>
       </div>
     );

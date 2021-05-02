@@ -1,16 +1,78 @@
 import React, { Component } from "react";
 import "./item_bar.css";
+import BackendUrl from "../urls";
 class ItemBuyBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ProductName: "",
+      ProductId: "",
+      sold: null,
+      Seller: "",
+      isLoaded: true,
+    };
+  }
+  async componentDidMount() {
+    var currentuser = sessionStorage.getItem("username");
+    if (currentuser != null) {
+      var userdata = {
+        Id: this.props.item.ProductId,
+      };
+
+      var url = BackendUrl + "/backend/findProduct";
+      try {
+        this.setState({
+          isLoaded: false,
+        });
+        const response = await fetch(url, {
+          method: "post",
+          body: JSON.stringify({ userdata }),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+
+        const data = await response.json();
+
+        this.setState({
+          ProductName: data.item.product_name,
+          ProductId: data.item._id,
+          Seller: data.item.seller,
+          isLoaded: true,
+        });
+        if (data.item.sold === false) {
+          this.setState({ sold: "Not Sold" });
+        } else {
+          this.setState({
+            sold: "Sold",
+          });
+        }
+
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
+
   render() {
     var time = this.props.item.Time.substring(0, 24);
-    return (
-      <div className="itembar">
-        <div className="itemcompo">{this.props.item.SellerId}</div>
-        <div className="itemcompo">{this.props.item.orderId}</div>
-        <div className="itemcompo">{this.props.item.razorpay_orderId}</div>
-        <div className="itemcompo">{time}</div>
-      </div>
-    );
+    if (this.state.isLoaded == true) {
+      return (
+        <div className="itembar">
+          <div className="itemcompo">{this.state.ProductId}</div>
+          <div className="itemcompo">{this.state.ProductName}</div>
+          <div className="itemcompo">{this.state.sold}</div>
+          <div className="itemcompo">
+            {this.state.Seller === "" ? "null" : this.state.Seller}
+          </div>
+          <div className="itemcompo">{time}</div>
+        </div>
+      );
+    } else {
+      return <p class="text-center"> loading...</p>;
+    }
   }
 }
 
