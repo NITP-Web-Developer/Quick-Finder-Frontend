@@ -80,7 +80,7 @@ class Sell extends React.Component {
     try {
       await axios({
         method: "post",
-        url: "http://localhost:4000/backend/SellNow",
+        url: `${BackendUrl}/backend/SellNow`,
         data: formdata,
         headers: { "Content-Type": "multipart/form-data" },
       })
@@ -91,7 +91,7 @@ class Sell extends React.Component {
           };
           axios({
             method: "post",
-            url: "http://localhost:4000/backend/Products",
+            url: `${BackendUrl}/backend/Products`,
             data: userdata,
             header: { "Content-Type": "application/json" },
           })
