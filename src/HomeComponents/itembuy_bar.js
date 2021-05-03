@@ -8,7 +8,7 @@ class ItemBuyBar extends Component {
       ProductName: "",
       ProductId: "",
       sold: null,
-      Seller: "",
+
       isLoaded: true,
     };
   }
@@ -38,7 +38,7 @@ class ItemBuyBar extends Component {
         this.setState({
           ProductName: data.item.product_name,
           ProductId: data.item._id,
-          Seller: data.item.seller,
+
           isLoaded: true,
         });
         if (data.item.sold === false) {
@@ -64,9 +64,7 @@ class ItemBuyBar extends Component {
           <div className="itemcompo">{this.state.ProductId}</div>
           <div className="itemcompo">{this.state.ProductName}</div>
           <div className="itemcompo">{this.state.sold}</div>
-          <div className="itemcompo">
-            {this.state.Seller === "" ? "null" : this.state.Seller}
-          </div>
+
           <div className="itemcompo">{time}</div>
         </div>
       );

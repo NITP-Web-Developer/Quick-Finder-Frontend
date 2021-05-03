@@ -111,8 +111,25 @@ function Checkout(props) {
                 })
                   .then((res) => res.json())
                   .then((json) => {
-                    console.log(json.mes);
-                    console.log("successful payment done");
+                    axios
+                      .post(
+                        `${BackendUrl}/backend/SellStatus`,
+                        {
+                          ProductId: productId,
+                          BuyerId: sessionStorage.username,
+                        },
+
+                        {
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                        }
+                      )
+                      .then((res) => {
+                        console.log(json.mes);
+                        console.log("successful payment done");
+                      });
+
                     //    history.push("./thanks");
                   })
                   .catch((error) => {

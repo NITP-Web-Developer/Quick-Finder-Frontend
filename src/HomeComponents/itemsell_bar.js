@@ -8,7 +8,7 @@ class ItemSellBar extends Component {
       ProductName: "",
       ProductId: "",
       sold: null,
-      Buyer: "",
+
       isLoaded: true,
     };
   }
@@ -38,11 +38,12 @@ class ItemSellBar extends Component {
         this.setState({
           ProductName: data.item.product_name,
           ProductId: data.item._id,
-          Buyer: data.item.buyer,
           isLoaded: true,
         });
         if (data.item.sold === false) {
-          this.setState({ sold: "Not Sold" });
+          this.setState({
+            sold: "Not Sold",
+          });
         } else {
           this.setState({
             sold: "Sold",
@@ -60,13 +61,11 @@ class ItemSellBar extends Component {
       return (
         <div className="itembar">
           <div className="itemcompo">{this.state.ProductId}</div>
-          <div className="itemcompo" style={{ width: "120px" }}>
+          <div className="itemcompo" style={{ overflow: "hidden" }}>
             {this.state.ProductName}
           </div>
           <div className="itemcompo">{this.state.sold}</div>
-          <div className="itemcompo">
-            {this.state.Buyer === "" ? "null" : this.state.Buyer}
-          </div>
+
           <div className="itemcompo">{time}</div>
         </div>
       );

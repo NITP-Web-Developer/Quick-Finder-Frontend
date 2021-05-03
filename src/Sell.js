@@ -96,7 +96,6 @@ class Sell extends React.Component {
             header: { "Content-Type": "application/json" },
           })
             .then((res2) => {
-              console.log(res2);
               this.setState({
                 product_name: "",
                 product_type: "",

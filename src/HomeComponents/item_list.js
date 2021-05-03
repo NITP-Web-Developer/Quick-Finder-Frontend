@@ -95,13 +95,11 @@ class ItemList extends Component {
     } else if (this.props.type == "sell") {
       return (
         <>
-          <div className="itembarr border-0 mx-auto ">
+          <div className="itembarr border-0 mx-auto  text-center bg-dark text-white ">
             <div className="itemcomp">Product Id</div>
-            <div className="itemcomp" style={{ marginLeft: "10px" }}>
-              ProductName
-            </div>
+            <div className="itemcomp">ProductName</div>
             <div className="itemcomp ">Status</div>
-            <div className="itemcomp">Buyer</div>
+
             <div className="itemcomp">Time</div>
           </div>
           <div className="itemlist">
@@ -114,11 +112,11 @@ class ItemList extends Component {
     } else {
       return (
         <>
-          <div className="itembarr ">
+          <div className="itembarr border-0 mx-auto  text-center bg-dark text-white ">
             <div className="itemcomp">Product Id</div>
             <div className="itemcomp">ProductName</div>
             <div className="itemcomp">Status</div>
-            <div className="itemcomp">Seller</div>
+
             <div className="itemcomp">Time</div>
           </div>
           <div className="itemlist">
