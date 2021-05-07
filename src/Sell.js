@@ -61,6 +61,11 @@ class Sell extends React.Component {
   }
 
   async onsubmit(e) {
+    if (this.state.selectedFiles.length < 2) {
+      alert("Please more than 1 Image");
+      return;
+    }
+
     this.setState({
       disable: "disabled",
     });
@@ -306,8 +311,12 @@ class Sell extends React.Component {
                       />
                     </td>
                   </tr>
+
+                  <tr>
+                    <h6 class="text-danger ">NOTE : Add more than 1 Image</h6>
+                  </tr>
                   <br />
-                  <br />
+
                   <input
                     type="submit"
                     class="btn btn-default"
