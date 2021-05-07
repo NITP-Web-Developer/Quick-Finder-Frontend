@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./item_bar.css";
 import BackendUrl from "../urls";
 class ItemSellBar extends Component {
@@ -8,8 +9,8 @@ class ItemSellBar extends Component {
       ProductName: "",
       ProductId: "",
       sold: null,
-      Buyer: "",
       isLoaded: true,
+      Selldata: "",
     };
   }
   async componentDidMount() {
@@ -38,11 +39,13 @@ class ItemSellBar extends Component {
         this.setState({
           ProductName: data.item.product_name,
           ProductId: data.item._id,
-          Buyer: data.item.buyer,
           isLoaded: true,
+          Selldata: data,
         });
         if (data.item.sold === false) {
-          this.setState({ sold: "Not Sold" });
+          this.setState({
+            sold: "Not Sold",
+          });
         } else {
           this.setState({
             sold: "Sold",
@@ -58,17 +61,30 @@ class ItemSellBar extends Component {
     var time = this.props.item.Time.substring(0, 24);
     if (this.state.isLoaded == true) {
       return (
-        <div className="itembar">
-          <div className="itemcompo">{this.state.ProductId}</div>
-          <div className="itemcompo" style={{ width: "120px" }}>
-            {this.state.ProductName}
+        <>
+          <div className="itembar">
+            <div className="itemcompo">{this.state.ProductId}</div>
+            <div className="itemcompo" style={{ overflow: "hidden" }}>
+              {this.state.ProductName}
+            </div>
+            <div className="itemcompo">{this.state.sold}</div>
+
+            <div className="itemcompo">{time}</div>
+
+            <Link
+              to={{
+                pathname: "/QUICK_FINDER/itemStatus",
+                state: {
+                  userProductDetails: this.props.item,
+                  ProductDetails: this.state.Selldata,
+                  type: "sell",
+                },
+              }}
+            >
+              See More
+            </Link>
           </div>
-          <div className="itemcompo">{this.state.sold}</div>
-          <div className="itemcompo">
-            {this.state.Buyer === "" ? "null" : this.state.Buyer}
-          </div>
-          <div className="itemcompo">{time}</div>
-        </div>
+        </>
       );
     } else {
       return <p class="text-center"> loading...</p>;

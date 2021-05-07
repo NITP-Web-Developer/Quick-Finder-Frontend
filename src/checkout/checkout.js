@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import BackendUrl from "../urls";
 import { Row, Col, Button, Form, Modal, InputGroup } from "react-bootstrap";
@@ -22,12 +22,13 @@ function Checkout(props) {
   const [cashOrder, setcashOrder] = useState(false);
   const [totalPrice, settotalPrice] = useState(0);
   //for Hide and show Modal on click pay
-
+  console.log(props.location.state);
   //RAZORPAY CALL
   async function displayRazorpay() {
     const totalPrice = props.location.state.totalprice;
     const sellerId = props.location.state.sellerId;
     const productId = props.location.state.productId;
+
     const res = await loadrazorpay(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -111,8 +112,25 @@ function Checkout(props) {
                 })
                   .then((res) => res.json())
                   .then((json) => {
-                    console.log(json.mes);
-                    console.log("successful payment done");
+                    axios
+                      .post(
+                        `${BackendUrl}/backend/SellStatus`,
+                        {
+                          ProductId: productId,
+                          BuyerId: sessionStorage.username,
+                        },
+
+                        {
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                        }
+                      )
+                      .then((res) => {
+                        console.log(json.mes);
+                        console.log("successful payment done");
+                      });
+
                     //    history.push("./thanks");
                   })
                   .catch((error) => {

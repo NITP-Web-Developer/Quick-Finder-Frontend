@@ -31,6 +31,15 @@
 .itemcomp {
   height: auto;
   text-align: center;
-  background: #329fff;
+  margin: 0px 5px;
   padding: 8px 0px 8px 0px;
+}
+a {
+  /* Disabled link styles */
+  color: blue;
+}
+a:link,
+a:visited {
+  /* or a[href] */
+  /* Enabled link styles */
 }

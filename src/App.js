@@ -12,7 +12,7 @@ import ABCB from "./HomeComponents/abcb";
 import ChatBox from "./Chat/ChatBox/Chatbox";
 import ABCBB from "./HomeComponents/abcbb";
 import Checkout from "./checkout/checkout";
-
+import ItemStatus from "./HomeComponents/ItemStatus";
 const App = () => {
   return (
     <>
@@ -28,6 +28,7 @@ const App = () => {
         <Route path="/QUICK_FINDER/Sell" component={Sell} />
         <Route path="/QUICK_FINDER/Boxopen1" component={Boxopen1} />
         <Route path="/QUICK_FINDER/checkout" component={Checkout} />
+        <Route path="/QUICK_FINDER/itemStatus" component={ItemStatus} />
         <Route component={Error} />
       </Switch>
     </>

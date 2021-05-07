@@ -19,11 +19,11 @@ class ItemList extends Component {
       var userdata = {
         Id: currentuser,
       };
-      console.log(userdata);
+
       var type = this.props.type;
       var pattern = "user" + type + "product";
       var url = BackendUrl + "/backend/" + pattern;
-      console.log(url);
+
       try {
         const response = await fetch(url, {
           method: "post",
@@ -35,14 +35,13 @@ class ItemList extends Component {
         });
 
         const data = await response.json();
-        console.log(data);
+
         if (data.value === null) {
           this.setState({
             items: null,
             isLoaded: true,
           });
         } else {
-          console.log("here is buy data");
           this.setState({
             items: data,
             isLoaded: true,
@@ -95,14 +94,13 @@ class ItemList extends Component {
     } else if (this.props.type == "sell") {
       return (
         <>
-          <div className="itembarr border-0 mx-auto ">
+          <div className="itembarr border-0 mx-auto  text-center bg-dark text-white ">
             <div className="itemcomp">Product Id</div>
-            <div className="itemcomp" style={{ marginLeft: "10px" }}>
-              ProductName
-            </div>
+            <div className="itemcomp">ProductName</div>
             <div className="itemcomp ">Status</div>
-            <div className="itemcomp">Buyer</div>
+
             <div className="itemcomp">Time</div>
+            <div className="itemcomp">Details</div>
           </div>
           <div className="itemlist">
             {this.state.items.map(function (item) {
@@ -114,11 +112,11 @@ class ItemList extends Component {
     } else {
       return (
         <>
-          <div className="itembarr ">
+          <div className="itembarr border-0 mx-auto  text-center bg-dark text-white ">
             <div className="itemcomp">Product Id</div>
             <div className="itemcomp">ProductName</div>
             <div className="itemcomp">Status</div>
-            <div className="itemcomp">Seller</div>
+
             <div className="itemcomp">Time</div>
           </div>
           <div className="itemlist">

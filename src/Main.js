@@ -38,7 +38,6 @@ class Main extends React.Component {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.mes.length);
         var meslen = json.mes.length;
         // this.setState({getting:json.mes});
         this.setState({ getting: json.mes });

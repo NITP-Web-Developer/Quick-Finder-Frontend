@@ -40,9 +40,7 @@ class DetailsBox extends Component {
   componentDidUpdate() {}
 
   componentDidMount() {
-    console.log("mounted");
     if (this.props.property !== undefined) {
-      console.log(this.props.property);
       this.setState({
         price: this.props.property.price,
         product_id: this.props.property.product_id,
@@ -70,7 +68,6 @@ class DetailsBox extends Component {
   }
 
   render() {
-    console.log(this.state.product_image);
     return (
       <div className="DetailsBox" id={this.state.product_id}>
         <img
