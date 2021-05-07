@@ -72,7 +72,8 @@ class Sell extends React.Component {
     formdata.append("status", this.state.status);
     formdata.append("price", this.state.price);
     formdata.append("description", this.state.description);
-    var Upload = [];
+    formdata.append("sellerId", currentuser);
+
     for (var i = 0; i < this.state.selectedFiles.length; i++) {
       formdata.append(`uploadFiles`, this.state.selectedFiles[i]);
     }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./item_bar.css";
 import BackendUrl from "../urls";
 class ItemBuyBar extends Component {
@@ -8,8 +9,8 @@ class ItemBuyBar extends Component {
       ProductName: "",
       ProductId: "",
       sold: null,
-
       isLoaded: true,
+      Buydata: "",
     };
   }
   async componentDidMount() {
@@ -38,8 +39,8 @@ class ItemBuyBar extends Component {
         this.setState({
           ProductName: data.item.product_name,
           ProductId: data.item._id,
-
           isLoaded: true,
+          Buydata: data,
         });
         if (data.item.sold === false) {
           this.setState({ sold: "Not Sold" });
@@ -48,8 +49,6 @@ class ItemBuyBar extends Component {
             sold: "Sold",
           });
         }
-
-        console.log(data);
       } catch (err) {
         console.log(err);
       }
@@ -66,6 +65,18 @@ class ItemBuyBar extends Component {
           <div className="itemcompo">{this.state.sold}</div>
 
           <div className="itemcompo">{time}</div>
+          <Link
+            to={{
+              pathname: "/QUICK_FINDER/itemStatus",
+              state: {
+                userProductDetails: this.props.item,
+                ProductDetails: this.state.Buydata,
+                type: "buy",
+              },
+            }}
+          >
+            See More
+          </Link>
         </div>
       );
     } else {
