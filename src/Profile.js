@@ -38,8 +38,14 @@ class Profile extends React.Component {
       });
     return;
   }
+
+  logout=()=>{
+    console.log("logout");
+    window.sessionStorage.setItem("username", "")
+    window.location.replace("/QUICK_FINDER/")
+  }
+
   render() {
-    console.log(this.state.getting);
     return (
       <>
         <ul class="nav justify-content-center">
@@ -52,6 +58,9 @@ class Profile extends React.Component {
             <Link class="nav-link" to="/QUICK_FINDER/userbuys">
               Yours Buy
             </Link>
+          </li>
+          <li class="nav-item">
+            <Link class="nav-link" onClick={()=>this.logout()}>Logout</Link>
           </li>
         </ul>
         <div
