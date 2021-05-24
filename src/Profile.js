@@ -13,13 +13,14 @@ class Profile extends React.Component {
       address: "",
     };
     // this.getUserData();
-    this.getUserData = this.getUserData.bind(this);
+    // this.getUserData = this.getUserData.bind(this);
   }
-  getUserData() {
+
+  async componentDidMount() {
     var obj = {};
     obj.username = sessionStorage.username;
     console.log(obj.search_input);
-    fetch(`${BackendUrl}/getUserData`, {
+    fetch(`${BackendUrl}/backend/accountDetails`, {
       method: "post",
       body: JSON.stringify({ obj }),
       headers: {
@@ -29,21 +30,26 @@ class Profile extends React.Component {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.mes);
-        console.log(json.mes.length);
-        var meslen = json.mes.length;
-
+        console.log(json.user);
+        //  console.log(json.mes.length);
+        //  var meslen = json.mes.length;
         // this.setState({getting:json.mes});
-        this.setState({ getting: json.mes });
+        this.setState({
+          fname: json.user.name,
+          sname: json.user.sname,
+          mobile: json.user.mobile,
+          email: json.user.email,
+          address: json.user.address,
+        });
       });
     return;
   }
 
-  logout=()=>{
+  logout = () => {
     console.log("logout");
-    window.sessionStorage.setItem("username", "")
-    window.location.replace("/QUICK_FINDER/")
-  }
+    window.sessionStorage.setItem("username", "");
+    window.location.replace("/QUICK_FINDER/");
+  };
 
   render() {
     return (
@@ -60,7 +66,9 @@ class Profile extends React.Component {
             </Link>
           </li>
           <li class="nav-item">
-            <Link class="nav-link" onClick={()=>this.logout()}>Logout</Link>
+            <Link class="nav-link" onClick={() => this.logout()}>
+              Logout
+            </Link>
           </li>
         </ul>
         <div
@@ -90,64 +98,51 @@ class Profile extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">First Name</label>
+                  <label for="first">First Name : </label>
+                  {"  "}
+                  <label for="first">{this.state.fname}</label>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">{this.state.fname}</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="mobile">Mobile</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
+                  <label for="mobile">Mobile : </label>{" "}
                   <label for="mobile">{this.state.mobile}</label>
                 </td>
               </tr>
+
               <tr>
                 <td>
-                  <label for="mobile">Email</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="mobile">{this.state.email}</label>
+                  <label for="email">Email : </label>
+                  {"  "}
+                  {"    "}
+                  <label for="email">{this.state.email}</label>
                 </td>
               </tr>
             </table>
             <table style={{ width: "40%", float: "right" }}>
               <tr>
                 <td>
-                  <label for="mobile">Second Name</label>
+                  <label for="last">Second Name : </label>
+                  {"  "}
+                  {"  "}
+                  <label for="last">{this.state.sname}</label>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">{this.state.sname}</label>
+                  <label for="address">Address : </label> {"  "}
+                  <label for="address">{this.state.address}</label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label for="password">Password : </label>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">Address</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="mobile">{this.state.address}</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="mobile">Password</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="mobile">***********</label>
+                  <label for="password">***********</label>
                 </td>
               </tr>
             </table>
