@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { browserHistory, Link, Redirect } from "react-router-dom";
+import Loader from "../../../Loader/Loader"
 class Box1 extends React.Component {
   constructor(props) {
     super(props);
@@ -41,12 +42,13 @@ class Box1 extends React.Component {
         <div
           class="container m-2"
           style={{
-            boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
+            boxShadow: "0 5px 10px rgb(0,0,0,0.05)",
             height: "508px",
             backgroundColor: "white",
           }}
         >
-          <div
+<Loader/>
+          {/* <div
             class="spinner-border text-muted"
             style={{
               width: "5rem",
@@ -54,7 +56,7 @@ class Box1 extends React.Component {
               marginLeft: "45%",
               marginTop: "45%",
             }}
-          ></div>
+          ></div> */}
         </div>
       );
     } else {
@@ -63,8 +65,8 @@ class Box1 extends React.Component {
           <div
             class="container m-2"
             style={{
-              boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-              height: "508px",
+              boxShadow: "0 5px 10px rgb(0,0,0,0.05)",
+              height: "100%",
               backgroundColor: "white",
             }}
           >
@@ -93,14 +95,14 @@ class Box1 extends React.Component {
                       {this.state.product_type}
                     </td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td
                       colspan="2"
                       style={{ fontWeight: "400", color: "#707070" }}
                     >
                       {this.state.seller_id}
                     </td>
-                  </tr>
+                  </tr> */}
                   <tr>
                     <td
                       style={{

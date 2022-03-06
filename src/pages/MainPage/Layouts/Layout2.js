@@ -20,13 +20,13 @@ class Layout2 extends React.Component {
   render() {
     return (
       <>
-        <h4 style={{ textAlign: "center", marginTop: "80px" }}>
+        <h4 style={{ textAlign: "center", marginTop: "30px" }}>
           {" "}
           Buy Vehicle And Full fill Your Dreams
         </h4>
-        <div class="container-fluid" style={{ width: "82%" }}>
+        <div class="container-fluid" style={{ width: "100%" }}>
           <div class="row">
-            <div class="col-lg-6 col-md-5 col-sm-5 ">
+            <div class="col-lg-4 col-md-5 col-sm-5 ">
               <Box2
                 search_input={this.state.search_input}
                 product_name={
@@ -71,7 +71,7 @@ class Layout2 extends React.Component {
                 }
               />
             </div>
-            <div class="col-lg-6 col-md-7 col-sm-7 ">
+            <div class="col-lg-4 col-md-7 col-sm-7 ">
               <Box1
                 search_input={this.state.search_input}
                 product_name={
@@ -142,11 +142,6 @@ class Layout2 extends React.Component {
                     ? this.state.getting[this.state.i + 2].product_id
                     : ""
                 }
-                product_id={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].product_id
-                    : ""
-                }
                 description={
                   this.state.getting[this.state.i + 2]
                     ? this.state.getting[this.state.i + 2].description
@@ -159,9 +154,55 @@ class Layout2 extends React.Component {
                 }
               />
             </div>
+            <div class="col-lg-4 col-md-5 col-sm-5 ">
+              <Box2
+                search_input={this.state.search_input}
+                product_name={
+                  this.state.getting[this.state.i]
+                    ? this.state.getting[this.state.i].product_name
+                    : ""
+                }
+                product_images={
+                  this.state.getting[this.state.i]
+                    ? this.state.getting[this.state.i].product_images
+                    : ""
+                }
+                product_type={
+                  this.state.getting[this.state.i]
+                    ? this.state.getting[this.state.i].product_type
+                    : ""
+                }
+                status={
+                  this.state.getting[this.state.i]
+                    ? this.state.getting[this.state.i].status
+                    : ""
+                }
+                price={
+                  this.state.getting[this.state.i]
+                    ? this.state.getting[this.state.i].price
+                    : "."
+                }
+                product_id={
+                  this.state.getting[this.state.i]
+                    ? this.state.getting[this.state.i].product_id
+                    : ""
+                }
+                description={
+                  this.state.getting[this.state.i]
+                    ? this.state.getting[this.state.i].description
+                    : ""
+                }
+                seller_id={
+                  this.state.getting[this.state.i]
+                    ? this.state.getting[this.state.i].seller_id
+                    : ""
+                }
+              />
+            </div>
+            
           </div>
         </div>
-        <div class="container">
+        <div class="container mt-3">
           <table style={{ width: "100%" }}>
             <tr>
               <td style={{ textAlign: "center" }}>

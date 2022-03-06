@@ -151,7 +151,18 @@ class Main extends React.Component {
           search_input={this.state.search_input}
           getting={this.state.getting}
         />
-        <Layout3
+        <Layout1
+          layout_num={6}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        />
+        <Layout2
+          layout_num={9}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        />
+
+        {/* <Layout3
           layout_num={6}
           search_input={this.state.search_input}
           getting={this.state.getting}
@@ -160,7 +171,7 @@ class Main extends React.Component {
           layout_num={11}
           search_input={this.state.search_input}
           getting={this.state.getting}
-        />
+        /> */}
       </>
     );
   }

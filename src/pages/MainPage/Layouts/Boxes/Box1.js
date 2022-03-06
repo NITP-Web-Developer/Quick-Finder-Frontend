@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-
+import Loader from "../../../Loader/Loader"
 class Box1 extends React.Component {
   constructor(props) {
     super(props);
@@ -42,12 +42,14 @@ class Box1 extends React.Component {
         <div
           class="container m-2 p-3"
           style={{
-            boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
+            boxShadow: "0 5px 10px rgb(0,0,0,0.05)",
             height: "250px",
             padding: "0px",
             backgroundColor: "white",
           }}
         >
+        <Loader/>
+{/* 
           <div
             class="spinner-border text-muted"
             style={{
@@ -56,7 +58,9 @@ class Box1 extends React.Component {
               marginLeft: "45%",
               marginTop: "20%",
             }}
-          ></div>
+          >
+            
+            </div> */}
         </div>
       );
     } else {
@@ -65,9 +69,10 @@ class Box1 extends React.Component {
           <div
             class="container m-2 p-3"
             style={{
-              boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-              height: "250px",
+              boxShadow: "0 5px 10px rgb(0,0,0,0.05)",
+              height: "49%",
               padding: "0px",
+              marginBottom:"13px",
               backgroundColor: "white",
             }}
           >
@@ -100,14 +105,14 @@ class Box1 extends React.Component {
                       {this.state.product_type}
                     </td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td
                       colspan="2"
                       style={{ fontWeight: "400", color: "#707070" }}
                     >
                       {this.state.seller_id}
                     </td>
-                  </tr>
+                  </tr> */}
                   <tr>
                     <td
                       style={{

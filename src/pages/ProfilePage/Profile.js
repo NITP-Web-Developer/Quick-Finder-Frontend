@@ -6,19 +6,15 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fname: "",
-      sname: "",
-      mobile: "",
-      email: "",
-      address: "",
+      userData:{}
     };
-    // this.getUserData();
+    this.getUserData();
     this.getUserData = this.getUserData.bind(this);
   }
   getUserData() {
     var obj = {};
     obj.username = sessionStorage.username;
-    console.log(obj.search_input);
+    console.log(obj.username);
     fetch(`${BackendUrl}/getUserData`, {
       method: "post",
       body: JSON.stringify({ obj }),
@@ -30,30 +26,26 @@ class Profile extends React.Component {
       .then((res) => res.json())
       .then((json) => {
         console.log(json.mes);
-        console.log(json.mes.length);
-        var meslen = json.mes.length;
+        // console.log(json.mes.length);
+        // var meslen = json.mes.length;
 
         // this.setState({getting:json.mes});
-        this.setState({ getting: json.mes });
+        this.setState({ userData: json.mes });
       });
     return;
   }
   render() {
-    console.log(this.state.getting);
+    // console.log(this.state.getting);
+    if(!this.state.userData){
+      return (
+        <>
+        Loading...
+        </>
+      );
+    }else
+    {
     return (
       <>
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <Link class="nav-link" to="/QUICK_FINDER/usersells">
-              Yours Sell
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" to="/QUICK_FINDER/userbuys">
-              Yours Buy
-            </Link>
-          </li>
-        </ul>
         <div
           class="container pt-3"
           style={{
@@ -86,7 +78,7 @@ class Profile extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">{this.state.fname}</label>
+                  <label for="mobile">{this.state.userData.name}.</label>
                 </td>
               </tr>
               <tr>
@@ -96,7 +88,7 @@ class Profile extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">{this.state.mobile}</label>
+                <label for="mobile">{this.state.userData.mobile}</label>
                 </td>
               </tr>
               <tr>
@@ -106,7 +98,7 @@ class Profile extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">{this.state.email}</label>
+                <label for="mobile">{this.state.userData.email}</label>
                 </td>
               </tr>
             </table>
@@ -118,7 +110,7 @@ class Profile extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">{this.state.sname}</label>
+                <label for="mobile">{this.state.userData.sname}</label>
                 </td>
               </tr>
               <tr>
@@ -128,7 +120,7 @@ class Profile extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">{this.state.address}</label>
+                <label for="mobile">{this.state.userData.address}</label>
                 </td>
               </tr>
               <tr>
@@ -146,6 +138,7 @@ class Profile extends React.Component {
         </div>
       </>
     );
+                  }
   }
 }
 export default Profile;

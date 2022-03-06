@@ -22,11 +22,7 @@ class Main extends React.Component {
     };
     this.getData();
     this.getData = this.getData.bind(this);
-    // this.getObject= this.getObject.bind(this);
-
-    // this._child = React.create6Ref();
   }
-  // const [objectId,setObjectId]= useState();
 
   async getData() {
     // await this.getObject();
@@ -78,6 +74,7 @@ class Main extends React.Component {
       });
     return;
   }
+  
   toggleChat = (sellerid) => {
     if (sellerid !== this.state.sellerid) {
       this._child.current.change(sellerid);
@@ -95,7 +92,7 @@ class Main extends React.Component {
     console.log(this.props);
     return (
       <>
-        <div class="container" style={{ width: "100%" }}>
+        <div class="container-fluid" style={{ width: "100%" }}>
           <div class="row">
             <div class="col-lg-9 col-md-12 col-sm-12">
               <Item_detailsBox

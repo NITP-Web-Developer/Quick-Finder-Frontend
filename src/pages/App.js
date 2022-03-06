@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Main from "./MainPage/Main";
 import Login from "./LoginPage/login";
 import Signup from "./SignupPage/Signup";
-import About from "../About";
+import About from "./AboutUsPage/About";
 import Sell from "./SellPage/Sell";
 import Boxopen1 from "./BoxOpen/Boxopen1";
 import Profile from "./ProfilePage/Profile";
@@ -21,6 +21,7 @@ const App = () => {
         {/* <Route exact path='/QUICK_FINDER/' component={Profile}/> */}
         {/* <Route exact path="/QUICK_FINDER/chat" component={ChatBox} /> */}
         <Route exact path="/QUICK_FINDER/" component={Main} />
+        <Route path="/QUICK_FINDER/profile" component={Profile} />
         <Route path="/QUICK_FINDER/login" component={Login} />
         <Route path="/QUICK_FINDER/Boxopen1" component={Boxopen1} />
         <Route path="/QUICK_FINDER/Sell" component={Sell} />
