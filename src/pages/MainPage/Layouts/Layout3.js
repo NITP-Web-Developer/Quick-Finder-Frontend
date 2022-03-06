@@ -1,8 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Box1 from "./Box1";
-import Box2 from "./Box2";
-class Layout2 extends React.Component {
+import Box1 from "./Boxes/Box1";
+import Box2 from "./Boxes/Box2";
+import Box3 from "./Boxes/Box3";
+import Box4 from "./Boxes/Box4";
+import Box5 from "./Boxes/Box5";
+class Layout3 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,17 +20,18 @@ class Layout2 extends React.Component {
       i: props.layout_num,
     };
   }
+
   render() {
     return (
       <>
-        <h4 style={{ textAlign: "center", marginTop: "80px" }}>
+        <h4 style={{ textAlign: "center", marginTop: "30px" }}>
           {" "}
           Buy Vehicle And Full fill Your Dreams
         </h4>
         <div class="container-fluid" style={{ width: "82%" }}>
           <div class="row">
-            <div class="col-lg-6 col-md-5 col-sm-5 ">
-              <Box2
+            <div class="col-lg-4 col-md-4 col-sm-4 ">
+              <Box3
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i]
@@ -70,9 +74,7 @@ class Layout2 extends React.Component {
                     : ""
                 }
               />
-            </div>
-            <div class="col-lg-6 col-md-7 col-sm-7 ">
-              <Box1
+              <Box3
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i + 1]
@@ -104,13 +106,20 @@ class Layout2 extends React.Component {
                     ? this.state.getting[this.state.i + 1].product_id
                     : ""
                 }
+                description={
+                  this.state.getting[this.state.i + 1]
+                    ? this.state.getting[this.state.i + 1].description
+                    : ""
+                }
                 seller_id={
                   this.state.getting[this.state.i + 1]
                     ? this.state.getting[this.state.i + 1].seller_id
                     : ""
                 }
               />
-              <Box1
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+              <Box4
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i + 2]
@@ -159,6 +168,137 @@ class Layout2 extends React.Component {
                 }
               />
             </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <Box5
+                search_input={this.state.search_input}
+                product_name={
+                  this.state.getting[this.state.i + 3]
+                    ? this.state.getting[this.state.i + 3].product_name
+                    : ""
+                }
+                product_images={
+                  this.state.getting[this.state.i + 3]
+                    ? this.state.getting[this.state.i + 3].product_images
+                    : ""
+                }
+                product_type={
+                  this.state.getting[this.state.i + 3]
+                    ? this.state.getting[this.state.i + 3].product_type
+                    : ""
+                }
+                status={
+                  this.state.getting[this.state.i + 3]
+                    ? this.state.getting[this.state.i + 3].status
+                    : ""
+                }
+                price={
+                  this.state.getting[this.state.i + 3]
+                    ? this.state.getting[this.state.i + 3].price
+                    : "."
+                }
+                product_id={
+                  this.state.getting[this.state.i + 3]
+                    ? this.state.getting[this.state.i + 3].product_id
+                    : ""
+                }
+                description={
+                  this.state.getting[this.state.i + 3]
+                    ? this.state.getting[this.state.i + 3].description
+                    : ""
+                }
+                seller_id={
+                  this.state.getting[this.state.i + 3]
+                    ? this.state.getting[this.state.i + 3].seller_id
+                    : ""
+                }
+              />
+              <Box5
+                search_input={this.state.search_input}
+                product_name={
+                  this.state.getting[this.state.i + 4 + 3]
+                    ? this.state.getting[this.state.i + 4 + 3].product_name
+                    : ""
+                }
+                product_images={
+                  this.state.getting[this.state.i + 4 + 3]
+                    ? this.state.getting[this.state.i + 4 + 3].product_images
+                    : ""
+                }
+                product_type={
+                  this.state.getting[this.state.i + 4]
+                    ? this.state.getting[this.state.i + 4].product_type
+                    : ""
+                }
+                status={
+                  this.state.getting[this.state.i + 4]
+                    ? this.state.getting[this.state.i + 4].status
+                    : ""
+                }
+                price={
+                  this.state.getting[this.state.i + 4]
+                    ? this.state.getting[this.state.i + 4].price
+                    : "."
+                }
+                product_id={
+                  this.state.getting[this.state.i + 4]
+                    ? this.state.getting[this.state.i + 4].product_id
+                    : ""
+                }
+                description={
+                  this.state.getting[this.state.i + 4]
+                    ? this.state.getting[this.state.i + 4].description
+                    : ""
+                }
+                seller_id={
+                  this.state.getting[this.state.i + 4]
+                    ? this.state.getting[this.state.i + 4].seller_id
+                    : ""
+                }
+              />
+              <Box5
+                search_input={this.state.search_input}
+                product_name={
+                  this.state.getting[this.state.i + 5]
+                    ? this.state.getting[this.state.i + 5].product_name
+                    : ""
+                }
+                product_images={
+                  this.state.getting[this.state.i + 5]
+                    ? this.state.getting[this.state.i + 5].product_images
+                    : ""
+                }
+                product_type={
+                  this.state.getting[this.state.i + 5]
+                    ? this.state.getting[this.state.i + 5].product_type
+                    : ""
+                }
+                status={
+                  this.state.getting[this.state.i + 5]
+                    ? this.state.getting[this.state.i + 5].status
+                    : ""
+                }
+                price={
+                  this.state.getting[this.state.i + 5]
+                    ? this.state.getting[this.state.i + 5].price
+                    : "."
+                }
+                product_id={
+                  this.state.getting[this.state.i + 5]
+                    ? this.state.getting[this.state.i + 5].product_id
+                    : ""
+                }
+                description={
+                  this.state.getting[this.state.i + 5]
+                    ? this.state.getting[this.state.i + 5].description
+                    : ""
+                }
+                seller_id={
+                  this.state.getting[this.state.i + 5]
+                    ? this.state.getting[this.state.i + 5].seller_id
+                    : ""
+                }
+              />
+            </div>
           </div>
         </div>
         <div class="container">
@@ -183,4 +323,4 @@ class Layout2 extends React.Component {
     );
   }
 }
-export default Layout2;
+export default Layout3;

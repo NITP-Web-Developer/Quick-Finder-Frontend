@@ -1,7 +1,7 @@
 import React from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
-import BackendUrl from "./urls";
+import BackendUrl from "../../urls";
 
 class Signup extends React.Component {
   constructor(props) {

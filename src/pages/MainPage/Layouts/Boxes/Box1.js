@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { browserHistory, Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 class Box1 extends React.Component {
   constructor(props) {
     super(props);
@@ -13,16 +14,16 @@ class Box1 extends React.Component {
       seller_name: "",
       seller_address: "",
       product_id: "",
+
       seller_id: "",
       description: "",
       search_input: "",
+      redirect: false,
     };
   }
-
   static getDerivedStateFromProps(props, state) {
     return {
       product_name: props.product_name,
-      description: props.description,
       product_images: props.product_images,
       product_type: props.product_type,
       status: props.status,
@@ -35,24 +36,35 @@ class Box1 extends React.Component {
     };
   }
 
+  // props :{
+  // product_name:{this.state.product_name},
+  // product_type:{this.state.product_type},
+  // status:{this.state.status},
+  // price:{this.state.price},
+  // product_id:{this.state.product_id},
+  // seller_name:{this.state.seller_name},
+  // seller_address:{this.state.seller_address},
+  // seller_id:{this.state.seller_id}
+
   render() {
     if (this.state.product_name == "") {
       return (
         <div
-          class="container m-2"
+          class="container m-2 p-3"
           style={{
             boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-            height: "508px",
+            height: "250px",
+            padding: "0px",
             backgroundColor: "white",
           }}
         >
           <div
             class="spinner-border text-muted"
             style={{
-              width: "5rem",
-              height: "5rem",
+              width: "3rem",
+              height: "3rem",
               marginLeft: "45%",
-              marginTop: "45%",
+              marginTop: "20%",
             }}
           ></div>
         </div>
@@ -61,18 +73,23 @@ class Box1 extends React.Component {
       return (
         <>
           <div
-            class="container m-2"
+            class="container m-2 p-3"
             style={{
               boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-              height: "508px",
+              height: "250px",
+              padding: "0px",
               backgroundColor: "white",
             }}
           >
-            <img style={{ width: "100%" }} src={this.state.product_images} />
-
-            <div class="row">
-              <div class="col-lg-6 col-md-12 col-sm-12 p-4">
-                <table style={{ textAlign: "center" }}>
+            <div class="row" style={{ height: "100%" }}>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <img
+                  style={{ width: "100%", height: "100%" }}
+                  src={this.state.product_images}
+                ></img>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 pt-3">
+                <table style={{ textAlign: "center", margin: "auto" }}>
                   <tr>
                     <td
                       colspan="2"
@@ -124,12 +141,12 @@ class Box1 extends React.Component {
                     </td>
                   </tr>
                   <br />
+
                   <tr>
                     <td colspan="2">
-                      {" "}
                       <Link
                         to={{
-                          pathname: "/QUICK_FINDER/Boxopen1",
+                          pathname: "/QUICK_FINDER/Boxopen1/"+this.state.product_id,
                           state: {
                             product_name: this.state.product_name,
                             product_type: this.state.product_type,
@@ -154,21 +171,6 @@ class Box1 extends React.Component {
                     </td>
                   </tr>
                 </table>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12 p-4">
-                <h5 style={{ textAlign: "center", color: "#3B3E3E" }}>
-                  Description
-                </h5>
-                <div
-                  class="container"
-                  style={{
-                    textAlign: "center",
-                    color: "#3B3E3E",
-                    fontSize: "14px",
-                  }}
-                >
-                  {this.state.description}
-                </div>
               </div>
             </div>
           </div>

@@ -2,17 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import Dia from "./dialog"
 import Head from "./head"
-import App from "./App"
+import App from "./pages/App"
 import "./index.css"
 
 import {BrowserRouter,Route,Switch} from "react-router-dom"
-import Boxopen1 from './Boxopen1';
+// import Boxopen1 from './Boxopen1';
 
 ReactDOM.render( <>
   <BrowserRouter>
   <Head />
   <App/>
-  </BrowserRouter></>,
+  </BrowserRouter>
+  </>,
   document.getElementById('root')
 );
 

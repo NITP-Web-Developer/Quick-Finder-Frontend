@@ -1,9 +1,9 @@
 import React from "react";
 import "./login.css";
-import Profile from "./Profile";
-import BackendUrl from "./urls";
+import Profile from "../ProfilePage/Profile";
+import BackendUrl from "../../urls";
 import { Link, Redirect } from "react-router-dom";
-import NotRegistered from "./Alerts/notRegistered";
+import NotRegistered from "../../Alerts/notRegistered";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -115,7 +115,7 @@ class Login extends React.Component {
               <div class="row">
                 <div class="col-lg-8">
                   <img
-                    src={require("./loginpic.jpg")}
+                    src={require("./loginpic.jpg").default}
                     style={{
                       width: "100%",
                       objectFit: "cover",

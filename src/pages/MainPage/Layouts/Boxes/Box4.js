@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { browserHistory, Link, Redirect } from "react-router-dom";
-
-class Box3 extends React.Component {
+class Box4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,10 +39,10 @@ class Box3 extends React.Component {
     if (this.state.product_name == "") {
       return (
         <div
-          class="container m-2"
+          class="container m-2 p-4"
           style={{
             boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-            height: "330px",
+            height: "670px",
             padding: "0px",
             backgroundColor: "white",
           }}
@@ -63,42 +62,38 @@ class Box3 extends React.Component {
       return (
         <>
           <div
-            class="container m-2"
+            class="container m-2 p-4"
             style={{
               boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-              height: "330px",
+              height: "670px",
               padding: "0px",
               backgroundColor: "white",
             }}
           >
-            <div class="container">
+            <div>
               <img
-                style={{
-                  width: "100%",
-                  objectFit: "cover",
-                  height: "250px",
-                  objectPosition: "25% 10%",
-                }}
+                style={{ width: "100%" }}
                 src={this.state.product_images}
               ></img>
             </div>
-            <div class="container m-2 mt-3">
+            <div class="container mt-4">
               <table style={{ width: "100%" }}>
                 <tr>
                   <td
                     style={{
                       fontWeight: "700",
                       color: "#3E3B3B",
-                      fontSize: "20px",
+                      fontSize: "22px",
+                      textAlign: "center",
                     }}
                   >
-                    {this.state.product_name}
+                    {this.state.product_name}{" "}
                   </td>
                   <td>
                     {" "}
                     <Link
                       to={{
-                        pathname: "/QUICK_FINDER/Boxopen1",
+                        pathname: "/QUICK_FINDER/Boxopen1/"+this.state.product_id,
                         state: {
                           product_name: this.state.product_name,
                           product_type: this.state.product_type,
@@ -118,7 +113,7 @@ class Box3 extends React.Component {
                         fontWeight: "700",
                       }}
                     >
-                      Explore{" "}
+                      Explore
                     </Link>
                   </td>
                 </tr>
@@ -130,4 +125,4 @@ class Box3 extends React.Component {
     }
   }
 }
-export default Box3;
+export default Box4;

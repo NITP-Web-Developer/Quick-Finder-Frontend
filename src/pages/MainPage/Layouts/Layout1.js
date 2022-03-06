@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Box1 from "./Box1";
-import Box2 from "./Box2";
-import Box3 from "./Box3";
-import Box4 from "./Box4";
-import Box5 from "./Box5";
-import Box6 from "./Box6";
-class Layout4 extends React.Component {
+import Box1 from "./Boxes/Box1";
+import Box2 from "./Boxes/Box2";
+import Box3 from "./Boxes/Box3";
+import Box4 from "./Boxes/Box4";
+import Box5 from "./Boxes/Box5";
+import Box6 from "./Boxes/Box6";
+class Layout1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,14 +24,16 @@ class Layout4 extends React.Component {
   render() {
     return (
       <>
+        {}
+        {this.state.search_input}
         <h4 style={{ textAlign: "center", marginTop: "30px" }}>
           {" "}
           Buy Vehicle And Full fill Your Dreams
         </h4>
         <div class="container-fluid" style={{ width: "82%" }}>
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-              <Box6
+            <div class="col-lg-6 col-md-7 col-sm-7">
+              <Box1
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i]
@@ -56,7 +58,7 @@ class Layout4 extends React.Component {
                 price={
                   this.state.getting[this.state.i]
                     ? this.state.getting[this.state.i].price
-                    : "."
+                    : ""
                 }
                 product_id={
                   this.state.getting[this.state.i]
@@ -69,9 +71,8 @@ class Layout4 extends React.Component {
                     : ""
                 }
               />
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-              <Box6
+
+              <Box1
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i + 1]
@@ -96,7 +97,7 @@ class Layout4 extends React.Component {
                 price={
                   this.state.getting[this.state.i + 1]
                     ? this.state.getting[this.state.i + 1].price
-                    : "."
+                    : ""
                 }
                 product_id={
                   this.state.getting[this.state.i + 1]
@@ -110,8 +111,8 @@ class Layout4 extends React.Component {
                 }
               />
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-              <Box6
+            <div class="col-lg-6 col-md-5 col-sm-5">
+              <Box2
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i + 2]
@@ -184,4 +185,4 @@ class Layout4 extends React.Component {
     );
   }
 }
-export default Layout4;
+export default Layout1;

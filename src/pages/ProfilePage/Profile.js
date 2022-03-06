@@ -1,6 +1,6 @@
 import React from "react";
-import BackendUrl from "./urls";
-import "./Signup.css";
+import BackendUrl from "../../urls";
+import "../SignupPage/Signup.css";
 import { Link } from "react-router-dom";
 class Profile extends React.Component {
   constructor(props) {
@@ -13,14 +13,13 @@ class Profile extends React.Component {
       address: "",
     };
     // this.getUserData();
-    // this.getUserData = this.getUserData.bind(this);
+    this.getUserData = this.getUserData.bind(this);
   }
-
-  async componentDidMount() {
+  getUserData() {
     var obj = {};
     obj.username = sessionStorage.username;
     console.log(obj.search_input);
-    fetch(`${BackendUrl}/backend/accountDetails`, {
+    fetch(`${BackendUrl}/getUserData`, {
       method: "post",
       body: JSON.stringify({ obj }),
       headers: {
@@ -30,28 +29,17 @@ class Profile extends React.Component {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.user);
-        //  console.log(json.mes.length);
-        //  var meslen = json.mes.length;
+        console.log(json.mes);
+        console.log(json.mes.length);
+        var meslen = json.mes.length;
+
         // this.setState({getting:json.mes});
-        this.setState({
-          fname: json.user.name,
-          sname: json.user.sname,
-          mobile: json.user.mobile,
-          email: json.user.email,
-          address: json.user.address,
-        });
+        this.setState({ getting: json.mes });
       });
     return;
   }
-
-  logout = () => {
-    console.log("logout");
-    window.sessionStorage.setItem("username", "");
-    window.location.replace("/QUICK_FINDER/");
-  };
-
   render() {
+    console.log(this.state.getting);
     return (
       <>
         <ul class="nav justify-content-center">
@@ -63,11 +51,6 @@ class Profile extends React.Component {
           <li class="nav-item">
             <Link class="nav-link" to="/QUICK_FINDER/userbuys">
               Yours Buy
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link" onClick={() => this.logout()}>
-              Logout
             </Link>
           </li>
         </ul>
@@ -98,51 +81,64 @@ class Profile extends React.Component {
               </tr>
               <tr>
                 <td>
-                  <label for="first">First Name : </label>
-                  {"  "}
-                  <label for="first">{this.state.fname}</label>
+                  <label for="mobile">First Name</label>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label for="mobile">Mobile : </label>{" "}
+                  <label for="mobile">{this.state.fname}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="mobile">Mobile</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
                   <label for="mobile">{this.state.mobile}</label>
                 </td>
               </tr>
-
               <tr>
                 <td>
-                  <label for="email">Email : </label>
-                  {"  "}
-                  {"    "}
-                  <label for="email">{this.state.email}</label>
+                  <label for="mobile">Email</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="mobile">{this.state.email}</label>
                 </td>
               </tr>
             </table>
             <table style={{ width: "40%", float: "right" }}>
               <tr>
                 <td>
-                  <label for="last">Second Name : </label>
-                  {"  "}
-                  {"  "}
-                  <label for="last">{this.state.sname}</label>
+                  <label for="mobile">Second Name</label>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label for="address">Address : </label> {"  "}
-                  <label for="address">{this.state.address}</label>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <label for="password">Password : </label>
+                  <label for="mobile">{this.state.sname}</label>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <label for="password">***********</label>
+                  <label for="mobile">Address</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="mobile">{this.state.address}</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="mobile">Password</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="mobile">***********</label>
                 </td>
               </tr>
             </table>

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { browserHistory, Link, Redirect } from "react-router-dom";
-class Box4 extends React.Component {
+class Box5 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,15 +34,14 @@ class Box4 extends React.Component {
       search_input: props.search_input,
     };
   }
-
   render() {
     if (this.state.product_name == "") {
       return (
         <div
-          class="container m-2 p-4"
+          class="container m-2 p-2"
           style={{
             boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-            height: "670px",
+            height: "220px",
             padding: "0px",
             backgroundColor: "white",
           }}
@@ -62,38 +61,36 @@ class Box4 extends React.Component {
       return (
         <>
           <div
-            class="container m-2 p-4"
+            class="container m-2 p-2"
             style={{
               boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-              height: "670px",
+              height: "220px",
               padding: "0px",
               backgroundColor: "white",
             }}
           >
-            <div>
+            <div class="container p-2" style={{ width: "150px" }}>
               <img
-                style={{ width: "100%" }}
+                style={{
+                  width: "100%",
+                  objectFit: "cover",
+                  height: "110px",
+                  objectPosition: "25% 10%",
+                }}
                 src={this.state.product_images}
               ></img>
             </div>
-            <div class="container mt-4">
+            <div class="container">
               <table style={{ width: "100%" }}>
                 <tr>
-                  <td
-                    style={{
-                      fontWeight: "700",
-                      color: "#3E3B3B",
-                      fontSize: "22px",
-                      textAlign: "center",
-                    }}
-                  >
-                    {this.state.product_name}{" "}
+                  <td style={{ fontWeight: "700", color: "#3E3B3B" }}>
+                    {this.state.product_name}
                   </td>
                   <td>
                     {" "}
                     <Link
                       to={{
-                        pathname: "/QUICK_FINDER/Boxopen1",
+                        pathname: "/QUICK_FINDER/Boxopen1/"+this.state.product_id,
                         state: {
                           product_name: this.state.product_name,
                           product_type: this.state.product_type,
@@ -125,4 +122,4 @@ class Box4 extends React.Component {
     }
   }
 }
-export default Box4;
+export default Box5;

@@ -1,10 +1,10 @@
 import React from "react";
 
-import BackendUrl from "./urls";
-import Layout1 from "./Layout1";
-import Layout2 from "./Layout2";
-import Layout3 from "./Layout3";
-import Layout4 from "./Layout4";
+import BackendUrl from "../../urls";
+import Layout1 from "./Layouts/Layout1";
+import Layout2 from "./Layouts/Layout2";
+import Layout3 from "./Layouts/Layout3";
+import Layout4 from "./Layouts/Layout4";
 import Caro from "./Caro";
 var array = [];
 class Main extends React.Component {
@@ -102,7 +102,7 @@ class Main extends React.Component {
   render() {
     return (
       <>
-        {/* <div class="container">
+        <div class="container">
         <div class="row">
         <div class="col-lg-11">
         <input type="text" class="form-control" id="searchInput" style={{widht:"50%"}} onKeyUp={this.searchSuggestions}/>
@@ -129,8 +129,9 @@ class Main extends React.Component {
           ))
         }
           </div>
-        </div> */}
+        </div>
         <Caro />
+  
         <Layout1
           layout_num={1}
           search_input={this.state.search_input}

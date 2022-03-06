@@ -6,11 +6,13 @@ import ChatButton from "./ChatButton";
 import { Link, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 import PropTypes from "prop-types";
+import BackendUrl from "../../../urls";
 
 class DetailsBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      getting:[],
       price: "",
       product_id: "",
       product_name: "",
@@ -23,19 +25,12 @@ class DetailsBox extends Component {
       description: "",
     };
 
-    // this.state={
-    //   "description":"I have used this mobile phone for 10 month and now i am going to buy new Mobile phone thats why i want to sell this phone",
-    //   "price": "50000",
-    //   "product_id": "5655df4sf45sdf475ds4f5s4df",
-    //   "product_name": "RealMe5",
-    //   "product_type": "Mobile phone",
-    //   "seller_address": "Jalandhar, - 144701, Punjab, India",
-    //   "seller_id": "d54sf5d4f5s4d5f4s5d4f54",
-    //   "seller_name":"Ankit kumar",
-    //   "status":"2years",
-    //   "product_image":"cam1.jpg_1611440609709.jpg",
-    // }
+    // this.getData();
+    // this.getData = this.getData.bind(this);
+  
   }
+
+
 
   componentDidUpdate() {}
 
@@ -53,6 +48,7 @@ class DetailsBox extends Component {
         description: this.props.property.description,
         product_image: this.props.property.product_images,
       });
+
       // this.setState({
       //   "price": "50000",
       //   "product_id": "5655df4sf45sdf475ds4f5s4df",
@@ -66,6 +62,27 @@ class DetailsBox extends Component {
       // })
     }
   }
+  getData() {
+    var obj = {};
+    obj.search_id = this.state.prduct_id;
+    console.log(obj.search_input);
+    fetch(`${BackendUrl}/getData`, {
+      method: "post",
+      body: JSON.stringify({ obj }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        var meslen = json.mes.length;
+        // this.setState({getting:json.mes});
+        this.setState({ getting: json.mes });
+      });
+    return;
+  }
+
 
   render() {
     return (
