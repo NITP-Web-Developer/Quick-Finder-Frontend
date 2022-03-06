@@ -6,6 +6,7 @@ import Layout2 from "./Layouts/Layout2";
 import Layout3 from "./Layouts/Layout3";
 import Layout4 from "./Layouts/Layout4";
 import Caro from "./Caro";
+import { Link, Redirect } from "react-router-dom";
 var array = [];
 class Main extends React.Component {
   constructor(props) {
@@ -45,25 +46,26 @@ class Main extends React.Component {
     return;
   }
   getSuggestions(search_input) {
+    this.setState({search_input:search_input})
     if (search_input != "") {
       var obj = {};
       obj.search_input = search_input;
       console.log(obj.search_input);
-      fetch(`${BackendUrl}/filter`, {
-        method: "post",
-        body: JSON.stringify({ obj }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((json) => {
-          console.log(json.mes.length);
-          var meslen = json.mes.length;
-          // this.setState({getting:json.mes});
-          this.setState({ searchSuggestions: json.mes });
-        });
+      // fetch(`${BackendUrl}/filter`, {
+      //   method: "post",
+      //   body: JSON.stringify({ obj }),
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+        // .then((res) => res.json())
+        // .then((json) => {
+        //   console.log(json.mes.length);
+        //   var meslen = json.mes.length;
+        //   // this.setState({getting:json.mes});
+        //   this.setState({ searchSuggestions: json.mes });
+        // });
     } else {
       this.setState({ searchSuggestions: [] });
     }
@@ -108,11 +110,18 @@ class Main extends React.Component {
         <input type="text" class="form-control" id="searchInput" style={{widht:"50%"}} onKeyUp={this.searchSuggestions}/>
         </div>
         <div class="col-lg-1">
-        <button class="btn btn-dark" onClick={this.search}>Search</button>
+        <Link
+            to={{
+            pathname: "/QUICK_FINDER/search/?"+"item="+this.state.search_input}}                          
+            class="btn btn-dark"
+            >
+            Search
+        </Link>
+        {/* <button class="btn btn-dark" onClick={this.search}>Search</button> */}
         </div>
         </div>
-       
-        <div class="container">          
+              
+        {/* <div class="container">          
           {
           console.log(this.state.getting[0]?this.state.getting[0].product_name:"Loading"),
           array=this.state.first,
@@ -128,7 +137,7 @@ class Main extends React.Component {
             <tr><td>{ani.product_name}</td><td>{ani.product_type}</td></tr>
           ))
         }
-          </div>
+          </div> */}
         </div>
         <Caro />
   

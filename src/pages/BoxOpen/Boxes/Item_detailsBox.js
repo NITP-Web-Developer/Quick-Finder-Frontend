@@ -32,22 +32,22 @@ class DetailsBox extends Component {
 
 
 
-  componentDidUpdate() {}
+  // componentDidUpdate() {}
 
-  componentDidMount() {
-    if (this.props.property !== undefined) {
-      this.setState({
-        price: this.props.property.price,
-        product_id: this.props.property.product_id,
-        product_name: this.props.property.product_name,
-        product_type: this.props.property.product_type,
-        seller_address: this.props.property.seller_address,
-        seller_id: this.props.property.seller_id,
-        seller_name: this.props.property.seller_name,
-        status: this.props.property.status,
-        description: this.props.property.description,
-        product_image: this.props.property.product_images,
-      });
+  // componentDidMount() {
+  //   if (this.props.property !== undefined) {
+  //     this.setState({
+  //       price: this.props.property.price,
+  //       product_id: this.props.property.product_id,
+  //       product_name: this.props.property.product_name,
+  //       product_type: this.props.property.product_type,
+  //       seller_address: this.props.property.seller_address,
+  //       // seller_id: this.props.property.seller_id,
+  //       seller_name: this.props.property.seller_name,
+  //       status: this.props.property.status,
+  //       description: this.props.property.description,
+  //       product_image: this.props.property.product_images,
+  //     });
 
       // this.setState({
       //   "price": "50000",
@@ -60,8 +60,24 @@ class DetailsBox extends Component {
       //   "status":"2years",
       //   "product_image":"cam.jpg_1611433836065.jpg",
       // })
-    }
+  //   }
+  // }
+  static getDerivedStateFromProps(props, state) {
+    return {
+              price: props.property.price,
+        product_id: props.property.product_id,
+        product_name: props.property.product_name,
+        product_type: props.property.product_type,
+        seller_address: props.property.seller_address,
+        // seller_id: props.property.seller_id,
+        seller_name: props.property.seller_name,
+        status: props.property.status,
+        description: props.property.description,
+        product_image: props.property.product_images,
+
+    };
   }
+  
   getData() {
     var obj = {};
     obj.search_id = this.state.prduct_id;
@@ -85,11 +101,22 @@ class DetailsBox extends Component {
 
 
   render() {
-    return (
+    console.log(this.state.product_image)
+    if(!this.state.product_image){
+      return (
+        <div>
+        Loading....
+      </div>
+      );
+    }
+    else 
+    {
+      return (
       <div className="DetailsBox" id={this.state.product_id}>
+        
         <img
           className="Details_item"
-          src={this.state.product_image}
+          src={this.state.product_image[0]}
           alt="got"
         />
         <div className="Details_details">
@@ -128,17 +155,17 @@ class DetailsBox extends Component {
             <img className="Details_picl" src={process.env.PUBLIC_URL + "/realme7p.jpeg"} alt="got" /> */}
             <img
               className="Details_pic"
-              src={this.state.product_image}
+              src={this.state.product_image[0]}
               alt="got"
             />
             <img
               className="Details_pic"
-              src={this.state.product_image}
+              src={this.state.product_image[0]}
               alt="got"
             />
             <img
               className="Details_pic"
-              src={this.state.product_image}
+              src={this.state.product_image[0]}
               alt="got"
             />
           </div>
@@ -164,6 +191,7 @@ class DetailsBox extends Component {
         </div>
       </div>
     );
+    }
   }
 }
 

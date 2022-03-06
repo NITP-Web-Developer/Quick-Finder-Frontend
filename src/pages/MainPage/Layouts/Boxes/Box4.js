@@ -93,7 +93,7 @@ class Box4 extends React.Component {
                     {" "}
                     <Link
                       to={{
-                        pathname: "/QUICK_FINDER/Boxopen1/"+this.state.product_id,
+                        pathname: "/QUICK_FINDER/Boxopen1/?"+"id="+this.state.product_id,
                         state: {
                           product_name: this.state.product_name,
                           product_type: this.state.product_type,

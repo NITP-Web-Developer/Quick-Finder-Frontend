@@ -36,16 +36,6 @@ class Box1 extends React.Component {
     };
   }
 
-  // props :{
-  // product_name:{this.state.product_name},
-  // product_type:{this.state.product_type},
-  // status:{this.state.status},
-  // price:{this.state.price},
-  // product_id:{this.state.product_id},
-  // seller_name:{this.state.seller_name},
-  // seller_address:{this.state.seller_address},
-  // seller_id:{this.state.seller_id}
-
   render() {
     if (this.state.product_name == "") {
       return (
@@ -146,7 +136,7 @@ class Box1 extends React.Component {
                     <td colspan="2">
                       <Link
                         to={{
-                          pathname: "/QUICK_FINDER/Boxopen1/"+this.state.product_id,
+                          pathname: "/QUICK_FINDER/Boxopen1/?"+"id="+this.state.product_id,
                           state: {
                             product_name: this.state.product_name,
                             product_type: this.state.product_type,
