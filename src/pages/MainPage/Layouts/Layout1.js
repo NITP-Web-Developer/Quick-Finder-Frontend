@@ -35,54 +35,56 @@ const Layout1  = (props) =>{
   // render() {
     return (
       <>
-        {search_input}
-        <h4 style={{ textAlign: "center", marginTop: "30px" }}>
+              {search_input}
+        <h4 style={{ textAlign: "center", marginTop: "20px" }}>
           {" "}
           Buy Vehicle And Full fill Your Dreams
         </h4>
-        <div class="container-fluid" style={{ width: "100%" }}>
-          <div class="row">
-            <div class="col-lg-3 col-md-7 col-sm-7">
-              <Box1
-                search_input={search_input}
-                product_name={
-                  getting[i]
-                    ? getting[i].product_name
-                    : ""
-                }
-                product_images={
-                  getting[i]
-                    ? getting[i].product_images
-                    : ""
-                }
-                product_type={
-                  getting[i]
-                    ? getting[i].product_type
-                    : ""
-                }
-                status={
-                  getting[i]
-                    ? getting[i].status
-                    : ""
-                }
-                price={
-                  getting[i]
-                    ? getting[i].price
-                    : ""
-                }
-                product_id={
-                  getting[i]
-                    ? getting[i].product_id
-                    : ""
-                }
-                seller_id={
-                  getting[i]
-                    ? getting[i].seller_id
-                    : ""
-                }
-              />
 
-              <Box1
+        <div className="d-flex flex-row mb-3" style={{backgroundColor:'rgb(230,230,230)'}}>
+        <div className="p-2">
+          <Box1
+              search_input={search_input}
+              product_name={
+                getting[i]
+                  ? getting[i].product_name
+                  : ""
+              }
+              product_images={
+                getting[i]
+                  ? getting[i].product_images
+                  : ""
+              }
+              product_type={
+                getting[i]
+                  ? getting[i].product_type
+                  : ""
+              }
+              status={
+                getting[i]
+                  ? getting[i].status
+                  : ""
+              }
+              price={
+                getting[i]
+                  ? getting[i].price
+                  : ""
+              }
+              product_id={
+                getting[i]
+                  ? getting[i].product_id
+                  : ""
+              }
+              seller_id={
+                getting[i]
+                  ? getting[i].seller_id
+                  : ""
+              }       
+        
+          />          
+        </div>
+        
+        <div className="p-2">              <Box1
                 search_input={search_input}
                 product_name={
                   getting[i + 1]
@@ -120,9 +122,8 @@ const Layout1  = (props) =>{
                     : ""
                 }
               />
-            </div>
-            <div class="col-lg-3 col-md-5 col-sm-5">
-              <Box1
+</div>
+        <div className="p-2">                            <Box1
                 search_input={search_input}
                 product_name={
                   getting[i + 2]
@@ -165,249 +166,159 @@ const Layout1  = (props) =>{
                     : ""
                 }
               />
-                            <Box1
-                search_input={search_input}
-                product_name={
-                  getting[i + 2]
-                    ? getting[i + 2].product_name
-                    : ""
-                }
-                product_images={
-                  getting[i + 2]
-                    ? getting[i + 2].product_images
-                    : ""
-                }
-                product_type={
-                  getting[i + 2]
-                    ? getting[i + 2].product_type
-                    : ""
-                }
-                status={
-                  getting[i + 2]
-                    ? getting[i + 2].status
-                    : ""
-                }
-                price={
-                  getting[i + 2]
-                    ? getting[i + 2].price
-                    : "."
-                }
-                product_id={
-                  getting[i + 2]
-                    ? getting[i + 2].product_id
-                    : ""
-                }
-                description={
-                  getting[i + 2]
-                    ? getting[i + 2].description
-                    : ""
-                }
-                seller_id={
-                  getting[i + 2]
-                    ? getting[i + 2].seller_id
-                    : ""
-                }
-              />
-
-            </div>
-            <div class="col-lg-3 col-md-7 col-sm-7">
-              <Box1
-                search_input={search_input}
-                product_name={
-                  getting[i]
-                    ? getting[i].product_name
-                    : ""
-                }
-                product_images={
-                  getting[i]
-                    ? getting[i].product_images
-                    : ""
-                }
-                product_type={
-                  getting[i]
-                    ? getting[i].product_type
-                    : ""
-                }
-                status={
-                  getting[i]
-                    ? getting[i].status
-                    : ""
-                }
-                price={
-                  getting[i]
-                    ? getting[i].price
-                    : ""
-                }
-                product_id={
-                  getting[i]
-                    ? getting[i].product_id
-                    : ""
-                }
-                seller_id={
-                  getting[i]
-                    ? getting[i].seller_id
-                    : ""
-                }
-              />
-
-              <Box1
-                search_input={search_input}
-                product_name={
-                  getting[i + 1]
-                    ? getting[i + 1].product_name
-                    : ""
-                }
-                product_images={
-                  getting[i + 1]
-                    ? getting[i + 1].product_images
-                    : ""
-                }
-                product_type={
-                  getting[i + 1]
-                    ? getting[i + 1].product_type
-                    : ""
-                }
-                status={
-                  getting[i + 1]
-                    ? getting[i + 1].status
-                    : ""
-                }
-                price={
-                  getting[i + 1]
-                    ? getting[i + 1].price
-                    : ""
-                }
-                product_id={
-                  getting[i + 1]
-                    ? getting[i + 1].product_id
-                    : ""
-                }
-                seller_id={
-                  getting[i + 1]
-                    ? getting[i + 1].seller_id
-                    : ""
-                }
-              />
-            </div>
-            <div class="col-lg-3 col-md-5 col-sm-5">
-              <Box1
-                search_input={search_input}
-                product_name={
-                  getting[i + 2]
-                    ? getting[i + 2].product_name
-                    : ""
-                }
-                product_images={
-                  getting[i + 2]
-                    ? getting[i + 2].product_images
-                    : ""
-                }
-                product_type={
-                  getting[i + 2]
-                    ? getting[i + 2].product_type
-                    : ""
-                }
-                status={
-                  getting[i + 2]
-                    ? getting[i + 2].status
-                    : ""
-                }
-                price={
-                  getting[i + 2]
-                    ? getting[i + 2].price
-                    : "."
-                }
-                product_id={
-                  getting[i + 2]
-                    ? getting[i + 2].product_id
-                    : ""
-                }
-                description={
-                  getting[i + 2]
-                    ? getting[i + 2].description
-                    : ""
-                }
-                seller_id={
-                  getting[i + 2]
-                    ? getting[i + 2].seller_id
-                    : ""
-                }
-              />
-                            <Box1
-                search_input={search_input}
-                product_name={
-                  getting[i + 2]
-                    ? getting[i + 2].product_name
-                    : ""
-                }
-                product_images={
-                  getting[i + 2]
-                    ? getting[i + 2].product_images
-                    : ""
-                }
-                product_type={
-                  getting[i + 2]
-                    ? getting[i + 2].product_type
-                    : ""
-                }
-                status={
-                  getting[i + 2]
-                    ? getting[i + 2].status
-                    : ""
-                }
-                price={
-                  getting[i + 2]
-                    ? getting[i + 2].price
-                    : "."
-                }
-                product_id={
-                  getting[i + 2]
-                    ? getting[i + 2].product_id
-                    : ""
-                }
-                description={
-                  getting[i + 2]
-                    ? getting[i + 2].description
-                    : ""
-                }
-                seller_id={
-                  getting[i + 2]
-                    ? getting[i + 2].seller_id
-                    : ""
-                }
-              />
-
-            </div>
-
           </div>
-        </div>
-        <div class="container-fluid mt-3">
-          <table style={{ width: "100%" }}>
-            <tr>
-              <td style={{ textAlign: "center" }}>
-                <button
-                  class="btn"
-                  style={{
-                    backgroundColor: "#1C1A1A",
-                    color: "#FFF8F8",
-                    fontWeight: "700",
-                  }}
-                  onClick={toggleShow}
-                >
-                  More...
-                </button>
-              </td>
-            </tr>
-          </table>
-          <MDBCollapse show={showShow}>
-                  
-            <Layout5
-            layout_num={9}
-            getting={getting}
-          />
-          </MDBCollapse>
+          <div className="p-2">
+          <Box1
+                search_input={search_input}
+                product_name={
+                  getting[i + 2]
+                    ? getting[i + 2].product_name
+                    : ""
+                }
+                product_images={
+                  getting[i + 2]
+                    ? getting[i + 2].product_images
+                    : ""
+                }
+                product_type={
+                  getting[i + 2]
+                    ? getting[i + 2].product_type
+                    : ""
+                }
+                status={
+                  getting[i + 2]
+                    ? getting[i + 2].status
+                    : ""
+                }
+                price={
+                  getting[i + 2]
+                    ? getting[i + 2].price
+                    : "."
+                }
+                product_id={
+                  getting[i + 2]
+                    ? getting[i + 2].product_id
+                    : ""
+                }
+                description={
+                  getting[i + 2]
+                    ? getting[i + 2].description
+                    : ""
+                }
+                seller_id={
+                  getting[i + 2]
+                    ? getting[i + 2].seller_id
+                    : ""
+                }
+              />
 
-        </div>
+            </div>
+            <div className="p-2">
+            <Box1
+                search_input={search_input}
+                product_name={
+                  getting[i + 2]
+                    ? getting[i + 2].product_name
+                    : ""
+                }
+                product_images={
+                  getting[i + 2]
+                    ? getting[i + 2].product_images
+                    : ""
+                }
+                product_type={
+                  getting[i + 2]
+                    ? getting[i + 2].product_type
+                    : ""
+                }
+                status={
+                  getting[i + 2]
+                    ? getting[i + 2].status
+                    : ""
+                }
+                price={
+                  getting[i + 2]
+                    ? getting[i + 2].price
+                    : "."
+                }
+                product_id={
+                  getting[i + 2]
+                    ? getting[i + 2].product_id
+                    : ""
+                }
+                description={
+                  getting[i + 2]
+                    ? getting[i + 2].description
+                    : ""
+                }
+                seller_id={
+                  getting[i + 2]
+                    ? getting[i + 2].seller_id
+                    : ""
+                }
+              />
+
+              </div>
+              <div className="p-2">
+            <Box1
+                search_input={search_input}
+                product_name={
+                  getting[i + 2]
+                    ? getting[i + 2].product_name
+                    : ""
+                }
+                product_images={
+                  getting[i + 2]
+                    ? getting[i + 2].product_images
+                    : ""
+                }
+                product_type={
+                  getting[i + 2]
+                    ? getting[i + 2].product_type
+                    : ""
+                }
+                status={
+                  getting[i + 2]
+                    ? getting[i + 2].status
+                    : ""
+                }
+                price={
+                  getting[i + 2]
+                    ? getting[i + 2].price
+                    : "."
+                }
+                product_id={
+                  getting[i + 2]
+                    ? getting[i + 2].product_id
+                    : ""
+                }
+                description={
+                  getting[i + 2]
+                    ? getting[i + 2].description
+                    : ""
+                }
+                seller_id={
+                  getting[i + 2]
+                    ? getting[i + 2].seller_id
+                    : ""
+                }
+              />
+
+              </div>
+
+      </div>
+          
+              <MDBBtn color='link'style={{outline:'none'}} onClick={toggleShow}>
+                See More
+                </MDBBtn>
+                <MDBCollapse show={showShow}>
+                  
+                  <Layout5
+                  layout_num={9}
+                  getting={getting}
+                />
+                </MDBCollapse>
+      
       </>
     );
   

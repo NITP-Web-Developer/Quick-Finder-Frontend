@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import Loader from "../../../Loader/Loader"
-import { MDBCollapse, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBCollapse, MDBBtn,MDBCardImage,MDBCardBody,MDBCardText,MDBCard } from 'mdb-react-ui-kit';
 const Box1  = (props) =>{
   const [showShow, setShowShow] = useState(false);
   const toggleShow = () => setShowShow(!showShow);
@@ -26,15 +26,9 @@ const Box1  = (props) =>{
 
   if (product_name == "") {
       return (
-        <div
-          class="container m-2 p-3"
-          style={{
-            boxShadow: "0 5px 10px rgb(0,0,0,0.05)",
-            height: "250px",
-            padding: "0px",
-            backgroundColor: "white",
-          }}
-        >
+        
+        <MDBCard style={{ width: '14.8rem',height:'220px' }}>
+            
         <Loader/>
 {/* 
           <div
@@ -48,117 +42,24 @@ const Box1  = (props) =>{
           >
             
             </div> */}
-        </div>
+        </MDBCard>
       );
     } else {
   
       return (
         <>
-          <div
-            class="container m-2 p-3"
-            style={{
-              boxShadow: "0 5px 10px rgb(0,0,0,0.05)",
-              height: "49%",
-              padding: "0px",
-              marginBottom:"13px",
-              backgroundColor: "white",
-            }}
-          >
-            <div class="row" style={{ height: "100%" }}>
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <img
-                  style={{ width: "100%", height: "100%" }}
-                  src={product_images}
-                ></img>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-6 pt-3">
-                <table style={{ textAlign: "center", margin: "auto" }}>
-                  <tr>
-                    <td
-                      colspan="2"
-                      style={{
-                        fontWeight: "700",
-                        color: "#707070",
-                        fontSize: "16px",
-                      }}
-                    >
-                      {product_name}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      colspan="2"
-                      style={{ fontWeight: "500", color: "#707070" }}
-                    >
-                      {product_type}
-                    </td>
-                  </tr>
-                  {/* <tr>
-                    <td
-                      colspan="2"
-                      style={{ fontWeight: "400", color: "#707070" }}
-                    >
-                      {seller_id}
-                    </td>
-                  </tr> */}
-                  {/* <tr>
-                    <td
-                      style={{
-                        fontWeight: "400",
-                        color: "#928D3D",
-                        fontWeight: "700",
-                        fontSize: "17px",
-                      }}
-                    >
-                      {price}
-                    </td>
-                    <td
-                      style={{
-                        fontWeight: "400",
-                        color: "#2E7F8F",
-                        fontWeight: "600",
-                        fontSize: "17px",
-                      }}
-                    >
-                      {status}
-                    </td>
-                  </tr> */}
-                  <br />
+          <Link to={{ pathname: "/QUICK_FINDER/Boxopen1/?"+"id="+product_id,}}>
+            <MDBCard style={{ width: '14.8rem', }}>
+             <MDBCardImage style={{height:'180px'}} src={product_images} alt='...' position='top' />
+              <MDBCardBody>
+                <MDBCardText style={{fontWeight:'500'}}>
+                  {product_name}  
+                </MDBCardText>
+              </MDBCardBody>
+            </MDBCard>
 
-                  <tr>
-                    <td colspan="2">
-                      <Link
-                        to={{
-                          pathname: "/QUICK_FINDER/Boxopen1/?"+"id="+product_id,
-                          state: {
-                            product_name: product_name,
-                            product_type: product_type,
-                            status: status,
-                            price: price,
-                            product_id: product_id,
-                            seller_name: seller_name,
-                            seller_address: seller_address,
-                            seller_id: seller_id,
-                            product_images: product_images,
-                          },
-                        }}
-                        class="btn"
-                        style={{
-                          backgroundColor: "#1C1A1A",
-                          color: "#FFF8F8",
-                          fontWeight: "400",
-                          fontSize:"16px"
-                        }}
-                      >
-                        Explore
-                      </Link>
-                    </td>
-                  </tr>
-                </table>
+    </Link>
 
-              </div>
-            </div>
-          </div>
         </>
       );
   
