@@ -32,10 +32,10 @@ class Caro extends React.Component{
       style={{width:'100%',objectFit:'cover',height:'500px', objectPosition: "25% 10%"}}
       alt="First slide"
     />
-    <Carousel.Caption>
+    {/* <Carousel.Caption>
       <h3>Home Furniture</h3>
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
+    </Carousel.Caption> */}
   </Carousel.Item>
   <Carousel.Item>
     <img
@@ -45,10 +45,10 @@ class Caro extends React.Component{
       alt="Third slide"
     />
 
-    <Carousel.Caption>
+    {/* <Carousel.Caption>
       <h3>Second slide label</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
+    </Carousel.Caption> */}
   </Carousel.Item>
 </Carousel>
 </div>
