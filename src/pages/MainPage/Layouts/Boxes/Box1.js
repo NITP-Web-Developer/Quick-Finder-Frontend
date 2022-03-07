@@ -8,7 +8,7 @@ const Box1  = (props) =>{
   const toggleShow = () => setShowShow(!showShow);
   const [product_name,setProduct_name]= useState(props.product_name)
   const [product_images,setProduct_images]= useState(props.product_images)
-  const [product_type,setProduct_tproduct_type]= useState(props.product_type)
+  const [product_type,setProduct_type]= useState(props.product_type)
   const [status,setstatus]= useState(props.status)
   const [price,setProduct_price]= useState(props.product_price)
   const [seller_name,setseller_name]= useState(props.seller_name)
@@ -21,6 +21,9 @@ const Box1  = (props) =>{
   useEffect(() => {setProduct_name(props.product_name); }, [props.product_name]);  
   useEffect(() => {setProduct_images(props.product_images); }, [props.product_images]);  
   useEffect(() => {setProduct_id(props.product_id); }, [props.product_id]);  
+  useEffect(() => {setProduct_type(props.product_type); }, [props.product_type]);  
+  // useEffect(() => {setstatus(props.status); }, [props.status]);
+
   if (product_name == "") {
       return (
         <div
@@ -76,7 +79,7 @@ const Box1  = (props) =>{
                       style={{
                         fontWeight: "700",
                         color: "#707070",
-                        fontSize: "20px",
+                        fontSize: "16px",
                       }}
                     >
                       {product_name}
@@ -98,7 +101,7 @@ const Box1  = (props) =>{
                       {seller_id}
                     </td>
                   </tr> */}
-                  <tr>
+                  {/* <tr>
                     <td
                       style={{
                         fontWeight: "400",
@@ -119,7 +122,7 @@ const Box1  = (props) =>{
                     >
                       {status}
                     </td>
-                  </tr>
+                  </tr> */}
                   <br />
 
                   <tr>
@@ -143,7 +146,8 @@ const Box1  = (props) =>{
                         style={{
                           backgroundColor: "#1C1A1A",
                           color: "#FFF8F8",
-                          fontWeight: "700",
+                          fontWeight: "400",
+                          fontSize:"16px"
                         }}
                       >
                         Explore

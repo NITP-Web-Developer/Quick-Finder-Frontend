@@ -105,21 +105,6 @@ class Main extends React.Component {
     return (
       <>
         <div class="container">
-        <div class="row">
-        <div class="col-lg-11">
-        <input type="text" class="form-control" id="searchInput" style={{widht:"50%"}} onKeyUp={this.searchSuggestions}/>
-        </div>
-        <div class="col-lg-1">
-        <Link
-            to={{
-            pathname: "/QUICK_FINDER/search/?"+"item="+this.state.search_input}}                          
-            class="btn btn-dark"
-            >
-            Search
-        </Link>
-        {/* <button class="btn btn-dark" onClick={this.search}>Search</button> */}
-        </div>
-        </div>
               
         {/* <div class="container">          
           {
@@ -146,7 +131,7 @@ class Main extends React.Component {
           search_input={this.state.search_input}
           getting={this.state.getting}
         />
-        <Layout2
+        <Layout1
           layout_num={3}
           search_input={this.state.search_input}
           getting={this.state.getting}
@@ -156,7 +141,7 @@ class Main extends React.Component {
           search_input={this.state.search_input}
           getting={this.state.getting}
         />
-        <Layout2
+        <Layout1
           layout_num={9}
           search_input={this.state.search_input}
           getting={this.state.getting}

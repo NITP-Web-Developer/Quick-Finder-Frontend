@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import Dia from "./dialog"
-import Head from "./head"
+import Head from "./pages/NavPage/head"
 import App from "./pages/App"
 import "./index.css"
 
