@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import "./Signup.css";
+import "../SignupPage/Signup.css";
 import { Redirect } from "react-router-dom";
-import BackendUrl from "./urls";
+import BackendUrl from "../../urls";
 
 class Sell extends React.Component {
   constructor(props) {

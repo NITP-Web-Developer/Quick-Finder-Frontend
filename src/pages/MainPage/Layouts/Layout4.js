@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Box1 from "./Box1";
-import Box2 from "./Box2";
-import Box3 from "./Box3";
-import Box4 from "./Box4";
-import Box5 from "./Box5";
-class Layout3 extends React.Component {
+import Box1 from "./Boxes/Box1";
+import Box2 from "./Boxes/Box2";
+import Box3 from "./Boxes/Box3";
+import Box4 from "./Boxes/Box4";
+import Box5 from "./Boxes/Box5";
+import Box6 from "./Boxes/Box6";
+
+class Layout4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +22,6 @@ class Layout3 extends React.Component {
       i: props.layout_num,
     };
   }
-
   render() {
     return (
       <>
@@ -30,8 +31,8 @@ class Layout3 extends React.Component {
         </h4>
         <div class="container-fluid" style={{ width: "82%" }}>
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 ">
-              <Box3
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <Box6
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i]
@@ -63,18 +64,15 @@ class Layout3 extends React.Component {
                     ? this.state.getting[this.state.i].product_id
                     : ""
                 }
-                description={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].description
-                    : ""
-                }
                 seller_id={
                   this.state.getting[this.state.i]
                     ? this.state.getting[this.state.i].seller_id
                     : ""
                 }
               />
-              <Box3
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <Box6
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i + 1]
@@ -106,11 +104,6 @@ class Layout3 extends React.Component {
                     ? this.state.getting[this.state.i + 1].product_id
                     : ""
                 }
-                description={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].description
-                    : ""
-                }
                 seller_id={
                   this.state.getting[this.state.i + 1]
                     ? this.state.getting[this.state.i + 1].seller_id
@@ -118,8 +111,8 @@ class Layout3 extends React.Component {
                 }
               />
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-5">
-              <Box4
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <Box6
                 search_input={this.state.search_input}
                 product_name={
                   this.state.getting[this.state.i + 2]
@@ -168,137 +161,6 @@ class Layout3 extends React.Component {
                 }
               />
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <Box5
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].seller_id
-                    : ""
-                }
-              />
-              <Box5
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i + 4 + 3]
-                    ? this.state.getting[this.state.i + 4 + 3].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i + 4 + 3]
-                    ? this.state.getting[this.state.i + 4 + 3].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].seller_id
-                    : ""
-                }
-              />
-              <Box5
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].seller_id
-                    : ""
-                }
-              />
-            </div>
           </div>
         </div>
         <div class="container">
@@ -323,4 +185,4 @@ class Layout3 extends React.Component {
     );
   }
 }
-export default Layout3;
+export default Layout4;
