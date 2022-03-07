@@ -8,7 +8,7 @@ import Box5 from "./Boxes/Box5";
 import Box6 from "./Boxes/Box6";
 import { Link } from "react-router-dom";
 import { MDBCollapse, MDBBtn } from 'mdb-react-ui-kit';
-
+import Layout5 from './Layout5'
 const Layout1  = (props) =>{
   const [showShow, setShowShow] = useState(false);
   const toggleShow = () => setShowShow(!showShow);
@@ -42,7 +42,7 @@ const Layout1  = (props) =>{
         </h4>
         <div class="container-fluid" style={{ width: "100%" }}>
           <div class="row">
-            <div class="col-lg-4 col-md-7 col-sm-7">
+            <div class="col-lg-3 col-md-7 col-sm-7">
               <Box1
                 search_input={search_input}
                 product_name={
@@ -121,8 +121,8 @@ const Layout1  = (props) =>{
                 }
               />
             </div>
-            <div class="col-lg-4 col-md-5 col-sm-5">
-              <Box2
+            <div class="col-lg-3 col-md-5 col-sm-5">
+              <Box1
                 search_input={search_input}
                 product_name={
                   getting[i + 2]
@@ -165,8 +165,52 @@ const Layout1  = (props) =>{
                     : ""
                 }
               />
+                            <Box1
+                search_input={search_input}
+                product_name={
+                  getting[i + 2]
+                    ? getting[i + 2].product_name
+                    : ""
+                }
+                product_images={
+                  getting[i + 2]
+                    ? getting[i + 2].product_images
+                    : ""
+                }
+                product_type={
+                  getting[i + 2]
+                    ? getting[i + 2].product_type
+                    : ""
+                }
+                status={
+                  getting[i + 2]
+                    ? getting[i + 2].status
+                    : ""
+                }
+                price={
+                  getting[i + 2]
+                    ? getting[i + 2].price
+                    : "."
+                }
+                product_id={
+                  getting[i + 2]
+                    ? getting[i + 2].product_id
+                    : ""
+                }
+                description={
+                  getting[i + 2]
+                    ? getting[i + 2].description
+                    : ""
+                }
+                seller_id={
+                  getting[i + 2]
+                    ? getting[i + 2].seller_id
+                    : ""
+                }
+              />
+
             </div>
-            <div class="col-lg-4 col-md-7 col-sm-7">
+            <div class="col-lg-3 col-md-7 col-sm-7">
               <Box1
                 search_input={search_input}
                 product_name={
@@ -245,10 +289,99 @@ const Layout1  = (props) =>{
                 }
               />
             </div>
-            
+            <div class="col-lg-3 col-md-5 col-sm-5">
+              <Box1
+                search_input={search_input}
+                product_name={
+                  getting[i + 2]
+                    ? getting[i + 2].product_name
+                    : ""
+                }
+                product_images={
+                  getting[i + 2]
+                    ? getting[i + 2].product_images
+                    : ""
+                }
+                product_type={
+                  getting[i + 2]
+                    ? getting[i + 2].product_type
+                    : ""
+                }
+                status={
+                  getting[i + 2]
+                    ? getting[i + 2].status
+                    : ""
+                }
+                price={
+                  getting[i + 2]
+                    ? getting[i + 2].price
+                    : "."
+                }
+                product_id={
+                  getting[i + 2]
+                    ? getting[i + 2].product_id
+                    : ""
+                }
+                description={
+                  getting[i + 2]
+                    ? getting[i + 2].description
+                    : ""
+                }
+                seller_id={
+                  getting[i + 2]
+                    ? getting[i + 2].seller_id
+                    : ""
+                }
+              />
+                            <Box1
+                search_input={search_input}
+                product_name={
+                  getting[i + 2]
+                    ? getting[i + 2].product_name
+                    : ""
+                }
+                product_images={
+                  getting[i + 2]
+                    ? getting[i + 2].product_images
+                    : ""
+                }
+                product_type={
+                  getting[i + 2]
+                    ? getting[i + 2].product_type
+                    : ""
+                }
+                status={
+                  getting[i + 2]
+                    ? getting[i + 2].status
+                    : ""
+                }
+                price={
+                  getting[i + 2]
+                    ? getting[i + 2].price
+                    : "."
+                }
+                product_id={
+                  getting[i + 2]
+                    ? getting[i + 2].product_id
+                    : ""
+                }
+                description={
+                  getting[i + 2]
+                    ? getting[i + 2].description
+                    : ""
+                }
+                seller_id={
+                  getting[i + 2]
+                    ? getting[i + 2].seller_id
+                    : ""
+                }
+              />
+
+            </div>
+
           </div>
         </div>
-        <div class="container mt-3">
+        <div class="container-fluid mt-3">
           <table style={{ width: "100%" }}>
             <tr>
               <td style={{ textAlign: "center" }}>
@@ -267,9 +400,12 @@ const Layout1  = (props) =>{
             </tr>
           </table>
           <MDBCollapse show={showShow}>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim
-        keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-      </MDBCollapse>
+                  
+            <Layout5
+            layout_num={9}
+            getting={getting}
+          />
+          </MDBCollapse>
 
         </div>
       </>

@@ -81,7 +81,7 @@ class Box1 extends React.Component {
                       style={{
                         fontWeight: "700",
                         color: "#707070",
-                        fontSize: "20px",
+                        fontSize: "16px",
                       }}
                     >
                       {this.state.product_name}
@@ -148,7 +148,8 @@ class Box1 extends React.Component {
                         style={{
                           backgroundColor: "#1C1A1A",
                           color: "#FFF8F8",
-                          fontWeight: "700",
+                          fontWeight: "400",
+                          fontSize:"16px"
                         }}
                       >
                         Explore

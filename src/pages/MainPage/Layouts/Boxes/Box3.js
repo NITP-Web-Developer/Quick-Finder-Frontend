@@ -63,11 +63,9 @@ class Box3 extends React.Component {
       return (
         <>
           <div
-            class="container m-2"
+            class="container m-2 p-2"
             style={{
               boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-              height: "330px",
-              padding: "0px",
               backgroundColor: "white",
             }}
           >
@@ -76,7 +74,7 @@ class Box3 extends React.Component {
                 style={{
                   width: "100%",
                   objectFit: "cover",
-                  height: "250px",
+                  height: "150px",
                   objectPosition: "25% 10%",
                 }}
                 src={this.state.product_images}
@@ -89,7 +87,7 @@ class Box3 extends React.Component {
                     style={{
                       fontWeight: "700",
                       color: "#3E3B3B",
-                      fontSize: "20px",
+                      fontSize: "15px",
                     }}
                   >
                     {this.state.product_name}
@@ -115,11 +113,12 @@ class Box3 extends React.Component {
                       style={{
                         backgroundColor: "#1C1A1A",
                         color: "#FFF8F8",
-                        fontWeight: "700",
+                        fontWeight: "500",
                       }}
                     >
                       Explore{" "}
                     </Link>
+                    
                   </td>
                 </tr>
               </table>
