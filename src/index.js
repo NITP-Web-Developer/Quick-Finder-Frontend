@@ -4,7 +4,7 @@ import Dia from "./dialog"
 import Head from "./pages/NavPage/head"
 import App from "./pages/App"
 import "./index.css"
-
+import Footer from "./pages/FooterPage/Footer"
 import {BrowserRouter,Route,Switch} from "react-router-dom"
 // import Boxopen1 from './Boxopen1';
 
@@ -12,6 +12,7 @@ ReactDOM.render( <>
   <BrowserRouter>
   <Head />
   <App/>
+  <Footer/>
   </BrowserRouter>
   </>,
   document.getElementById('root')
