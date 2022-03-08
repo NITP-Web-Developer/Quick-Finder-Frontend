@@ -11,8 +11,10 @@ import {
   MDBNavbarToggler,
   MDBNavbarBrand,
   MDBCollapse,
+  MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem, MDBDropdownLink,
   MDBBadge
 } from 'mdb-react-ui-kit';
+
 const Head =() =>{
   const [showNavColor, setShowNavColor] = useState(false);
   const [showNavColorSecond, setShowNavColorSecond] = useState(false);
@@ -85,19 +87,35 @@ const Head =() =>{
                 </MDBNavbarLink>
                </MDBNavbarItem>
 
-               <MDBNavbarItem>
-                <MDBNavbarLink href='/QUICK_FINDER/profile'>
-                  <span>
-                    <MDBIcon fa icon='user'></MDBIcon>
-                  </span>   
-                </MDBNavbarLink>
-                </MDBNavbarItem>
+               <MDBNavbarItem >
 
+                </MDBNavbarItem>
+            
 
               </MDBNavbarNav>
+              <MDBDropdown group className='shadow-0'>
+                 
+                 <MDBDropdownToggle color='light' className='max-w-4'>      
+                      k                 
+                    {/* <MDBIcon fa icon='user'></MDBIcon> */}
+                  </MDBDropdownToggle>
+
+                <MDBDropdownMenu>
+                  <MDBDropdownItem>
+                    <MDBDropdownLink href="#">Action</MDBDropdownLink>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem>
+                    <MDBDropdownLink href="#">Another action</MDBDropdownLink>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem>
+                    <MDBDropdownLink href="#">Something else here</MDBDropdownLink>
+                  </MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
 
 
             </MDBCollapse>
+
           </MDBContainer>
         </MDBNavbar>
         </>

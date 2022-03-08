@@ -36,10 +36,12 @@ const Layout1  = (props) =>{
     return (
       <>
               {search_input}
-        <h4 style={{ textAlign: "center", marginTop: "20px" }}>
+        <div style={{backgroundColor:"rgb(230,230,230)",paddingTop:"10px",marginTop:"15px"}}>
+        <h5 style={{ textAlign: "center"}}>
           {" "}
           Buy Vehicle And Full fill Your Dreams
-        </h4>
+        </h5>
+        <hr></hr>
 
         <div className="d-flex flex-wrap flex-row mb-3 justify-content-center " style={{backgroundColor:'rgb(230,230,230)'}}>
         <div className="p-2">
@@ -307,10 +309,12 @@ const Layout1  = (props) =>{
               </div>
 
       </div>
-          
-              <MDBBtn color='link'style={{outline:'none'}} onClick={toggleShow}>
+      </div>
+
+              <button type="button" class="btn btn-link" onClick={toggleShow}>
                 See More
-                </MDBBtn>
+              </button>
+
                 <MDBCollapse show={showShow}>
                   
                   <Layout5
