@@ -17,30 +17,17 @@ const Layout5  = (props) =>{
   const [i, seti] = useState(props.layout_num);
   useEffect(() => {seti(props.layout_num); }, [props.layout_num]);  
   useEffect(() => {setgetting(props.getting); }, [props.getting]);  
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     getting: [],
-  //     search_input: "",
-  //     i: 0,
-  //   };
-  // }
-  // static getDerivedStateFromProps(props, state) {
-  //   return {
-  //     getting: props.getting,
-  //     i: props.layout_num,
-  //   };
-  // }
-  // render() {
     return (
       <>
               {search_input}
-        <h4 style={{ textAlign: "center", marginTop: "20px" }}>
+        <div style={{backgroundColor:"rgb(230,230,230)",paddingTop:"10px",marginTop:"15px"}}>
+        <h5 style={{ textAlign: "center"}}>
           {" "}
           Buy Vehicle And Full fill Your Dreams
-        </h4>
+        </h5>
+        <hr style={{margin:'5px'}}></hr>
 
-        <div className="d-flex flex-row mb-3" style={{backgroundColor:'rgb(230,230,230)'}}>
+        <div className="d-flex flex-wrap flex-row mb-3 justify-content-center " style={{backgroundColor:'rgb(230,230,230)'}}>
         <div className="p-2">
           <Box1
               search_input={search_input}
@@ -306,7 +293,9 @@ const Layout5  = (props) =>{
               </div>
 
       </div>
+      </div>
 
+      
       </>
     );
   

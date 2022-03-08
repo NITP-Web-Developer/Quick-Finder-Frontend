@@ -14,6 +14,7 @@ import ABCBB from "../HomeComponents/abcbb";
 import Checkout from "../checkout/checkout";
 import ItemStatus from "../HomeComponents/ItemStatus";
 import SearchPage from "./SearchPage/SearchPage";
+import DashBoard from "./DashboardPage/DashboardPage";
 const App = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const App = () => {
         {/* <Route exact path='/QUICK_FINDER/' component={Profile}/> */}
         {/* <Route exact path="/QUICK_FINDER/chat" component={ChatBox} /> */}
         <Route exact path="/QUICK_FINDER/" component={Main} />
+        <Route path="/QUICK_FINDER/dashboard" component={DashBoard} />
         <Route path="/QUICK_FINDER/profile" component={Profile} />
         <Route path="/QUICK_FINDER/login" component={Login} />
         <Route path="/QUICK_FINDER/Boxopen1" component={Boxopen1} />

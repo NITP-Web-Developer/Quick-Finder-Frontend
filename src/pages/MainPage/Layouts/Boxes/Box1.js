@@ -26,7 +26,7 @@ const Box1  = (props) =>{
 
   if (product_name == "") {
       return (      
-        <MDBCard style={{ width: '14.8rem',height:'220px' }}>            
+        <MDBCard style={{ width: '14rem',height:'220px' }}>            
           <Loader/>
         </MDBCard>
       );
@@ -35,7 +35,7 @@ const Box1  = (props) =>{
       return (
         <>
           <Link to={{ pathname: "/QUICK_FINDER/Boxopen1/?"+"id="+product_id,}}>
-            <MDBCard style={{ width: '14.8rem', }}>
+            <MDBCard style={{ width: '14.5rem', }} >
              <MDBCardImage style={{height:'180px'}} src={product_images} alt='...' position='top' />
               <MDBCardBody>
                 <MDBCardText style={{fontWeight:'500',textAlign:'center'}}>
