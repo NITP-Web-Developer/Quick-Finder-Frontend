@@ -41,7 +41,7 @@ const Layout1  = (props) =>{
           {" "}
           Buy Vehicle And Full fill Your Dreams
         </h5>
-        <hr></hr>
+        <hr style={{margin:'5px'}}></hr>
 
         <div className="d-flex flex-wrap flex-row mb-3 justify-content-center " style={{backgroundColor:'rgb(230,230,230)'}}>
         <div className="p-2">
