@@ -41,7 +41,7 @@ const Layout1  = (props) =>{
           Buy Vehicle And Full fill Your Dreams
         </h4>
 
-        <div className="d-flex flex-row mb-3" style={{backgroundColor:'rgb(230,230,230)'}}>
+        <div className="d-flex flex-wrap flex-row mb-3 justify-content-center " style={{backgroundColor:'rgb(230,230,230)'}}>
         <div className="p-2">
           <Box1
               search_input={search_input}

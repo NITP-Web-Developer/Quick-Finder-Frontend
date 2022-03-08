@@ -25,23 +25,9 @@ const Box1  = (props) =>{
   // useEffect(() => {setstatus(props.status); }, [props.status]);
 
   if (product_name == "") {
-      return (
-        
-        <MDBCard style={{ width: '14.8rem',height:'220px' }}>
-            
-        <Loader/>
-{/* 
-          <div
-            class="spinner-border text-muted"
-            style={{
-              width: "3rem",
-              height: "3rem",
-              marginLeft: "45%",
-              marginTop: "20%",
-            }}
-          >
-            
-            </div> */}
+      return (      
+        <MDBCard style={{ width: '14.8rem',height:'220px' }}>            
+          <Loader/>
         </MDBCard>
       );
     } else {
@@ -52,7 +38,7 @@ const Box1  = (props) =>{
             <MDBCard style={{ width: '14.8rem', }}>
              <MDBCardImage style={{height:'180px'}} src={product_images} alt='...' position='top' />
               <MDBCardBody>
-                <MDBCardText style={{fontWeight:'500'}}>
+                <MDBCardText style={{fontWeight:'500',textAlign:'center'}}>
                   {product_name}  
                 </MDBCardText>
               </MDBCardBody>
