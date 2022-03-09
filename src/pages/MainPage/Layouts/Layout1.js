@@ -18,21 +18,6 @@ const Layout1  = (props) =>{
   const [i, seti] = useState(props.layout_num);
   useEffect(() => {seti(props.layout_num); }, [props.layout_num]);  
   useEffect(() => {setgetting(props.getting); }, [props.getting]);  
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     getting: [],
-  //     search_input: "",
-  //     i: 0,
-  //   };
-  // }
-  // static getDerivedStateFromProps(props, state) {
-  //   return {
-  //     getting: props.getting,
-  //     i: props.layout_num,
-  //   };
-  // }
-  // render() {
     return (
       <>
               {search_input}
