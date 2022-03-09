@@ -62,6 +62,7 @@ class ItemSellBar extends Component {
     if (this.state.isLoaded == true) {
       return (
         <>
+        
           <div className="itembar">
             <div className="itemcompo">{this.state.ProductId}</div>
             <div className="itemcompo" style={{ overflow: "hidden" }}>

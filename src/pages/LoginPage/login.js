@@ -4,6 +4,16 @@ import Profile from "../ProfilePage/Profile";
 import BackendUrl from "../../urls";
 import { Link, Redirect } from "react-router-dom";
 import NotRegistered from "../../Alerts/notRegistered";
+import {
+  MDBInput,
+  MDBCol,
+  MDBRow,
+  MDBCheckbox,
+  MDBBtn,
+  MDBIcon
+} from 'mdb-react-ui-kit';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdb-react-ui-kit';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -96,108 +106,64 @@ class Login extends React.Component {
     const isLoggedIn = this.state.isLoggedIn;
     const usern = this.state.usern;
     if (isLoggedIn) {
-      return <Redirect to="/Quick_Finder/" />;
+      return <Redirect to="/" />;
     } else {
       if (!sessionStorage.username) {
         return (
           <>
-            <div
-              class="container"
-              style={{
-                padding: "0px",
-                width: "80%",
-                height: "500px",
-                marginLeft: "10%",
-                boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-                backgroundColor: "white",
-              }}
-            >
-              <div class="row">
-                <div class="col-lg-8">
-                  <img
-                    src={require("./loginpic.jpg").default}
-                    style={{
-                      width: "100%",
-                      objectFit: "cover",
-                      height: "500px",
-                      objectPosition: "25% 10%",
-                    }}
-                  />
-                </div>
-                <div class="col-lg-4">
-                  <div
-                    class="container"
-                    style={{ height: "400px", marginTop: "50px" }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "arial",
-                        fontWeight: "600",
-                        fontSize: "20px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: "arial",
-                          color: "#6A6666",
-                          fontWeight: "700",
-                        }}
-                      >
-                        Welcome to
-                      </span>{" "}
-                      Quick Finder
-                    </div>
-                    <div style={{ fontFamily: "arial", color: "#8E8E8E" }}>
-                      We make easy to buy in low cost.
-                    </div>
+                <div className="d-flex flex-wrap flex-row  justify-content-center mb-5 mt-4" >
+                <MDBCard style={{ maxWidth: '22rem' ,width:'350px'}} >
+                <MDBCardBody>
+                <MDBCardTitle>Sign in</MDBCardTitle>
+                <form onSubmit={this.submitHandler}>
+                Email Address
+                <MDBInput name="username" value={this.state.username} onChange={this.handleChange} className='mb-4' type='email' id='form2Example1' />
+                Password
+                <MDBInput className='mb-4' type='password' name="password" value={this.state.password} onChange={this.handleChange} id='form2Example2' />
 
-                    <form
-                      style={{ marginTop: "30px" }}
-                      onSubmit={this.submitHandler}
-                    >
-                      <div class="form-group">
-                        <label for="username">Username</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="username"
-                          value={this.state.username}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                      <div class="form-group">
-                        <label for="pwd">Password</label>
-                        <input
-                          type="password"
-                          class="form-control"
-                          name="password"
-                          value={this.state.password}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-                      <div class="row">
-                        <div class="col-lg-6">
-                          <input
-                            type="submit"
-                            class="btn btn-default"
-                            value="Login"
-                            id="login"
-                          />
-                        </div>
-                        <div class="col-lg-6">
-                          <Link
-                            to="/QUICK_FINDER/signup"
-                            class="btn btn-default"
-                            id="signup"
+                <MDBRow className='mb-4'>
+                  <MDBCol className='d-flex justify-content-center'>
+                    <MDBCheckbox id='form2Example3' label='Remember me' defaultChecked />
+                  </MDBCol>
+                  <MDBCol>
+                    <a href='#!'>Forgot password?</a>
+                  </MDBCol>
+                </MDBRow>
+                <button type="submit" class="btn btn-primary btn-lg btn-block p-1">
+                  Sign in
+                </button>
+
+                <div className='text-center'>
+                  <p>
+                    Not a member?  
+                    <Link
+                            to="/signup"
                           >
-                            Create Profile
+                            Register
                           </Link>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                  </p>
+                  <p>or sign up with:</p>
+
+                  <MDBBtn floating className='mx-1'>
+                    <MDBIcon fa icon='facebook-f' />
+                  </MDBBtn>
+
+                  <MDBBtn floating className='mx-1'>
+                    <MDBIcon fa icon='google' />
+                  </MDBBtn>
+
+                  <MDBBtn floating className='mx-1'>
+                    <MDBIcon fa icon='twitter' />
+                  </MDBBtn>
+
+                  <MDBBtn floating className='mx-1'>
+                    <MDBIcon fa icon='github' />
+                  </MDBBtn>
                 </div>
-              </div>
+              </form>
+
+                  </MDBCardBody>
+              </MDBCard>
               {this.state.registered ? null : <NotRegistered />}
             </div>
           </>
