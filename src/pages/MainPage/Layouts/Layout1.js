@@ -22,9 +22,9 @@ const Layout1  = (props) =>{
       <>
               {search_input}
         <div style={{backgroundColor:"rgb(230,230,230)",paddingTop:"10px",marginTop:"15px"}}>
-        <h5 style={{ textAlign: "center"}}>
+        <h5 style={{ marginLeft:'35px'}}>
           {" "}
-          Buy Vehicle And Full fill Your Dreams
+          Suggested For You 
         </h5>
         <hr style={{margin:'5px'}}></hr>
 

@@ -2,6 +2,13 @@ import React from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 import BackendUrl from "../../urls";
+import {
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBCheckbox,
+  MDBBtn,
+} from 'mdb-react-ui-kit';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -153,169 +160,31 @@ class Signup extends React.Component {
   render() {
     return (
       <>
-        <div
-          class="container pt-3"
-          style={{
-            width: "80%",
-            height: "500px",
-            marginLeft: "10%",
-            boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-            backgroundColor: "white",
-          }}
-        >
-          <form style={{ marginTop: "30px" }} onSubmit={this.submitHandler}>
-            <table style={{ width: "40%", float: "left" }}>
-              <tr>
-                <td>
-                  <div
-                    style={{
-                      fontFamily: "arial",
-                      fontWeight: "600",
-                      fontSize: "20px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "arial",
-                        color: "#6A6666",
-                        fontWeight: "700",
-                      }}
-                    >
-                      Welcome to
-                    </span>{" "}
-                    Quick Finder
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div
-                    style={{
-                      fontFamily: "arial",
-                      fontWeight: "600",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Personal Information
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="firstname">First Name</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="mobile"
-                    name="fname"
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="secname">Last Name</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="mobile"
-                    name="lname"
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="password">Password</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    type="mobile"
-                    class="form-control"
-                    id="mobile"
-                    name="password"
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="mobile">Phone Number</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    type="mobile"
-                    class="form-control"
-                    id="mobile"
-                    name="mobile"
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-            </table>
-            <table style={{ width: "40%", float: "right" }}>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-              <tr>
-                <td>
-                  <label for="email">Email</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    type="mobile"
-                    class="form-control"
-                    id="mobile"
-                    name="email"
-                    onChange={this.handleChange}
-                  />
-                </td>
-              </tr>
-              <br />
-              <tr>
-                <td>
-                  <input
-                    type="button"
-                    class="form-control"
-                    name="address"
-                    value="Get Your Address"
-                    onClick={this.getAddress}
-                  />
-                </td>
-              </tr>
-              {this.state.address}
-              <br />
-              <Link to="/QUICK_FINDER/login" class="btn btn-default" id="login">
-                Login
-              </Link>
-              <tr>
-                <td>
-                  <input
-                    type="submit"
-                    class="btn btn-default"
-                    value="Create Profile"
-                    id="signup"
-                  />
-                </td>
-              </tr>
-            </table>
+        <div className="d-flex flex-wrap flex-row  justify-content-center mb-5 mt-4" >
+              <form>
+            <MDBRow className='mb-4'>
+              <MDBCol>
+                First Name
+                <MDBInput class="form-control" id="mobile" name="fname" onChange={this.handleChange} />
+              </MDBCol>
+              <MDBCol>
+                Second Name
+                <MDBInput class="form-control" id="mobile" name="lname" onChange={this.handleChange}/>
+              </MDBCol>
+            </MDBRow>
+            Password
+            <MDBInput class="form-control" id="mobile" name="password" onChange={this.handleChange}/>
+            Phone Number
+            <MDBInput class="form-control" id="mobile" name="mobile" onChange={this.handleChange}/>
+            Email
+            <MDBInput class="form-control" id="mobile" name="email" onChange={this.handleChange}/>
+            <button name="address" onClick={this.getAddress} type="button" class="btn btn-secondary btn-sm mt-2 mb-2">Get Your Address</button>
+            {this.state.address}
+            <button type="submit" class="btn btn-primary btn-lg btn-block p-1 mt-2 mb-2 " style={{fontSize:'16px'}}>
+                  Sign Up
+            </button>
+
+
           </form>
         </div>
       </>

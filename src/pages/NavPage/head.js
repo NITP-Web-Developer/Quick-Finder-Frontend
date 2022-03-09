@@ -40,34 +40,34 @@ const Head =() =>{
             </MDBNavbarToggler>
             <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02'>
               <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-                <MDBNavbarItem className='active'>
-                  <MDBNavbarLink aria-current='page' href='/'>
-                    Home
-                  </MDBNavbarLink>
+                <MDBNavbarItem>
+                  <MDBNavbarLink href='/#'>Fashion</MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-
-                  <MDBNavbarLink href='/#'>Setting</MDBNavbarLink>
+                  <MDBNavbarLink href='/#'>Electronics</MDBNavbarLink>
                 </MDBNavbarItem>
-              
-               <MDBNavbarItem className="justify-item-center">
-               <form className='d-flex input-group w-auto'>
-          <input type='search'  id="searchInput" className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
-          <Link
-            to={{
-            pathname: "/search/?"+"item="+search_input}}                          
-            class="btn btn-outiline-white" type='button'
-            >
-            Search
-        </Link>
-        </form>
+                <MDBNavbarItem>
+                  <MDBNavbarLink href='/#'>Mobile</MDBNavbarLink>
+                </MDBNavbarItem>              
+                <MDBNavbarItem>
+                  <MDBNavbarLink href='/#'>Vehicles</MDBNavbarLink>
+                </MDBNavbarItem>
 
-               </MDBNavbarItem>                
               </MDBNavbarNav>
 
                 <MDBNavbarNav className='justify-content-end'>
+                <MDBNavbarItem >
+               <form className='d-flex input-group w-auto' >
+                 <input type='search'  id="searchInput" style={{width:'300px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
+                <Link  to={{ pathname: "/search/?"+"item="+search_input}}                          
+                class="btn btn-outiline-white" type='button'>
+                Search
+                </Link>
+                </form>
+               </MDBNavbarItem>                
+
                 <MDBNavbarItem>
-                <MDBNavbarLink href='/dashboard'>
+                <MDBNavbarLink href='/login'>
                 <MDBIcon fa icon='user'></MDBIcon>                  
                   </MDBNavbarLink>
                 </MDBNavbarItem>
@@ -98,19 +98,19 @@ const Head =() =>{
             </MDBNavbarToggler>
             <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02' >
               <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-                <MDBNavbarItem className='active'>
-                  <MDBNavbarLink aria-current='page' href='/'>
-                    Home
-                  </MDBNavbarLink>
+              <MDBNavbarItem>
+                  <MDBNavbarLink href='/#'>Fashion</MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-                  <MDBNavbarLink href='/Sell'>Sell</MDBNavbarLink>
+                  <MDBNavbarLink href='/#'>Electronics</MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-
-                  <MDBNavbarLink href='/#'>About Us</MDBNavbarLink>
+                  <MDBNavbarLink href='/#'>Mobile</MDBNavbarLink>
+                </MDBNavbarItem>              
+                <MDBNavbarItem>
+                  <MDBNavbarLink href='/#'>Vehicles</MDBNavbarLink>
                 </MDBNavbarItem>
-              
+             
               
 
               
@@ -120,15 +120,12 @@ const Head =() =>{
 
               <MDBNavbarItem >
                <form className='d-flex input-group w-auto' >
-          <input type='search'  id="searchInput" style={{width:'300px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
-          <Link
-            to={{
-            pathname: "/search/?"+"item="+search_input}}                          
-            class="btn btn-outiline-white" type='button'
-            >
-            Search
-        </Link>
-        </form>
+                 <input type='search'  id="searchInput" style={{width:'300px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
+                <Link  to={{ pathname: "/search/?"+"item="+search_input}}                          
+                class="btn btn-outiline-white" type='button'>
+                Search
+                </Link>
+              </form>
 
                </MDBNavbarItem>
               <MDBNavbarItem>
@@ -167,110 +164,3 @@ const Head =() =>{
   }
 }
 export default Head;
-// class Head extends React.Component {
-
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       isLoggedIn:false,
-//     };
-//     this.isLoggedIn();
-//     this.isLoggedIn = this.isLoggedIn.bind(this);
-//   }
-//   isLoggedIn(){
-//     if(sessionStorage.username){
-//       this.setState({isLoggedIn:true});
-//     }else
-//     {
-//       this.setState({isLoggedIn:false});
-//     } 
-//   }
-  
-//   render() {
-//     if(this.isLoggedIn){
-//       return (<>
-//       <div id="title">Quick Finder</div>
-//       <ul class="nav justify-content-center">
-//         <li class="nav-item">
-//           <Link class="nav-link" to="/">Home</Link>
-//         </li>
-//         <li class="nav-item">
-//           <Link class="nav-link" to="/Sell">Sell</Link>
-//         </li>
-//         <li class="nav-item">
-//           <a class="nav-link" href="#">Setting</a>
-//         </li>
-//         <li class="nav-item">
-//           <Link class="nav-link" to="/usersells">Sell History</Link>
-//         </li>
-//         <li class="nav-item">
-//           <Link class="nav-link" to="/userbuys">Buy History</Link>
-//         </li>
-//         <li class="nav-item">
-//           <Link class="nav-link" to="/profile">Profile</Link>
-//         </li>
-  
-      
-//       </ul>
-//               </>);
-//          }else{
-//       return (<>
-//      <MDBNavbar expand='lg' dark bgColor='dark'>
-//       <MDBContainer fluid>
-//         <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
-//         <MDBNavbarToggler
-//           type='button'
-//           data-target='#navbarColor02'
-//           aria-controls='navbarColor02'
-//           aria-expanded='false'
-//           aria-label='Toggle navigation'
-//           onClick={() => setShowNavColorSecond(!showNavColorSecond)}
-//         >
-//           <MDBIcon icon='bars' fas />
-//         </MDBNavbarToggler>
-//         <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02'>
-//           <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-//             <MDBNavbarItem className='active'>
-//               <MDBNavbarLink aria-current='page' href='#'>
-//                 Home
-//               </MDBNavbarLink>
-//             </MDBNavbarItem>
-//             <MDBNavbarItem>
-//               <MDBNavbarLink href='#'>Features</MDBNavbarLink>
-//             </MDBNavbarItem>
-//             <MDBNavbarItem>
-//               <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
-//             </MDBNavbarItem>
-//             <MDBNavbarItem>
-//               <MDBNavbarLink href='#'>About</MDBNavbarLink>
-//             </MDBNavbarItem>
-//           </MDBNavbarNav>
-//         </MDBCollapse>
-//       </MDBContainer>
-//     </MDBNavbar>
-  
-//       {/* <div id="title">Quick Finder</div>
-//   <ul class="nav justify-content-center">
-//   <li class="nav-item">
-//     <Link class="nav-link" to="/">Home</Link>
-//   </li>
-//   <li class="nav-item">
-//     <Link class="nav-link" to="/Sell">Sell</Link>
-//   </li>
-//   <li class="nav-item">
-//     <Link class="nav-link" to="/About">About Us</Link>
-//   </li>
-//   <li class="nav-item">
-//     <a class="nav-link" href="#">Setting</a>
-//   </li>
-//   <li class="nav-item">
-//     <Link class="nav-link" to="/login">Account</Link>
-//   </li>
-
-// </ul> */}
-//         </>
-//       );
-//     }
-//     }
-//   }
-// export default Head;

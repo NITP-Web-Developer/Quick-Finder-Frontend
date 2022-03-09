@@ -42,6 +42,7 @@ export default function DashBoard() {
                 Buy History
               </MDBTabsLink>
             </MDBTabsItem>
+
           </MDBTabs>
         </MDBCol>
         <MDBCol size='9'>

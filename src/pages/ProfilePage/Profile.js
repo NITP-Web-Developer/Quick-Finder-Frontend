@@ -34,6 +34,13 @@ class Profile extends React.Component {
       });
     return;
   }
+  submitHandler = (e) => {
+    // console.log("h"); 
+    sessionStorage.removeItem("username");
+  };
+
+
+
   render() {
     // console.log(this.state.getting);
     if(!this.state.userData){
@@ -45,8 +52,21 @@ class Profile extends React.Component {
     }else
     {
     return (
-      <>
-        <div
+      <>       
+      
+      <form
+                      style={{ marginTop: "30px" }}
+                      onSubmit={this.submitHandler}
+                    >
+
+                          <input
+                            type="submit"
+                            class="btn btn-default"
+                            value="LogOut"
+                            id="login"
+                          />
+        </form>      
+        {/* <div
           class="container pt-3"
           style={{
             width: "80%",
@@ -135,7 +155,7 @@ class Profile extends React.Component {
               </tr>
             </table>
           </form>
-        </div>
+        </div> */}
       </>
     );
                   }
