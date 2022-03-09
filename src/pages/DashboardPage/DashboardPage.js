@@ -9,8 +9,8 @@ import {
   MDBCol
 } from 'mdb-react-ui-kit';
 import Profile from '../ProfilePage/Profile';
-import ABCB from '../../HomeComponents/abcb'
-import ABCBB from '../../HomeComponents/abcbb'
+import ABCB from './SellHistory'
+import BuyHistory from './BuyHistory';
 export default function DashBoard() {
   const [verticalActive, setVerticalActive] = useState('tab1');
 
@@ -53,7 +53,7 @@ export default function DashBoard() {
                 <ABCB/>
             </MDBTabsPane>
             <MDBTabsPane show={verticalActive === 'tab3'}>
-                <ABCBB/>
+                <BuyHistory/>
             </MDBTabsPane>
           </MDBTabsContent>
         </MDBCol>

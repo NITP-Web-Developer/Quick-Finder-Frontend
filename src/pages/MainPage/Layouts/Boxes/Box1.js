@@ -34,7 +34,7 @@ const Box1  = (props) =>{
   
       return (
         <>
-          <Link to={{ pathname: "/QUICK_FINDER/Boxopen1/?"+"id="+product_id,}}>
+          <Link to={{ pathname: "/Boxopen1/?"+"id="+product_id,}}>
             <MDBCard style={{ width: '14.5rem', }} >
              <MDBCardImage style={{height:'180px'}} src={product_images} alt='...' position='top' />
               <MDBCardBody>

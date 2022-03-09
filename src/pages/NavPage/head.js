@@ -27,7 +27,7 @@ const Head =() =>{
     return (<>
             <MDBNavbar expand='lg' light style={{ backgroundColor: '#e3f2fd' }}>
               <MDBContainer fluid>
-            <MDBNavbarBrand href='/QUICK_FINDER/'>Quick Finder</MDBNavbarBrand>
+            <MDBNavbarBrand href='/'>Quick Finder</MDBNavbarBrand>
             <MDBNavbarToggler
               type='button'
               data-target='#navbarColor02'
@@ -41,13 +41,13 @@ const Head =() =>{
             <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02'>
               <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
                 <MDBNavbarItem className='active'>
-                  <MDBNavbarLink aria-current='page' href='/QUICK_FINDER/'>
+                  <MDBNavbarLink aria-current='page' href='/'>
                     Home
                   </MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
 
-                  <MDBNavbarLink href='/QUICK_FINDER/#'>Setting</MDBNavbarLink>
+                  <MDBNavbarLink href='/#'>Setting</MDBNavbarLink>
                 </MDBNavbarItem>
               
                <MDBNavbarItem className="justify-item-center">
@@ -55,7 +55,7 @@ const Head =() =>{
           <input type='search'  id="searchInput" className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
           <Link
             to={{
-            pathname: "/QUICK_FINDER/search/?"+"item="+search_input}}                          
+            pathname: "/search/?"+"item="+search_input}}                          
             class="btn btn-outiline-white" type='button'
             >
             Search
@@ -67,7 +67,7 @@ const Head =() =>{
 
                 <MDBNavbarNav className='justify-content-end'>
                 <MDBNavbarItem>
-                <MDBNavbarLink href='/QUICK_FINDER/dashboard'>
+                <MDBNavbarLink href='/dashboard'>
                 <MDBIcon fa icon='user'></MDBIcon>                  
                   </MDBNavbarLink>
                 </MDBNavbarItem>
@@ -85,7 +85,7 @@ const Head =() =>{
 
             <MDBNavbar expand='lg' light style={{ backgroundColor: '#e3f2fd' }}>
               <MDBContainer fluid >
-            <MDBNavbarBrand href='/QUICK_FINDER/'>Quick Finder</MDBNavbarBrand>
+            <MDBNavbarBrand href='/'>Quick Finder</MDBNavbarBrand>
             <MDBNavbarToggler
               type='button'
               data-target='#navbarColor02'
@@ -99,16 +99,16 @@ const Head =() =>{
             <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02' >
               <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
                 <MDBNavbarItem className='active'>
-                  <MDBNavbarLink aria-current='page' href='/QUICK_FINDER/'>
+                  <MDBNavbarLink aria-current='page' href='/'>
                     Home
                   </MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-                  <MDBNavbarLink href='/QUICK_FINDER/Sell'>Sell</MDBNavbarLink>
+                  <MDBNavbarLink href='/Sell'>Sell</MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
 
-                  <MDBNavbarLink href='/QUICK_FINDER/#'>About Us</MDBNavbarLink>
+                  <MDBNavbarLink href='/#'>About Us</MDBNavbarLink>
                 </MDBNavbarItem>
               
               
@@ -123,7 +123,7 @@ const Head =() =>{
           <input type='search'  id="searchInput" style={{width:'300px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
           <Link
             to={{
-            pathname: "/QUICK_FINDER/search/?"+"item="+search_input}}                          
+            pathname: "/search/?"+"item="+search_input}}                          
             class="btn btn-outiline-white" type='button'
             >
             Search
@@ -150,7 +150,7 @@ const Head =() =>{
 
 
                 <MDBNavbarItem>
-                <MDBNavbarLink href='/QUICK_FINDER/dashboard'>
+                <MDBNavbarLink href='/dashboard'>
                   <AccountButton/>
                   <MDBIcon fa icon='user'></MDBIcon>                  
                   </MDBNavbarLink>
@@ -192,22 +192,22 @@ export default Head;
 //       <div id="title">Quick Finder</div>
 //       <ul class="nav justify-content-center">
 //         <li class="nav-item">
-//           <Link class="nav-link" to="/QUICK_FINDER/">Home</Link>
+//           <Link class="nav-link" to="/">Home</Link>
 //         </li>
 //         <li class="nav-item">
-//           <Link class="nav-link" to="/QUICK_FINDER/Sell">Sell</Link>
+//           <Link class="nav-link" to="/Sell">Sell</Link>
 //         </li>
 //         <li class="nav-item">
 //           <a class="nav-link" href="#">Setting</a>
 //         </li>
 //         <li class="nav-item">
-//           <Link class="nav-link" to="/QUICK_FINDER/usersells">Sell History</Link>
+//           <Link class="nav-link" to="/usersells">Sell History</Link>
 //         </li>
 //         <li class="nav-item">
-//           <Link class="nav-link" to="/QUICK_FINDER/userbuys">Buy History</Link>
+//           <Link class="nav-link" to="/userbuys">Buy History</Link>
 //         </li>
 //         <li class="nav-item">
-//           <Link class="nav-link" to="/QUICK_FINDER/profile">Profile</Link>
+//           <Link class="nav-link" to="/profile">Profile</Link>
 //         </li>
   
       
@@ -252,19 +252,19 @@ export default Head;
 //       {/* <div id="title">Quick Finder</div>
 //   <ul class="nav justify-content-center">
 //   <li class="nav-item">
-//     <Link class="nav-link" to="/QUICK_FINDER/">Home</Link>
+//     <Link class="nav-link" to="/">Home</Link>
 //   </li>
 //   <li class="nav-item">
-//     <Link class="nav-link" to="/QUICK_FINDER/Sell">Sell</Link>
+//     <Link class="nav-link" to="/Sell">Sell</Link>
 //   </li>
 //   <li class="nav-item">
-//     <Link class="nav-link" to="/QUICK_FINDER/About">About Us</Link>
+//     <Link class="nav-link" to="/About">About Us</Link>
 //   </li>
 //   <li class="nav-item">
 //     <a class="nav-link" href="#">Setting</a>
 //   </li>
 //   <li class="nav-item">
-//     <Link class="nav-link" to="/QUICK_FINDER/login">Account</Link>
+//     <Link class="nav-link" to="/login">Account</Link>
 //   </li>
 
 // </ul> */}
