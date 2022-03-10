@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BackendUrl from "../../urls";
-import Layout1 from "../MainPage/Layouts/Layout1";
 import Layout2 from "../MainPage/Layouts/Layout2";
 import Layout3 from "../MainPage/Layouts/Layout3";
 import Layout4 from "../MainPage/Layouts/Layout4";
-
+import Filter from "./FilterPage/Filter.js"
 import { Link, Redirect } from "react-router-dom";
+import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 
 class SearchPage extends React.Component{
     constructor(props) {
@@ -106,6 +106,60 @@ class SearchPage extends React.Component{
 
     render(){
         return (<>
+        <div className="d-flex flex-wrap flex-row  justify-content-center " style={{backgroundColor:'rgb(230,230,230)'}}>
+          <div  style={{width:'20%'}}>
+          <Filter/>  
+          </div>
+          <div style={{width:'75%'}} className='justify-item-end'>
+          <Layout2
+          layout_num={1}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        />
+        <Layout2
+          layout_num={3}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        />
+        <Layout2
+          layout_num={6}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        />
+        <Layout2
+          layout_num={9}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        /> 
+          </div>
+          </div>
+
+
+        {/* <Layout3
+          layout_num={6}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        />
+        <Layout4
+          layout_num={11}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        />
+
+
+  {/* <MDBContainer style={{width:'100%'}}> */}
+            {/* <MDBRow start>
+              <MDBCol size='6' className='col-example bg-dark'>
+                One of two columns
+              </MDBCol>
+
+              <MDBCol size='6' className='col-example bg-primary'>
+                One of two columns
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer> */}
+
+{/* 
         <Layout1
           layout_num={1}
           search_input={this.state.search_input}
@@ -125,7 +179,7 @@ class SearchPage extends React.Component{
           layout_num={9}
           search_input={this.state.search_input}
           getting={this.state.getting}
-        />
+        /> */}
 
 
         {/* <Layout3

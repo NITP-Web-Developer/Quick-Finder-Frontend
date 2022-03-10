@@ -25,7 +25,7 @@ const Head =() =>{
   
   if(isLoggedIn==undefined){
     return (<>
-            <MDBNavbar expand='lg' light style={{ backgroundColor: '#e3f2fd' }}>
+            <MDBNavbar expand='lg'  light style={{backgroundColor: '#e3f2fd' }}>
               <MDBContainer fluid>
             <MDBNavbarBrand href='/'>Quick Finder</MDBNavbarBrand>
             <MDBNavbarToggler
@@ -58,7 +58,7 @@ const Head =() =>{
                 <MDBNavbarNav className='justify-content-end'>
                 <MDBNavbarItem >
                <form className='d-flex input-group w-auto' >
-                 <input type='search'  id="searchInput" style={{width:'300px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
+                 <input type='search'  id="searchInput" style={{width:'350px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
                 <Link  to={{ pathname: "/search/?"+"item="+search_input}}                          
                 class="btn btn-outiline-white" type='button'>
                 Search
@@ -120,7 +120,7 @@ const Head =() =>{
 
               <MDBNavbarItem >
                <form className='d-flex input-group w-auto' >
-                 <input type='search'  id="searchInput" style={{width:'300px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
+                 <input type='search'  id="searchInput" style={{width:'350px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
                 <Link  to={{ pathname: "/search/?"+"item="+search_input}}                          
                 class="btn btn-outiline-white" type='button'>
                 Search
