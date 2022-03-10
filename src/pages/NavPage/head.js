@@ -58,17 +58,17 @@ const Head =() =>{
                 <MDBNavbarNav className='justify-content-end'>
                 <MDBNavbarItem >
                <form className='d-flex input-group w-auto' >
-                 <input type='search'  id="searchInput" style={{width:'350px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
+                 <input type='search'  id="searchInput" style={{width:'400px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
                 <Link  to={{ pathname: "/search/?"+"item="+search_input}}                          
-                class="btn btn-outiline-white" type='button'>
-                Search
+                class="btn btn-outiline-blue" type='button' style={{color:'white',backgroundColor:'rgb(127, 102, 173)',borderBottomLeftRadius:'0px',borderTopLeftRadius:'0px'}}>
+                <MDBIcon fa icon="search" />
                 </Link>
                 </form>
                </MDBNavbarItem>                
 
                 <MDBNavbarItem>
                 <MDBNavbarLink href='/login'>
-                <MDBIcon fa icon='user'></MDBIcon>                  
+                  Login
                   </MDBNavbarLink>
                 </MDBNavbarItem>
               </MDBNavbarNav>
@@ -116,40 +116,39 @@ const Head =() =>{
               
 
               </MDBNavbarNav>
-              <MDBNavbarNav className='justify-content-end w-1'  style={{maxWidth:'600px'}}>
+              <MDBNavbarNav className='justify-content-end w-1' >
 
               <MDBNavbarItem >
                <form className='d-flex input-group w-auto' >
-                 <input type='search'  id="searchInput" style={{width:'350px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
+                 <input type='search'  id="searchInput" style={{width:'400px'}} className='form-control' placeholder='Search Here...' aria-label='Search' onKeyUp={()=>setSearch_input(document.getElementById("searchInput").value)}/>
                 <Link  to={{ pathname: "/search/?"+"item="+search_input}}                          
-                class="btn btn-outiline-white" type='button'>
-                Search
-                </Link>
+               class="btn btn-outiline-blue" type='button' style={{color:'white',backgroundColor:'rgb(127, 102, 173)',borderBottomLeftRadius:'0px',borderTopLeftRadius:'0px'}}>
+               <MDBIcon fa icon="search" />
+                 </Link>
               </form>
 
                </MDBNavbarItem>
-              <MDBNavbarItem>
+              {/* <MDBNavbarItem>
                 <MDBNavbarLink href='#'>
                   <span>
                     <MDBIcon fa icon='heart'></MDBIcon>
                   </span>
                 </MDBNavbarLink>
                </MDBNavbarItem>
-                
+                 */}
                 <MDBNavbarItem>
                 <MDBNavbarLink href='#'>
                   <MDBBadge pill color='danger'>1</MDBBadge>
                   <span>
-                    <MDBIcon fa icon='shopping-cart'></MDBIcon>
+                    <MDBIcon fa icon='shopping-cart' size="lg"></MDBIcon>
                   </span>
                 </MDBNavbarLink>
                </MDBNavbarItem>
 
 
-                <MDBNavbarItem>
-                <MDBNavbarLink href='/dashboard'>
-                  <AccountButton/>
-                  <MDBIcon fa icon='user'></MDBIcon>                  
+               <MDBNavbarItem>
+                <MDBNavbarLink href='/login'>
+                  Account
                   </MDBNavbarLink>
                 </MDBNavbarItem>
               </MDBNavbarNav>

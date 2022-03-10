@@ -6,7 +6,7 @@ import Layout3 from "../MainPage/Layouts/Layout3";
 import Layout4 from "../MainPage/Layouts/Layout4";
 import Filter from "./FilterPage/Filter.js"
 import { Link, Redirect } from "react-router-dom";
-import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBRow, MDBCol,MDBTypography } from 'mdb-react-ui-kit';
 
 class SearchPage extends React.Component{
     constructor(props) {
@@ -111,6 +111,10 @@ class SearchPage extends React.Component{
           <Filter/>  
           </div>
           <div style={{width:'75%'}} className='justify-item-end'>
+          <MDBTypography variant='h6' className='ml-5 mt-4'>
+          Showing 1 – 40 of 1,05,038 results for "headphone"
+          </MDBTypography>
+
           <Layout2
           layout_num={1}
           search_input={this.state.search_input}

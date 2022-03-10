@@ -1,14 +1,12 @@
 .nav-item {
-    color:#414244;
     font-size:17px;
-    font-family:Segoe UI;
     font-weight:500;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
-.nav-link{
+/* .nav-link{
     color:#414244;
 }
 .nav-link:hover {
     color:black;
-}
+} */
