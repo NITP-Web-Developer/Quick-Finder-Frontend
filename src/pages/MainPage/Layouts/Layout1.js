@@ -292,48 +292,7 @@ const Layout1  = (props) =>{
               />
 
               </div>
-              <div className="p-2">
-          <Box1
-              search_input={search_input}
-              product_name={
-                getting[i]
-                  ? getting[i].product_name
-                  : ""
-              }
-              product_images={
-                getting[i]
-                  ? getting[i].product_images
-                  : ""
-              }
-              product_type={
-                getting[i]
-                  ? getting[i].product_type
-                  : ""
-              }
-              status={
-                getting[i]
-                  ? getting[i].status
-                  : ""
-              }
-              price={
-                getting[i]
-                  ? getting[i].price
-                  : ""
-              }
-              product_id={
-                getting[i]
-                  ? getting[i].product_id
-                  : ""
-              }
-              seller_id={
-                getting[i]
-                  ? getting[i].seller_id
-                  : ""
-              }       
-        
-          />          
-        </div>
-
+            
 
       </div>
       </div>
