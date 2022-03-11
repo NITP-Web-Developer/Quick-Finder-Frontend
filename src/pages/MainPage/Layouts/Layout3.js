@@ -1,326 +1,53 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import ReactDOM from "react-dom";
 import Box1 from "./Boxes/Box1";
 import Box2 from "./Boxes/Box2";
 import Box3 from "./Boxes/Box3";
 import Box4 from "./Boxes/Box4";
 import Box5 from "./Boxes/Box5";
-class Layout3 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      getting: [],
-      search_input: "",
-      i: 0,
-    };
-  }
-  static getDerivedStateFromProps(props, state) {
-    return {
-      getting: props.getting,
-      i: props.layout_num,
-    };
-  }
-
-  render() {
+import Box6 from "./Boxes/Box6";
+import { Link } from "react-router-dom";
+import { MDBCollapse, MDBBtn } from 'mdb-react-ui-kit';
+import Layout5 from './Layout5'
+const Layout3  = (props) =>{
+  const [showShow, setShowShow] = useState(false);
     return (
       <>
-        <h4 style={{ textAlign: "center", marginTop: "30px" }}>
+        <div style={{backgroundColor:"rgb(230,230,230)",paddingTop:"10px",marginTop:"15px"}}>
+        <h5 style={{ marginLeft:'35px'}}>
           {" "}
-          Buy Vehicle And Full fill Your Dreams
-        </h4>
-        <div class="container-fluid" style={{ width: "82%" }}>
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 ">
-              <Box3
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i]
-                    ? this.state.getting[this.state.i].seller_id
-                    : ""
-                }
-              />
-              <Box3
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i + 1]
-                    ? this.state.getting[this.state.i + 1].seller_id
-                    : ""
-                }
-              />
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-5">
-              <Box4
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].product_id
-                    : ""
-                }
-                product_id={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i + 2]
-                    ? this.state.getting[this.state.i + 2].seller_id
-                    : ""
-                }
-              />
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <Box5
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i + 3]
-                    ? this.state.getting[this.state.i + 3].seller_id
-                    : ""
-                }
-              />
-              <Box5
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i + 4 + 3]
-                    ? this.state.getting[this.state.i + 4 + 3].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i + 4 + 3]
-                    ? this.state.getting[this.state.i + 4 + 3].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i + 4]
-                    ? this.state.getting[this.state.i + 4].seller_id
-                    : ""
-                }
-              />
-              <Box5
-                search_input={this.state.search_input}
-                product_name={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].product_name
-                    : ""
-                }
-                product_images={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].product_images
-                    : ""
-                }
-                product_type={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].product_type
-                    : ""
-                }
-                status={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].status
-                    : ""
-                }
-                price={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].price
-                    : "."
-                }
-                product_id={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].product_id
-                    : ""
-                }
-                description={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].description
-                    : ""
-                }
-                seller_id={
-                  this.state.getting[this.state.i + 5]
-                    ? this.state.getting[this.state.i + 5].seller_id
-                    : ""
-                }
-              />
-            </div>
-          </div>
+          Category
+        </h5>
+        <hr style={{margin:'5px'}}></hr>
+
+        <div className="d-flex flex-wrap flex-row mb-3 justify-content-center " style={{backgroundColor:'rgb(230,230,230)'}}>
+        <div className="p-2">
+          <Box3 catName="Baby Toys" catImg="https://www.todaysparent.com/wp-content/uploads/2019/10/toys-for-babies-and-toddlers-hungry-hippos-1280x960.jpg" />
         </div>
-        <div class="container">
-          <table style={{ width: "100%" }}>
-            <tr>
-              <td style={{ textAlign: "center" }}>
-                <button
-                  class="btn"
-                  style={{
-                    backgroundColor: "#1C1A1A",
-                    color: "#FFF8F8",
-                    fontWeight: "700",
-                  }}
-                >
-                  See More
-                </button>
-              </td>
-            </tr>
-          </table>
+        <div className="p-2">
+          <Box3 catName="Books"  catImg="https://imageio.forbes.com/specials-images/imageserve/5f85be4ed0acaafe77436710/0x0.jpg?format=jpg&width=1200&fit=bounds"/>          
         </div>
+        <div className="p-2">
+          <Box3 catName="Furniture" catImg="https://www.khaticraft.com/wp-content/uploads/2020/01/Fatta-Chairs-Dining-Set_Khaticraft_3.jpg"/>          
+        </div>
+        <div className="p-2">
+          <Box3 catName="Mobile" catImg="https://cdn-www.mediatek.com/page/Mobile-2_2021-10-20-155734_vspa.png"/>          
+        </div>
+        <div className="p-2">
+          <Box3 catName="Home Accessories" catImg="https://www.gemindia.in/wp-content/uploads/2021/02/Artboard-4-4.png"/>          
+        </div>
+        <div className="p-2">
+          <Box3 catName="Vehicles" catImg="https://cdn.autoportal.com/img/new-cars-gallery/hyundai/grand-i10-prime/colors/de63fd0677e4f726dbaa300a3ebe385e.jpg"/>          
+        </div>        
+            
+
+      </div>
+      </div>
+
+
+      
       </>
     );
-  }
+  
 }
 export default Layout3;

@@ -1,132 +1,32 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import ReactDOM from "react-dom";
-import { browserHistory, Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Loader from "../../../Loader/Loader"
+import { MDBCollapse, MDBBtn,MDBCardImage,MDBCardBody,MDBCardText,MDBCard } from 'mdb-react-ui-kit';
+const Box3  = (props) =>{
+  const [catName,setCatName]= useState(props.catName)
+  const [catImg,setCatImg]= useState(props.catImg)
+  useEffect(() => {setCatName(props.catName); }, [props.catName]);  
+  useEffect(() => {setCatImg(props.catImg); }, [props.catImg]);  
+  // useEffect(() => {setstatus(props.status); }, [props.status]);
 
-class Box3 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      product_name: "",
-      product_images: "",
-      product_type: "",
-      status: "",
-      price: "",
-      seller_name: "",
-      seller_address: "",
-      product_id: "",
-      seller_id: "",
-      description: "",
-      search_input: "",
-    };
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    return {
-      product_name: props.product_name,
-      description: props.description,
-      product_images: props.product_images,
-      product_type: props.product_type,
-      status: props.status,
-      price: props.price,
-      product_id: props.product_id,
-      seller_name: props.seller_name,
-      seller_address: props.seller_address,
-      seller_id: props.seller_id,
-      search_input: props.search_input,
-    };
-  }
-
-  render() {
-    if (this.state.product_name == "") {
-      return (
-        <div
-          class="container m-2"
-          style={{
-            boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-            height: "330px",
-            padding: "0px",
-            backgroundColor: "white",
-          }}
-        >
-          <div
-            class="spinner-border text-muted"
-            style={{
-              width: "3rem",
-              height: "3rem",
-              marginLeft: "45%",
-              marginTop: "20%",
-            }}
-          ></div>
-        </div>
-      );
-    } else {
       return (
         <>
-          <div
-            class="container m-2 p-2"
-            style={{
-              boxShadow: "0 5px 10px rgb(0,0,0,0.16)",
-              backgroundColor: "white",
-            }}
+          <Link 
+          // to={{ pathname: "/Boxopen1/?"+"id="+product_id,}}
           >
-            <div class="container">
-              <img
-                style={{
-                  width: "100%",
-                  objectFit: "cover",
-                  height: "150px",
-                  objectPosition: "25% 10%",
-                }}
-                src={this.state.product_images}
-              ></img>
-            </div>
-            <div class="container m-2 mt-3">
-              <table style={{ width: "100%" }}>
-                <tr>
-                  <td
-                    style={{
-                      fontWeight: "700",
-                      color: "#3E3B3B",
-                      fontSize: "15px",
-                    }}
-                  >
-                    {this.state.product_name}
-                  </td>
-                  <td>
-                    {" "}
-                    <Link
-                      to={{
-                        pathname: "/QUICK_FINDER/Boxopen1/?"+"id="+this.state.product_id,
-                        state: {
-                          product_name: this.state.product_name,
-                          product_type: this.state.product_type,
-                          status: this.state.status,
-                          price: this.state.price,
-                          product_id: this.state.product_id,
-                          seller_name: this.state.seller_name,
-                          seller_address: this.state.seller_address,
-                          seller_id: this.state.seller_id,
-                          product_images: this.props.product_images,
-                        },
-                      }}
-                      class="btn"
-                      style={{
-                        backgroundColor: "#1C1A1A",
-                        color: "#FFF8F8",
-                        fontWeight: "500",
-                      }}
-                    >
-                      Explore{" "}
-                    </Link>
-                    
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </>
-      );
-    }
-  }
+            <MDBCard style={{ width: '14.5rem',heigth:'200px' }} >
+             <MDBCardImage style={{height:'180px'}} src={catImg} alt='...' position='top' />
+              <MDBCardBody>
+                <MDBCardText style={{fontWeight:'500',textAlign:'center'}}>
+                  {catName}  
+                </MDBCardText>
+              </MDBCardBody>
+            </MDBCard>
+
+    </Link>
+
+        </>)
+  
 }
 export default Box3;

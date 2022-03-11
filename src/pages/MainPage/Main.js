@@ -125,7 +125,11 @@ class Main extends React.Component {
           </div> */}
         </div>
         <Caro />
-  
+        <Layout3
+          layout_num={1}
+          search_input={this.state.search_input}
+          getting={this.state.getting}
+        />  
         <Layout1
           layout_num={1}
           search_input={this.state.search_input}
