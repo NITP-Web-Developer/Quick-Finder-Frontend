@@ -94,16 +94,13 @@ class Main extends React.Component {
       <>
         <div class="container-fluid" style={{ width: "100%" }}>
           <div class="row">
-            <div class="col-lg-9 col-md-12 col-sm-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
               <Item_detailsBox
                 property={this.state._child}
                 toggleChat={this.toggleChat}
               />
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <MiniBox />
-              <MiniBox />
-            </div>
+            
           </div>
           <Layout2
           layout_num={1}
