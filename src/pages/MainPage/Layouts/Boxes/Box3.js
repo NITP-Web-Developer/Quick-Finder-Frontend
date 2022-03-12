@@ -13,7 +13,7 @@ const Box3  = (props) =>{
       return (
         <>
           <Link 
-          // to={{ pathname: "/Boxopen1/?"+"id="+product_id,}}
+          to={{ pathname: "/category/?"+"category="+catName,}}
           >
             <MDBCard style={{ width: '14.5rem',heigth:'200px' }} >
              <MDBCardImage style={{height:'180px'}} src={catImg} alt='...' position='top' />

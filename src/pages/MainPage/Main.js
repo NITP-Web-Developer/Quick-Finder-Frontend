@@ -134,22 +134,26 @@ class Main extends React.Component {
           layout_num={1}
           search_input={this.state.search_input}
           getting={this.state.getting}
+          heading="Top Offers for You"
         />
         <Layout1
           layout_num={3}
           search_input={this.state.search_input}
           getting={this.state.getting}
-        />
+          heading="Suggested for You"
+        />  
         <Layout1
           layout_num={6}
           search_input={this.state.search_input}
           getting={this.state.getting}
+          heading="Best for You"
         />
         <Layout1
           layout_num={9}
           search_input={this.state.search_input}
           getting={this.state.getting}
-        />
+          heading="Best Deal  for You "
+/>
 
         {/* <Layout3
           layout_num={6}

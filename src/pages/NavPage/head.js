@@ -40,18 +40,27 @@ const Head =() =>{
             </MDBNavbarToggler>
             <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02'>
               <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
-                <MDBNavbarItem>
-                  <MDBNavbarLink href='/#'>Fashion</MDBNavbarLink>
-                </MDBNavbarItem>
-                <MDBNavbarItem>
-                  <MDBNavbarLink href='/#'>Electronics</MDBNavbarLink>
-                </MDBNavbarItem>
-                <MDBNavbarItem>
-                  <MDBNavbarLink href='/#'>Mobile</MDBNavbarLink>
-                </MDBNavbarItem>              
-                <MDBNavbarItem>
-                  <MDBNavbarLink href='/#'>Vehicles</MDBNavbarLink>
-                </MDBNavbarItem>
+              <MDBNavbarItem>
+              <Link to={{ pathname: "/category/?"+"category="+"books",}} style={{textDecoration:'none'}}>
+              <MDBNavbarLink href='/#'>Books</MDBNavbarLink>
+              </Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+              <Link to={{ pathname: "/category/?"+"category="+"furniture"}}  style={{textDecoration:'none'}}>
+              <MDBNavbarLink href='/#'>Furniture</MDBNavbarLink>
+              </Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+              <Link to={{ pathname: "/category/?"+"category="+"mobiles"}}  style={{textDecoration:'none'}}>
+              <MDBNavbarLink href='/#'>Mobile</MDBNavbarLink>
+              </Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+              <Link to={{ pathname: "/category/?"+"category="+"vehicle"}}  style={{textDecoration:'none'}}>
+              <MDBNavbarLink href='/#'>Vehicle</MDBNavbarLink>
+              </Link>
+              </MDBNavbarItem>
+
 
               </MDBNavbarNav>
 
@@ -99,17 +108,25 @@ const Head =() =>{
             <MDBCollapse show={showNavColorSecond} navbar id='navbarColor02' >
               <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
               <MDBNavbarItem>
-                  <MDBNavbarLink href='/#'>Fashion</MDBNavbarLink>
-                </MDBNavbarItem>
-                <MDBNavbarItem>
-                  <MDBNavbarLink href='/#'>Electronics</MDBNavbarLink>
-                </MDBNavbarItem>
-                <MDBNavbarItem>
-                  <MDBNavbarLink href='/#'>Mobile</MDBNavbarLink>
-                </MDBNavbarItem>              
-                <MDBNavbarItem>
-                  <MDBNavbarLink href='/#'>Vehicles</MDBNavbarLink>
-                </MDBNavbarItem>
+              <Link to={{ pathname: "/category/?"+"category="+"books"}}  style={{textDecoration:'none'}}>
+              <MDBNavbarLink href='/#'>Books</MDBNavbarLink>
+              </Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+              <Link to={{ pathname: "/category/?"+"category="+"furniture"}}  style={{textDecoration:'none'}}>
+              <MDBNavbarLink href='/#'>Furniture</MDBNavbarLink>
+              </Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+              <Link to={{ pathname: "/category/?"+"category="+"mobiles"}}  style={{textDecoration:'none'}}>
+              <MDBNavbarLink href='/#'>Mobile</MDBNavbarLink>
+              </Link>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+              <Link to={{ pathname: "/category/?"+"category="+"vehicle"}}  style={{textDecoration:'none'}}>
+              <MDBNavbarLink href='/#'>Vehicle</MDBNavbarLink>
+              </Link>
+              </MDBNavbarItem>
              
               
 
