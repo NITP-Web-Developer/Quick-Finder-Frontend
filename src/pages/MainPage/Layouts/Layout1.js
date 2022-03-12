@@ -16,15 +16,16 @@ const Layout1  = (props) =>{
   const [getting, setgetting] = useState(props.getting);
   const [search_input, setsearch_input] = useState("");
   const [i, seti] = useState(props.layout_num);
+  const [heading,setHeading]=useState(props.heading);
   useEffect(() => {seti(props.layout_num); }, [props.layout_num]);  
-  useEffect(() => {setgetting(props.getting); }, [props.getting]);  
-    return (
+  useEffect(() => {setgetting(props.getting); }, [props.getting]);   
+  return (
       <>
               {search_input}
         <div style={{backgroundColor:"rgb(230,230,230)",paddingTop:"10px",marginTop:"15px"}}>
         <h5 style={{ marginLeft:'35px'}}>
           {" "}
-          Suggested For You 
+          {heading}
         </h5>
         <hr style={{margin:'5px'}}></hr>
 

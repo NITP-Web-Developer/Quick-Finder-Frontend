@@ -15,6 +15,7 @@ import Checkout from "../checkout/checkout";
 import ItemStatus from "../HomeComponents/ItemStatus";
 import SearchPage from "./SearchPage/SearchPage";
 import DashBoard from "./DashboardPage/DashboardPage";
+import CategoryPage from "./CategoryPage/CategoryPage";
 const App = () => {
   return (
     <>
@@ -22,7 +23,7 @@ const App = () => {
         {/* <Route exact path='/' component={Profile}/> */}
         {/* <Route exact path="/chat" component={ChatBox} /> */}
         <Route exact path="/" component={Main} />
-        <Route exact path="/" component={Main} />
+        <Route exact path="/QUICK_FINDER/" component={Main} />
 
         <Route path="/dashboard" component={DashBoard} />
         <Route path="/profile" component={Profile} />
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/checkout" component={Checkout} />
         <Route path="/itemStatus" component={ItemStatus} />
         <Route path="/search" component={SearchPage} />
+        <Route path="/category" component={CategoryPage} />
         {/* <Route component={Error} /> */}
       </Switch>
     </>
