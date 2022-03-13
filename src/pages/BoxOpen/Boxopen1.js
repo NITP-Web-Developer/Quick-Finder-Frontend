@@ -9,6 +9,7 @@ import Layout2 from "../MainPage/Layouts/Layout2";
 import Layout3 from "../MainPage/Layouts/Layout3";
 import Layout4 from "../MainPage/Layouts/Layout4";
 import {useState} from "react";
+import Loader from "../Loader/Loader";
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -90,42 +91,49 @@ class Main extends React.Component {
     const { match, location, history } = this.props;
     console.log(this.state._child);
     console.log(this.props);
-    return (
-      <>
-        <div class="container-fluid" style={{ width: "100%" }}>
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-              <Item_detailsBox
-                property={this.state._child}
-                toggleChat={this.toggleChat}
-              />
+    if(this.state._child.product_images){
+      return (
+        <>
+          <div class="container-fluid" style={{ width: "100%" }}>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <Item_detailsBox
+                  data={this.state._child}
+                  property={this.state._child}
+                  toggleChat={this.toggleChat}
+  
+                />
+              </div>
+              
             </div>
-            
+            <Layout2
+            layout_num={1}
+            search_input={this.state.search_input}
+            getting={this.state.getting}
+          />
+  
+            {/* <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-4">
+                <Box5 />
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-4">
+                <Box5 />
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-4">
+                <Box5 />
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-4">
+                <Box5 />
+              </div>
+            </div> */}
+            {/* <ChatBox ref={this._child} sellerid={this.state.sellerid} /> */}
           </div>
-          <Layout2
-          layout_num={1}
-          search_input={this.state.search_input}
-          getting={this.state.getting}
-        />
-
-          {/* <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-4">
-              <Box5 />
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-4">
-              <Box5 />
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-4">
-              <Box5 />
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-4">
-              <Box5 />
-            </div>
-          </div> */}
-          {/* <ChatBox ref={this._child} sellerid={this.state.sellerid} /> */}
-        </div>
-      </>
-    );
+        </>
+      );
+        }
+      else{
+        return (<Loader/>);
+      }        
   }
 }
 export default Main;

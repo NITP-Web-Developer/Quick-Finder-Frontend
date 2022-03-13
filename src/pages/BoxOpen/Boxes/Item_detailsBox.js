@@ -22,19 +22,21 @@ import PropTypes from "prop-types";
 import BackendUrl from "../../../urls";
 const DetailsBox=(props)=>
 {
-  const [product_name,setProduct_name]= useState(" Walking Shoes For Men  (Black)")
-  const [product_images,setProduct_images]= useState(" fghjk")
-  const [product_type,setProduct_type]= useState(" Black shoes")
-  const [status,setstatus]= useState("For Sell")
-  const [price,setProduct_price]= useState("700")
-  const [seller_name,setseller_name]= useState(" Parveen Kumar")
+  const [product_name,setProduct_name]= useState(props.data.product_name)
+  const [product_images,setProduct_images]= useState(props.data.product_images)
+  const [product_type,setProduct_type]= useState(props.data.product_type)
+  const [status,setstatus]= useState(props.data.status)
+  const [price,setProduct_price]= useState(props.data.price)
+  const [seller_name,setseller_name]= useState(props.data.seller)
   const [product_id,setProduct_id]= useState("poiuy")
   const [seller_id,setseller_id]= useState("hjkllnhin")
   const [seller_address,setseller_address]=useState(" hjlnklhdds  hksasaskals oaslajsjas asasoaisaksnmakjsa sajoaiosa ")
-  const [description,setdescription]=useState(" very nice black shoes,comfortable, just awesome like..very light weight and quality also very good")
-  console.log(props.product_image)
-  const [verticalActive, setVerticalActive] = useState('tab1');
+  const [description,setdescription]=useState(props.data.description)
+  useEffect(() => {setProduct_name(props.data.product_name); }, [props.data.product_name]);  
+  useEffect(() => {setProduct_images(props.data.product_images); }, [props.data.product_images]);  
+  // console.log(props.product_image)
 
+  const [verticalActive, setVerticalActive] = useState('tab1');
   const handleVerticalClick = (value) => {
     if (value === verticalActive) {
       return;
@@ -51,17 +53,17 @@ const DetailsBox=(props)=>
           <MDBTabs className='flex-column text-center ' fill>
             <MDBTabsItem>
               <MDBTabsLink onClick={() => handleVerticalClick('tab1')} active={verticalActive === 'tab1'}>
-              <img src="https://rukminim2.flixcart.com/image/580/696/kxrvi4w0/shoe/p/5/8/8-m7-22506-grey-t-blue-m7-by-metronaut-grey-t-blue-original-imaga5kfsjb8gram.jpeg?q=50"  style={{width:'100%',height:'100%',maxHeight:'470px'}}/>
+              <img src={product_images[0]}  style={{width:'100%',height:'100%',maxHeight:'470px'}}/>
               </MDBTabsLink>
             </MDBTabsItem>
             <MDBTabsItem>
               <MDBTabsLink onClick={() => handleVerticalClick('tab2')} active={verticalActive === 'tab2'}>
-              <img src="https://rukminim2.flixcart.com/image/880/1056/kxrvi4w0/shoe/e/b/e/8-m7-22506-grey-t-blue-m7-by-metronaut-grey-t-blue-original-imaga5kfgdy8ypws.jpeg?q=50"  style={{width:'100%',height:'100%',maxHeight:'470px'}}/>
+              <img src={product_images[1]}  style={{width:'100%',height:'100%',maxHeight:'470px'}}/>
               </MDBTabsLink>
             </MDBTabsItem>
             <MDBTabsItem>
               <MDBTabsLink onClick={() => handleVerticalClick('tab3')} active={verticalActive === 'tab3'}>
-              <img src="https://rukminim2.flixcart.com/image/880/1056/kxrvi4w0/shoe/8/f/f/8-m7-22506-grey-t-blue-m7-by-metronaut-grey-t-blue-original-imaga5kfzqxyf3kh.jpeg?q=50"  style={{width:'100%',height:'100%',maxHeight:'470px'}}/>
+              <img src={product_images[2]}  style={{width:'100%',height:'100%',maxHeight:'470px'}}/>
 
               </MDBTabsLink>
             </MDBTabsItem>
@@ -69,9 +71,9 @@ const DetailsBox=(props)=>
         </MDBCol>
         <MDBCol size='9'>
           <MDBTabsContent>
-            <MDBTabsPane show={verticalActive === 'tab1'}><img src="https://rukminim2.flixcart.com/image/580/696/kxrvi4w0/shoe/p/5/8/8-m7-22506-grey-t-blue-m7-by-metronaut-grey-t-blue-original-imaga5kfsjb8gram.jpeg?q=50"  style={{width:'100%',height:'250px'}}/></MDBTabsPane>
-            <MDBTabsPane show={verticalActive === 'tab2'}><img src="https://rukminim2.flixcart.com/image/880/1056/kxrvi4w0/shoe/e/b/e/8-m7-22506-grey-t-blue-m7-by-metronaut-grey-t-blue-original-imaga5kfgdy8ypws.jpeg?q=50"  style={{width:'100%',height:'250px'}}/></MDBTabsPane>
-            <MDBTabsPane show={verticalActive === 'tab3'}><img src="https://rukminim2.flixcart.com/image/880/1056/kxrvi4w0/shoe/8/f/f/8-m7-22506-grey-t-blue-m7-by-metronaut-grey-t-blue-original-imaga5kfzqxyf3kh.jpeg?q=50"  style={{width:'100%',height:'250px'}}/></MDBTabsPane>
+            <MDBTabsPane show={verticalActive === 'tab1'}><img src={product_images[0]}  style={{width:'100%',height:'250px'}}/></MDBTabsPane>
+            <MDBTabsPane show={verticalActive === 'tab2'}><img src={product_images[1]}  style={{width:'100%',height:'250px'}}/></MDBTabsPane>
+            <MDBTabsPane show={verticalActive === 'tab3'}><img src={product_images[2]}  style={{width:'100%',height:'250px'}}/></MDBTabsPane>
           </MDBTabsContent>
         </MDBCol>
       </MDBRow>
